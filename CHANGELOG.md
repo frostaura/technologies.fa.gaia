@@ -4,6 +4,15 @@ All notable changes to the Gaia plugins are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions are lockstep across all plugins. Plugin sources track `ref: main`; the `version` field in each `plugin.json` is the update trigger, and changes reach users when pushed to GitHub.
 
+## [Unreleased]
+
+Two exclusions in `context-audit.py`, both directories that look like a context layer and are not one. No new finding codes. Unversioned: the lockstep bump is owed before this is pushed.
+
+### Fixed
+
+- **`fixtures/` is skipped like `bin/` and `obj/`.** A test-fixture workspace shaped like a context layer (its own instruction file, `MEMORY.md` and `memory/`) was audited as a scope — phantom `MEMORY-*` and `UPKEEP-*` findings — and `--fix-index` rewrote the fixture under the suite that depends on it.
+- **A bare `memory/` with no `*.md`, beside no `MEMORY.md` and no instruction file, is not a store.** On a case-insensitive volume a C# `Memory/` namespace folder answers to `memory/`, and its source files were reported as `MEMORY-STORE-DEBRIS` with a `MEMORY-STORE-EMPTY` alongside.
+
 ## [14.3.1] - 2026-09-11
 
 Two checks that were reporting on the wrong text. No new finding codes, no contract change.

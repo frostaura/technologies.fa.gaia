@@ -80,7 +80,11 @@ GROUP_DIRS = ("projects",)
 INSTRUCTION_DIRS = (".claude", ".github")
 SKIP_DIRS = {".git", "node_modules", "worktrees", "bin", "obj", "dist",
              "build", ".venv", "venv", "__pycache__", ".tmp", ".pio",
-             "libdeps"}
+             "libdeps", "fixtures"}
+# `fixtures` holds test data, and a test-fixture workspace is often shaped like
+# a context layer on purpose (its own instruction file and `memory/`). It is
+# input to a test suite, never a scope: auditing it reports phantom findings,
+# and `--fix-index` rewrote the fixture under the suite that depends on it.
 # A directory carrying one of these is a vendored third-party library — the
 # Arduino and PlatformIO manifests. Its README's link debt is upstream's, and a
 # `libdeps/` tree of forty vendored libraries drowns the real findings. The
@@ -693,6 +697,14 @@ def check_memory_freshness(root, max_age, out, fix_index=False,
         # this loop on `MEMORY.md` alone meant deleting the index also deleted
         # every check over the topics it was derived from.
         if "MEMORY.md" not in filenames and not memdir.is_dir():
+            continue
+        # A bare `memory/` holding no `*.md`, beside no index and no instruction
+        # file, is source code on a case-insensitive volume — a C# `Memory/`
+        # namespace folder answers to `memory/` there — not a store, and
+        # reporting it as MEMORY-STORE-DEBRIS / -EMPTY is noise.
+        if ("MEMORY.md" not in filenames
+                and instruction_file(dirpath, filenames) is None
+                and not any(memdir.glob("*.md"))):
             continue
         if not in_scope(root, dirpath, scopes):
             continue
