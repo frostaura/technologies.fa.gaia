@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-decisions-distribution
 description: "Public distribution is Labs' one standing stealth exception; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is deliberately not a catalog."
 type: decision
-last_verified: 2026-09-16
+last_verified: 2026-10-14
 ---
 
 # Live decisions — distribution, versioning and the catalog
@@ -26,7 +26,7 @@ last_verified: 2026-09-16
   that they agree ([`gotchas.md`](gotchas.md)). **The version the MCP server advertises to its
   own clients is not in that lockstep and no decision records whether it should be**, which is
   how it fell a major version behind ([`watch.md`](watch.md)).
-- **`"dependencies": ["foundation"]` stays in the two `plugin.json` copies and is
+- **`"dependencies": ["foundation"]` stays in `engineering`'s and `product`'s `plugin.json` pairs and is
   deliberately not mirrored into the marketplace manifests.** The manifests are a discovery
   catalog, not a resolver; adding a field neither ecosystem resolves creates a fourth place
   to disagree. The README states the consequence instead: install `foundation` first, because

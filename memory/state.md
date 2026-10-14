@@ -1,60 +1,53 @@
 ---
 name: ai-toolkit-gaia-state
-description: "The whole v14 line was published on 2026-09-16 — breaking, and carrying the unexplained MCP re-wiring with it. Installs float on ref:main and cross that boundary on their next fetch. Thirteen version sites moved; a fourteenth did not."
+description: "v14.3.1 is what origin serves and the desktop bundle now runs; local main is ahead-only with an unversioned context-audit fix (14.3.2 bump owed before push). The foundation MCP wiring shipped unratified."
 type: state
-last_verified: 2026-09-16
+last_verified: 2026-10-14
 ---
 
 # Current state
 
-**Published, and current.** On the evening of 2026-09-16 the founder authorised a tree-wide commit
-and push, and `main` fast-forwarded onto `origin/main`: re-read locally afterwards, branch `main`,
-upstream `origin/main`, **zero ahead and zero behind**, clean tree. That is the tracking ref rather
-than a live probe, so fetch before acting on a count.
+**Published line: `14.3.1`, last pushed 2026-09-16.** `origin/main`'s tip is the 2026-09-16
+context commit; no plugin change has landed upstream since. Re-checked 2026-10-14 after a
+`git fetch --prune` (which removed three long-dead remote branches): only `main` remains on origin.
 
-**What that push released, all at once:**
+**Local topology (2026-10-14): `main` is ahead-only of `origin/main` — no divergence, no
+deletions in the range — and this pass did not push it.** The unpushed range is one script fix
+plus this store's refresh. Re-measure with `git rev-list --left-right --count @{u}...HEAD`
+before acting; never quote a count from here. The repo is public and installs float on
+`ref: main`, so a push *is* a release.
 
-- **The whole v14 line.** `14.0.0` is breaking: `MEMORY.md` becomes a *derived* index regenerated
-  from its `memory/` topic files, with new `MEMORY-*` findings and `--fix-index` in
-  `context-audit.py`, and every skill and reference saying "re-cut the index hook" rewritten to say
-  edit the topics and regenerate — **a consuming repository's hand-authored index now reports stale
-  until it is regenerated once**. `14.1.0`–`14.3.1` harden the regenerator and widen the audit
-  (`--scope`, blocked regeneration on bad frontmatter, the instruction scan reaching skills and
-  agents, a remote proved by `ls-remote`) and fix two checks that read the wrong text.
-- **The `foundation` MCP re-wiring**, from 2026-08-24 and **still carrying no recorded rationale**:
-  an `mcpServers` block wiring `fa-gaia-remote` to `https://gaia.frostaura.net/mcp`, reversing the
-  v13.0.0 decision that no plugin declares the server ([`decisions.md`](decisions.md)). It shipped
-  inside the release rather than on its own, so **it is published without ever having been argued**,
-  and the README's "the plugins send nothing anywhere" disclosure is untrue for `foundation` as
-  published. Ratifying or reverting it is a founder call — [`questions.md`](questions.md) §5.
+**The unpushed script fix is unversioned on purpose.** `context-audit.py` now skips
+`fixtures/` and a bare `memory/` with no `*.md` beside no context file (a C# `Memory/`
+namespace on a case-insensitive volume) — ported from the FrostAura tree's local script, which
+hit both against `ai.toolkit.harness`. It sits under `[Unreleased]` in `CHANGELOG.md`. Because
+the `plugin.json` `version` is the re-fetch trigger, **pushing it without the lockstep `14.3.2`
+bump ships code no install will pick up** — the bump is owed, and is the founder's release call.
 
-**Plugin sources float on `ref: main`**, so what `origin/main` serves is what a fetching install
-resolves: every install takes v14 in one step, across a breaking boundary, on its next re-fetch.
-The one install this tree can see still carried **13.0.0** when it was last observed on 2026-09-16
-— before the push — and **whether it has re-fetched since is not verifiable from this scope**
-([`watch.md`](watch.md)).
+**What v14 is.** `14.0.0` broke the memory contract: `MEMORY.md` is a derived index regenerated
+from `memory/` topics by `--fix-index`, so a consuming repo's hand-written index reports stale
+until regenerated once. `14.1`–`14.3.1` harden the regenerator and widen the audit.
 
-**Lockstep is an invariant nothing enforces, and the enumeration was itself short.** A release
-moves twelve JSON version sites plus the README badge by hand with no CI job comparing them — the
-topology of the hazard, not its current value ([`gotchas.md`](gotchas.md),
-[`decisions-distribution.md`](decisions-distribution.md)); `metadata.version` in the two manifests
-tracks the catalog's shape and deliberately does not move. **A fourteenth hand-maintained site sits
-outside that loop:** `src/Gaia.Mcp.Server/Program.cs` sets the version the server advertises on
-`initialize`, it reads `13.0.0`, and v13.0.0 was the last commit to move it — so the *published*
-repository now advertises a major version behind its own plugins ([`watch.md`](watch.md)).
-*Dated reading 2026-09-16: the thirteen agreed at `14.3.1`, the server site read `13.0.0`. Re-measure, never quote.*
+**The `foundation` MCP wiring is published and unratified.** `plugins/foundation/plugin.json`
+declares `fa-gaia-remote` → `https://gaia.frostaura.net/mcp`, from a 2026-08-24 commit with no
+recorded why, reversing the v13.0.0 decision ([`decisions.md`](decisions.md)). The README's
+"the plugins send nothing anywhere" is therefore untrue for `foundation`. Founder call —
+[`questions.md`](questions.md) §5.
 
-**Nothing past v8 was ever tagged.** The newest tag is `v8.0.0`; v9 onward ship by moving `main`
-alone, so v14 is published with nothing to pin to and nothing to roll back to.
+**Version sites.** Twelve JSON sites (six `plugin.json`, three rows in each marketplace
+manifest) plus the README badge agree at `14.3.1`, by hand, with no CI check; `metadata.version`
+in the manifests is the catalog version and stays put. A fourteenth site,
+`src/Gaia.Mcp.Server/Program.cs`, still advertises `13.0.0` — [`watch.md`](watch.md).
+**Nothing past `v8.0.0` was ever tagged**, so there is nothing to pin or roll back to.
 
-**Verified on disk, 2026-09-16.** Three plugins ship — `foundation`, `engineering`, `product` —
-each with its own `skills/` and `agents/` trees, all three `plugin.json` pairs byte-identical
-(`cmp`), and `foundation` carrying every `fa-foundation-*` capability name this tree's context
-files reach for. Authored here; *installed* anywhere is [`watch.md`](watch.md). `src/` is the
-.NET 10 MCP server plus `src/Gaia.Mcp.Tests`, a real xUnit project in `Gaia.slnx`, so CI's
-`dotnet test` gate asserts something; the server's only integration is Woolworths, on MCP and REST.
+**Verified on disk 2026-10-14.** Three plugins (`foundation` 10 skills · 3 agents,
+`engineering` 16 · 6, `product` 14 · 11); all three `plugin.json` pairs `cmp`-identical.
+`src/` is the .NET 10 MCP server — Woolworths only, MCP plus REST under `/api` — and
+`src/Gaia.Mcp.Tests`, whose `dotnet test Gaia.slnx` runs and passes real xUnit assertions.
 
-**What this repository cannot tell you: which image `gaia.frostaura.net/mcp` is running.**
-`build-gaia-mcp.yml` tests and pushes `gaia-mcp:{latest,<sha>}` to Docker Hub on every push to
-`main` and **contains no deploy step of any kind** — so the 2026-09-16 push triggered a build, not
-a deployment, and the running tool set stays unknowable: [`questions.md`](questions.md) §1.
+**CI builds; it never deploys.** `build-gaia-mcp.yml` has two jobs, `test` and
+`build-and-push`; its last runs (2026-09-16) were green. Which image `gaia.frostaura.net` is
+running cannot be answered from here — [`questions.md`](questions.md) §1.
+
+**Harmless debris:** a local branch `system/deanm/research-scientist-edition` whose upstream is
+gone; it is already merged into `main`, so deleting it loses nothing — the owner's call.

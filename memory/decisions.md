@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-decisions
 description: "The server's task/memory/evolve tools were removed rather than deprecated, so the completion contract is enforced by nothing but the skills; fa.integrations folded in whole, keeping REST alongside MCP; the MCP re-wiring shipped unratified."
 type: decision
-last_verified: 2026-09-16
+last_verified: 2026-10-14
 ---
 
 # Live decisions — product shape

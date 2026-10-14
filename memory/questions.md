@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-questions
 description: "Founder-owned and unresolved: one repo ships two unrelated products; placement reads as Technologies, not Labs; floating ref:main installs vs tags; and nothing in the repo can say whether the hosted service was ever redeployed."
 type: question
-last_verified: 2026-09-16
+last_verified: 2026-10-14
 ---
 
 # Open questions
@@ -24,17 +24,15 @@ decide. The Woolworths exposure has its own home and is not restated here:
 2. **This repository ships two unrelated products.** A developer-delivery plugin suite and a
    grocery integration gateway share a repo, a CHANGELOG, a version line and a hostname. Three
    honest exits: leave it and say so in the README; split the server into its own repository; or
-   reframe Gaia deliberately as both. **The 2026-09-16 v14 push picked a fourth option by
-   accident** — the `foundation` MCP re-wiring rode inside the release, so the two are coupled
-   again in the *published* product without anyone deciding it ([`state.md`](state.md)). Owner:
-   founder; this is now a question about what to do with a shipped coupling, not a pending one.
+   reframe Gaia deliberately as both. The published `foundation` MCP wiring (§5) already couples
+   them in the shipped product without anyone having decided it. Owner: founder.
 
 3. **Placement still reads as `Technologies/`, not Labs.** This is a versioned, publicly
    distributed, multi-ecosystem developer product with a live hosted service, CI/CD, a support
    address and no research character left. A credential-handling gateway is an operations
    concern. It is also the only Labs program with a granted stealth exception — the signature
    of something that already graduated. **Strengthened 2026-09-16:** it is now demonstrably in
-   live use on the founder's own desktop surface ([`watch.md`](watch.md)), which retires the
+   live use on the founder's own desktop surface, at the published version ([`watch.md`](watch.md)), which retires the
    last argument that it had not graduated in practice. Owner: founder; parent-controlled, so
    this program recommends and does not move itself.
 

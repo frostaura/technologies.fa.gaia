@@ -1,15 +1,17 @@
 ---
 name: ai-toolkit-gaia-gotchas
-description: "MSBuildEnableWorkloadResolver=false is mandatory on this volume; the MCP session mode silently governs whether header credentials resolve; Woolworths returns HTTP 200 for every kind of failure; a green dotnet test before v13 meant nothing."
+description: "MSBuildEnableWorkloadResolver=false is mandatory on this Mac; the MCP session mode silently governs whether header credentials resolve; Woolworths returns HTTP 200 for every failure; pre-v13 green tests meant nothing."
 type: gotcha
 last_verified: 2026-09-11
 ---
 
 # Gotchas
 
-- **`MSBuildEnableWorkloadResolver=false` is mandatory on this volume.** The workload
-  resolver crashes under the iCloud-synced path and nothing here uses workloads. Export it
-  before any `dotnet build` / `test` / `run`, or read a stack trace instead of a build.
+- **`MSBuildEnableWorkloadResolver=false` is mandatory on this Mac.** Without it every
+  `dotnet build` fails with MSB4242 inside `SdkDirectoryWorkloadManifestProvider.GetManifests`
+  — the machine's SDK workload manifest set is broken; the iCloud path is not the cause
+  (re-proved 2026-10-14). Nothing here uses workloads, so export it before any `dotnet`
+  command.
 - **A green `dotnet test` before v13.0.0 meant nothing.** `src/Gaia.Mcp.Tests` is now a real
   xUnit project in `Gaia.slnx`, but CI ran an empty gate for months — so any note, commit
   message or report written before that release treating green as evidence is wrong.
@@ -35,7 +37,7 @@ last_verified: 2026-09-11
   least as common a case. Found by probing the running server, not by reading the code.
 - **Nothing in CI checks the byte-identical `plugin.json` pair invariant**, or that the two
   marketplace manifests agree. The `personal` plugin's pair had silently drifted before that
-  plugin was removed. The three surviving pairs were `cmp`-verified identical on 2026-09-11;
+  plugin was removed. The three surviving pairs were `cmp`-verified identical on 2026-10-14;
   without a check they will drift again. The by-hand loop is in `../docs/development.md`.
 - **The shipped audit reports this repo's own `CLAUDE.md` when run at this repo's root, and
   it is right to.** `MEMORY-TOPIC-NAME` on all seven topics and `UPKEEP-UNSCOPED` on `CLAUDE.md`

@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-questions-woolworths
 description: "Founder-owned: the reverse-engineered Woolworths contract is published under FrostAura's name with no agreement, terms or notice channel. Unpublishing is no remedy — the levers left are framing, a vendor talk, removal on request."
 type: question
-last_verified: 2026-09-11
+last_verified: 2026-10-14
 ---
 
 # Open — the published Woolworths integration
