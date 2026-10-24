@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-watch
 description: "Shipped defects still live in 14.3.1: the MCP server advertises 13.0.0, the audit script never checks the plugin skills, create-agent/create-skill route policy into AGENTS.md, Playwright MCP is unpinned."
 type: watch
-last_verified: 2026-10-14
+last_verified: 2026-10-22
 ---
 
 # Watch list
@@ -14,11 +14,8 @@ last_verified: 2026-10-14
   this repo's `plugins/` file for file — the 13.0.0 lag recorded on 2026-09-16 closed when the
   bundle re-fetched after the push. The kill criterion ("stops being what FrostAura builds
   with") is not tripping.
-- **The Claude Code CLI store still holds no FrostAura plugin** (`installed_plugins.json` lists
-  only `claude-plugins-official` entries), so on that channel every `fa-*` name resolves to
-  nothing — [`../../../../memory/plugin-roster-drift.md`](../../../../memory/plugin-roster-drift.md).
-- **Repo and running service may disagree, and nothing here can tell** — CI builds without
-  deploying ([`questions.md`](questions.md) §1).
+- **The CLI channel is the root store's concern** — whether `fa-*` names resolve there is tracked
+  in [`../../../../memory/plugin-roster-drift.md`](../../../../memory/plugin-roster-drift.md), not here.
 
 **Shipped defects in the product itself — all live in published `14.3.1`**
 
@@ -43,9 +40,6 @@ last_verified: 2026-10-14
 
 **Repository hygiene**
 
-- **v13 deliberately deleted 15 tracked files** (tasks/memory/evolve sources, stores, validator,
-  schema docs, a resolved alert topic). A range comparison against an older ref shows them.
-  **Expected and enumerated; never turn it into a restore.**
 - **This repo is public and its context layer is not written as if it were** — `CLAUDE.md` names
   the owner, the decision topics name the parent's internal structure and a killed internal
   project, all pushed. Genericize deliberately, or accept it deliberately.

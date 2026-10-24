@@ -1,8 +1,8 @@
 ---
 name: ai-toolkit-gaia-gotchas
-description: "MSBuildEnableWorkloadResolver=false is mandatory on this Mac; the MCP session mode silently governs whether header credentials resolve; Woolworths returns HTTP 200 for every failure; pre-v13 green tests meant nothing."
+description: "MSBuildEnableWorkloadResolver=false is mandatory on this Mac; the MCP session mode silently governs whether header credentials resolve; Woolworths returns HTTP 200 for every failure; audit this repo from the tree root, not its own."
 type: gotcha
-last_verified: 2026-09-11
+last_verified: 2026-10-22
 ---
 
 # Gotchas
@@ -10,7 +10,7 @@ last_verified: 2026-09-11
 - **`MSBuildEnableWorkloadResolver=false` is mandatory on this Mac.** Without it every
   `dotnet build` fails with MSB4242 inside `SdkDirectoryWorkloadManifestProvider.GetManifests`
   — the machine's SDK workload manifest set is broken; the iCloud path is not the cause
-  (re-proved 2026-10-14). Nothing here uses workloads, so export it before any `dotnet`
+  (re-proved 2026-10-22 on SDK 10.0.302). Nothing here uses workloads, so export it before any `dotnet`
   command.
 - **A green `dotnet test` before v13.0.0 meant nothing.** `src/Gaia.Mcp.Tests` is now a real
   xUnit project in `Gaia.slnx`, but CI ran an empty gate for months — so any note, commit
@@ -23,25 +23,16 @@ last_verified: 2026-09-11
   not reasoned about. **If the mode changes, re-verify:** send only `X-Woolworths-Username`
   and check that only the password is reported missing. The failure mode looks exactly like a
   caller-side configuration problem, which is why it costs hours.
-- **Woolworths returns HTTP 200 for every kind of failure** — bad credentials, unavailable
-  products, a logout that did not happen. Always inspect the body (`errorMessage`,
-  `formexceptions`, `loggedInStatus`). Two traps in the same family: cart adds must be **one
-  product per request**, because a batch containing one unavailable item adds *nothing* and
-  still returns a success-shaped 200; and the search `filters[visibility]` parameter must be
-  sent **twice** (`all` and `web and app`) or food results come back empty while non-food does
-  not — which reads convincingly as a location-gated catalogue and is not. Full captured
-  contract: `../docs/integrations/woolworths.md`.
-- **The MCP SDK replaces arbitrary exception text with a generic message.** Anything a caller
-  must act on has to be thrown as `McpException`. Only the *missing*-credential path was
-  wrapped when this code arrived, so a *wrong* password produced "an error occurred" — at
-  least as common a case. Found by probing the running server, not by reading the code.
-- **Nothing in CI checks the byte-identical `plugin.json` pair invariant**, or that the two
-  marketplace manifests agree. The `personal` plugin's pair had silently drifted before that
-  plugin was removed. The three surviving pairs were `cmp`-verified identical on 2026-10-14;
-  without a check they will drift again. The by-hand loop is in `../docs/development.md`.
+- **Woolworths' HTTP-200-on-failure has a body to read and a search twin.** The rule (inspect
+  the body, add one product per request) is in `../CLAUDE.md`; the body fields that carry the
+  failure are `errorMessage`, `formexceptions` and `loggedInStatus`. The search
+  `filters[visibility]` parameter must be sent **twice** (`all` and `web and app`,
+  `WoolworthsSearchClient.cs`) or food results come back empty while non-food does not — which
+  reads convincingly as a location-gated catalogue and is not. Full captured contract:
+  `../docs/integrations/woolworths.md`.
 - **The shipped audit reports this repo's own `CLAUDE.md` when run at this repo's root, and
-  it is right to.** `MEMORY-TOPIC-NAME` on all seven topics and `UPKEEP-UNSCOPED` on `CLAUDE.md`
-  both fall out of the documented `--root` caveat: the expected topic slug and the expected
+  it is right to.** `MEMORY-TOPIC-NAME` on every topic, `MEMORY-INDEX-STALE` on `MEMORY.md` and
+  `UPKEEP-UNSCOPED` on `CLAUDE.md` all fall out of the documented `--root` caveat (re-run 2026-10-22): the expected topic slug and the expected
   `--scope` argument are derived from the scope's path *relative to the root given*, and this
   repo's context layer is authored for the FrostAura tree root, where the slug is
   `ai-toolkit-gaia-` and the scope is `Labs/projects/ai.toolkit.gaia`. Audit it from the tree

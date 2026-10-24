@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-decisions
 description: "The server's task/memory/evolve tools were removed rather than deprecated, so the completion contract is enforced by nothing but the skills; fa.integrations folded in whole, keeping REST alongside MCP; the MCP re-wiring shipped unratified."
 type: decision
-last_verified: 2026-10-14
+last_verified: 2026-10-22
 ---
 
 # Live decisions — product shape
@@ -19,22 +19,19 @@ last_verified: 2026-10-14
   raised before the work started and reaffirmed. The compensating move is that the policy
   files say the contract is unenforced and must therefore be applied *more* literally — do
   not soften it to unblock a stuck workflow.
-- **No persistence at all, anywhere in the service.** Supersedes the older flat-JSON-over-EF
-  decision, which is moot. The deviation from the mandated stack is now larger, not smaller,
-  and is stated plainly in `CLAUDE.md` rather than hidden.
+- **No persistence at all, anywhere in the service** — the declared stack deviation in
+  `../CLAUDE.md`. **Why:** a stateless gateway that holds no credentials leaks no standing access
+  to anyone's account if the host is compromised (the README's disclosure states this).
 - **`foundation` declared no MCP server** (v13.0.0): wiring the remaining Woolworths tools into
   every `foundation` install would push a grocery integration onto people who installed a
   context-layer plugin. If the server is ever wired again it should be opt-in and its own plugin.
-  **A 2026-08-24 commit reverses this with no recorded why, and on 2026-09-16 it shipped** inside
-  the v14 push ([`state.md`](state.md)). It is therefore **published but still unratified** — the
-  release carried it rather than a decision doing so. Reverting it or recording the rationale is a
-  founder call ([`questions.md`](questions.md) §5); do not read "it is in the product" as "it was
-  decided".
+  The published product now contradicts this without a decision having reversed it — do not read
+  "it is in the product" as "it was decided"; [`questions.md`](questions.md) §5.
 - **`fa.integrations` was migrated in whole and killed, not kept alongside** — one hosted
   service, one deploy chain, one place to add the next integration. The `IIntegration` seam
   moved with it, so adding a provider is still a class plus three registration lines.
 - **Four projects folded into one.** The seam that earns its keep is the `IIntegration`
-  *type*, not an assembly boundary; a ~900-LOC service does not need four csproj files. The
+  *type*, not an assembly boundary; a single small service (about 1,400 lines of C# in 2026-10) does not need four csproj files. The
   provider-neutral half still depends on nothing Woolworths-specific.
 - **Both surfaces kept — REST as well as MCP.** Dropping `/api` would have silently killed
   the Siri Shortcut use case, which cannot speak MCP. The endpoints call the same services

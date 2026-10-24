@@ -1,15 +1,15 @@
 ---
 name: ai-toolkit-gaia-decisions-distribution
-description: "Public distribution is Labs' one standing stealth exception; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is deliberately not a catalog."
+description: "Public distribution is a granted Labs stealth exception; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is deliberately not a catalog."
 type: decision
-last_verified: 2026-10-14
+last_verified: 2026-10-22
 ---
 
 # Live decisions — distribution, versioning and the catalog
 
-- **Public distribution is the one standing stealth exception in Labs.** Do not relitigate.
-  It is also the division's only public repository, which raises the blast radius of
-  everything shipped from here — a skill edit is a production change.
+- **Public distribution is a granted stealth exception.** Do not relitigate. The exception's
+  record and reason belong to the division's store
+  ([`../../../memory/decisions.md`](../../../memory/decisions.md)), not here.
 - **Plugin sources are pinned to `ref: main`, not to a tag** — a conscious choice whose
   consequence is that installs float with `main`, so any breaking change to a skill or agent
   contract reaches users the moment it is pushed. The `ref` is literal in
@@ -23,9 +23,8 @@ last_verified: 2026-10-14
   descriptions changed, the agent-schema rewrite); minor when purely additive. A bump touches
   twelve sites — six `plugin.json` files plus all three plugin rows in each of the two
   marketplace manifests — and the README badge on top of those, with nothing in CI checking
-  that they agree ([`gotchas.md`](gotchas.md)). **The version the MCP server advertises to its
-  own clients is not in that lockstep and no decision records whether it should be**, which is
-  how it fell a major version behind ([`watch.md`](watch.md)).
+  that they agree. **The version the MCP server advertises is outside that lockstep and no
+  decision records whether it should be** ([`watch.md`](watch.md)).
 - **`"dependencies": ["foundation"]` stays in `engineering`'s and `product`'s `plugin.json` pairs and is
   deliberately not mirrored into the marketplace manifests.** The manifests are a discovery
   catalog, not a resolver; adding a field neither ecosystem resolves creates a fourth place

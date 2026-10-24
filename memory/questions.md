@@ -1,21 +1,22 @@
 ---
 name: ai-toolkit-gaia-questions
-description: "Founder-owned and unresolved: one repo ships two unrelated products; placement reads as Technologies, not Labs; floating ref:main installs vs tags; and nothing in the repo can say whether the hosted service was ever redeployed."
+description: "Mostly founder-owned: is the hosted service serving at all (Cloudflare 1033 on 2026-10-22), on what image; one repo, two products; placement reads as Technologies; ref:main vs tags; unassigned: are per-plugin reference variants intended."
 type: question
-last_verified: 2026-10-14
+last_verified: 2026-10-22
 ---
 
 # Open questions
 
-Every item here is **founder-owned**. Placement, brand and public-distribution calls are
+Every item here except §6 is **founder-owned**. Placement, brand and public-distribution calls are
 parent-controlled under `decision-rights.md`; an agent recommends and escalates, it does not
 decide. The Woolworths exposure has its own home and is not restated here:
 [`questions-woolworths.md`](questions-woolworths.md).
 
-1. **What image is the hosted service running?** Owner: founder — he holds the Docker Hub and
-   Portainer access, and nothing in this repository can answer it. CI builds and pushes the image
-   on every merge to `main` but **contains no deploy step** (re-read 2026-09-16: two jobs, `test`
-   and `build-and-push`), so the 2026-09-16 push built a v14 image and deployed nothing. Until
+1. **Is the hosted service serving at all, and on what image?** Owner: founder — he holds the
+   Docker Hub, Portainer and Cloudflared access, and nothing in this repository can answer it. On
+   2026-10-22 `gaia.frostaura.net` returned HTTP 530 / Cloudflare 1033 (tunnel not connected), so
+   the first question is now whether it runs at all. CI has no deploy step ([`state.md`](state.md)),
+   so the 2026-09-16 push built a v14 image and deployed nothing. Until
    someone checks the running `tools/list`, the version is *unknown*, not stale — and the obvious
    shortcut does **not** work: the server advertises `13.0.0` on `initialize` from source, so a
    freshly built `14.3.1` image reports `13.0.0` too ([`watch.md`](watch.md)). Only the tool set
@@ -46,3 +47,8 @@ decide. The Woolworths exposure has its own home and is not restated here:
    it. If the answer is yes it wants its own opt-in plugin rather than the context layer; if no,
    the revert is a further release. Either way the README's "the plugins send nothing anywhere"
    disclosure is currently untrue for `foundation`. Owner: founder.
+
+6. **Are the same-named `references/` docs meant to be per-plugin variants?** `delivery-policy.md`
+   (engineering, product) and `ownership-and-conventions.md` (all three) now differ in content and
+   title per plugin. If intended, the `CLAUDE.md` invariant stands as rewritten 2026-10-22 (carry
+   shared doctrine, never sync wholesale); if drift, one source needs choosing. Owner: unassigned.
