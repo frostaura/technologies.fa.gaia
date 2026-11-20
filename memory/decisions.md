@@ -1,6 +1,6 @@
 ---
-name: ai-toolkit-gaia-decisions
-description: "The server's task/memory/evolve tools were removed rather than deprecated, so the completion contract is enforced by nothing but the skills; fa.integrations folded in whole, keeping REST alongside MCP; the MCP re-wiring shipped unratified."
+name: technologies-fa-gaia-decisions
+description: "The server's task/memory/evolve tools were removed, not deprecated, so only the skills enforce the completion contract; technologies.fa.integrations folded in whole, REST kept beside MCP; the MCP re-wiring shipped unratified."
 type: decision
 last_verified: 2026-11-20
 ---
@@ -27,7 +27,7 @@ last_verified: 2026-11-20
   context-layer plugin. If the server is ever wired again it should be opt-in and its own plugin.
   The published product now contradicts this without a decision having reversed it — do not read
   "it is in the product" as "it was decided"; [`questions.md`](questions.md) §5.
-- **`fa.integrations` was migrated in whole and killed, not kept alongside** — one hosted
+- **`technologies.fa.integrations` was migrated in whole and killed, not kept alongside** — one hosted
   service, one deploy chain, one place to add the next integration. The `IIntegration` seam
   moved with it, so adding a provider is still a class plus three registration lines.
 - **Four projects folded into one.** The seam that earns its keep is the `IIntegration`
@@ -38,7 +38,7 @@ last_verified: 2026-11-20
   the tools do, so the cost is near zero and the capability survived the move intact.
 - **Credentials over stdio are derived from the header names**
   (`X-Woolworths-Password` → `GAIA_WOOLWORTHS_PASSWORD`) so the two cannot drift. Gaia serves
-  stdio and `fa.integrations` never did; without this three tools would be dead on that
+  stdio and `technologies.fa.integrations` never did; without this three tools would be dead on that
   transport. The environment is consulted **only** when the transport supplied no headers at
   all — an HTTP caller who omits one is told so, never silently served the host's environment.
 - **Agent definitions are Claude-Code-canonical, one tree** (founder, 2026-08-21). Copilot

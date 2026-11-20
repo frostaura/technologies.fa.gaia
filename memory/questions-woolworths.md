@@ -1,5 +1,5 @@
 ---
-name: ai-toolkit-gaia-questions-woolworths
+name: technologies-fa-gaia-questions-woolworths
 description: "Founder-owned: the reverse-engineered Woolworths contract is published under FrostAura's name with no agreement, terms or notice channel. Unpublishing is no remedy — the levers left are framing, a vendor talk, removal on request."
 type: question
 last_verified: 2026-11-20
@@ -13,7 +13,7 @@ which `decision-rights.md` places at parent level, not with an agent.
 
 **What is already decided and cannot be undone.** The founder authorised the v13.0.0 push on
 2026-08-21 with the exposure stated, so the work is on a public, MIT-licensed repository under
-the company's name. `fa.integrations` was private; this repo is not. Unpublishing is not a
+the company's name. `technologies.fa.integrations` was private; this repo is not. Unpublishing is not a
 remedy once something is public — the remaining levers are framing, a vendor conversation, and
 being ready to remove the integration if asked.
 
@@ -43,7 +43,7 @@ being ready to remove the integration if asked.
    no confirmation. It stops short of checkout, but an agent calling it silently mutates a
    real cart — more pressing now the tools are reachable from a hosted server.
 
-**Two operational unknowns, inherited from `fa.integrations` and never closed:**
+**Two operational unknowns, inherited from `technologies.fa.integrations` and never closed:**
 
 - **Does a headless-filled cart appear in the Woolworths mobile app?** It is account-bound and
   survived sign-out in testing, so it should, but it has never been confirmed on a phone. The

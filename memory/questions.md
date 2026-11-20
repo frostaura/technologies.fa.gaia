@@ -1,6 +1,6 @@
 ---
-name: ai-toolkit-gaia-questions
-description: "Mostly founder-owned: does the hosted service run at all, and on what image (only tools/list can tell); one repo, two products; placement reads as Technologies; ref:main vs tags; unassigned: are per-plugin reference variants intended."
+name: technologies-fa-gaia-questions
+description: "Mostly founder-owned: does the hosted service run at all, and on what image; one repo, two products; six Technologies rules it does not yet follow since the move; ref:main vs tags; unassigned: are per-plugin reference variants intended."
 type: question
 last_verified: 2026-11-20
 ---
@@ -19,7 +19,7 @@ decide. The Woolworths exposure has its own home and is not restated here:
    v14 image and deployed nothing. Until
    someone checks the running `tools/list`, the version is *unknown*, not stale — and the obvious
    shortcut does **not** work: the server advertises `13.0.0` on `initialize` from source, so a
-   freshly built `14.3.1` image reports `13.0.0` too ([`watch.md`](watch.md)). Only the tool set
+   freshly built `14.3.2` image reports `13.0.0` too ([`watch.md`](watch.md)). Only the tool set
    distinguishes them.
 
 2. **This repository ships two unrelated products.** A developer-delivery plugin suite and a
@@ -28,14 +28,17 @@ decide. The Woolworths exposure has its own home and is not restated here:
    reframe Gaia deliberately as both. The published `foundation` MCP wiring (§5) already couples
    them in the shipped product without anyone having decided it. Owner: founder.
 
-3. **Placement still reads as `Technologies/`, not Labs.** This is a versioned, publicly
-   distributed, multi-ecosystem developer product with a live hosted service, CI/CD, a support
-   address and no research character left. A credential-handling gateway is an operations
-   concern. It is also the only Labs program with a granted stealth exception — the signature
-   of something that already graduated. **Strengthened 2026-09-16:** it is now demonstrably in
-   live use on the founder's own desktop surface, at the published version ([`watch.md`](watch.md)), which retires the
-   last argument that it had not graduated in practice. Owner: founder; parent-controlled, so
-   this program recommends and does not move itself.
+3. **Which Technologies division rules should bind it?** Placement itself is settled: the founder
+   moved it from Labs on 2026-11-20 ([`state.md`](state.md)). It arrived shaped by Labs, and
+   departs from these Technologies rules (re-read 2026-11-20). Sanction each or correct it:
+   - **Repo shape:** no `Makefile`, no `docker-compose.yml`, server at `src/Gaia.Mcp.Server`.
+   - **Numbered doc taxonomy:** no `UC-`, `ARCH-` or `TEST-` file under `docs/`.
+   - **Deploy chain:** CI publishes to Docker Hub and stops; the deploy is recorded nowhere.
+   - **Stack deviation as an open decision with an owner:** recorded as settled ([`decisions.md`](decisions.md)).
+   - **Project schema:** `../CLAUDE.md` keeps Labs' owner, milestones and kill-criteria sections
+     (kill criterion 2 still imagines a move) and has no *Dependencies* or *Skills* section.
+   - **Revenue mandate:** free and MIT, so it reaches no paying user; is it an internal command system?
+   Owner: founder; the schema item is a context-authoring pass once he rules.
 
 4. **`ref: main` or tags for plugin refs?** Floating installs are dangerous for a public user
    base: a breaking change reaches every fetching install at push time, with no version a user

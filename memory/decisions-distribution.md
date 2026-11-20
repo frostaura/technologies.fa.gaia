@@ -1,15 +1,17 @@
 ---
-name: ai-toolkit-gaia-decisions-distribution
-description: "Public distribution is a granted Labs stealth exception; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is deliberately not a catalog."
+name: technologies-fa-gaia-decisions-distribution
+description: "Public by design, a Labs stealth exception made moot by the move to Technologies; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is no catalog."
 type: decision
 last_verified: 2026-11-20
 ---
 
 # Live decisions — distribution, versioning and the catalog
 
-- **Public distribution is a granted stealth exception.** Do not relitigate. The exception's
-  record and reason belong to the division's store
-  ([`../../../memory/decisions.md`](../../../memory/decisions.md)), not here.
+- **Public distribution is by design.** As a Labs program it needed, and was granted, Labs' one
+  standing stealth exception (recorded in Labs' division store) because an installable plugin
+  product cannot go dark. Since the 2026-11-20 move to Technologies no stealth rule applies, so the
+  exception is history. Technologies' private-by-default rule governs *new* repos only
+  ([`../../memory/decisions.md`](../../memory/decisions.md)); this repo stays public. Do not relitigate.
 - **Plugin sources are pinned to `ref: main`, not to a tag** — a conscious choice whose
   consequence is that installs float with `main`, so any breaking change to a skill or agent
   contract reaches users the moment it is pushed. The `ref` is literal in
@@ -56,5 +58,5 @@ last_verified: 2026-11-20
   `CLAUDE.md`, so an `AGENTS.md`-convention tree was audited on its interop pointer forever
   (now `--instruction-file`). Each fix looks like polish and is the difference between the
   self-healing claim holding and not.
-- **The marketplace owner byline is "FrostAura Technologies"** in both manifests. Byline
-  only — directory placement remains open ([`questions.md`](questions.md)).
+- **The marketplace owner byline is "FrostAura Technologies"** in both manifests. Chosen while
+  the repo still sat in Labs; since 2026-11-20 the byline and the directory agree.
