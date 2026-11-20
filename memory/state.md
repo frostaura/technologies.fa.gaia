@@ -1,6 +1,6 @@
 ---
 name: ai-toolkit-gaia-state
-description: "Level with origin since a 2026-11-20 push that published the audit fix still at 14.3.1, so installs won't re-fetch it (14.3.2 owed). gaia.frostaura.net answers 530, so the unratified foundation MCP wiring fails every install."
+description: "Pushed 2026-11-20 (ahead-only by context since); that push published the audit fix still at 14.3.1, so installs won't re-fetch it (14.3.2 owed). gaia.frostaura.net answers 530, so the unratified foundation MCP wiring fails every install."
 type: state
 last_verified: 2026-11-20
 ---
@@ -8,9 +8,9 @@ last_verified: 2026-11-20
 # Current state
 
 **Published line: still `14.3.1`, but `origin/main` moved on 2026-11-20.** Re-probed late that
-day with `git fetch --prune` and `git ls-remote`: only `main` exists on origin, and local `main`
-is level with it at the 2026-11-20 context commit `d20c3a4` — pushed by someone other than an
-agent, after that commit. Re-measure with `git rev-list --left-right --count @{u}...HEAD` after a
+day with `git fetch --prune` and `git ls-remote`: only `main` exists on origin, and it
+took the 2026-11-20 context commit `d20c3a4` — pushed by someone other than an agent, after that
+commit; local `main` is ahead-only of it by later context commits. Re-measure with `git rev-list --left-right --count @{u}...HEAD` after a
 fetch before acting; never quote a count from here. A push is a release (`../CLAUDE.md`,
 *Conventions*).
 
