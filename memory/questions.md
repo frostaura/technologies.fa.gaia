@@ -1,8 +1,8 @@
 ---
 name: ai-toolkit-gaia-questions
-description: "Mostly founder-owned: is the hosted service serving at all (Cloudflare 1033 on 2026-10-22), on what image; one repo, two products; placement reads as Technologies; ref:main vs tags; unassigned: are per-plugin reference variants intended."
+description: "Mostly founder-owned: does the hosted service run at all, and on what image (only tools/list can tell); one repo, two products; placement reads as Technologies; ref:main vs tags; unassigned: are per-plugin reference variants intended."
 type: question
-last_verified: 2026-10-22
+last_verified: 2026-11-20
 ---
 
 # Open questions
@@ -13,10 +13,10 @@ decide. The Woolworths exposure has its own home and is not restated here:
 [`questions-woolworths.md`](questions-woolworths.md).
 
 1. **Is the hosted service serving at all, and on what image?** Owner: founder — he holds the
-   Docker Hub, Portainer and Cloudflared access, and nothing in this repository can answer it. On
-   2026-10-22 `gaia.frostaura.net` returned HTTP 530 / Cloudflare 1033 (tunnel not connected), so
-   the first question is now whether it runs at all. CI has no deploy step ([`state.md`](state.md)),
-   so the 2026-09-16 push built a v14 image and deployed nothing. Until
+   Docker Hub, Portainer and Cloudflared access, and nothing in this repository can answer it.
+   The endpoint is not serving (the reading and its dates are in [`state.md`](state.md)), so the
+   first question is whether it runs at all. CI has no deploy step, so the 2026-09-16 push built a
+   v14 image and deployed nothing. Until
    someone checks the running `tools/list`, the version is *unknown*, not stale — and the obvious
    shortcut does **not** work: the server advertises `13.0.0` on `initialize` from source, so a
    freshly built `14.3.1` image reports `13.0.0` too ([`watch.md`](watch.md)). Only the tool set

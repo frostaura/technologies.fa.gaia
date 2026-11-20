@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-decisions-distribution
 description: "Public distribution is a granted Labs stealth exception; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is deliberately not a catalog."
 type: decision
-last_verified: 2026-10-22
+last_verified: 2026-11-20
 ---
 
 # Live decisions — distribution, versioning and the catalog

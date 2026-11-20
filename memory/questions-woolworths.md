@@ -2,7 +2,7 @@
 name: ai-toolkit-gaia-questions-woolworths
 description: "Founder-owned: the reverse-engineered Woolworths contract is published under FrostAura's name with no agreement, terms or notice channel. Unpublishing is no remedy — the levers left are framing, a vendor talk, removal on request."
 type: question
-last_verified: 2026-10-14
+last_verified: 2026-11-20
 ---
 
 # Open — the published Woolworths integration
@@ -33,7 +33,8 @@ being ready to remove the integration if asked.
 
 **The live decisions, all founder-owned:**
 
-1. **Does the README take a stance?** It currently takes none. A deliberate paragraph —
+1. **Does the README take a stance?** It takes none (re-read 2026-11-20: the word Woolworths
+   does not appear in it). A deliberate paragraph —
    personal-use tool, no affiliation with or endorsement by Woolworths, no warranty — is the
    cheapest move available and is not yet made.
 2. **Is Woolworths approached, or not?** Time-sensitive rather than preventable now.

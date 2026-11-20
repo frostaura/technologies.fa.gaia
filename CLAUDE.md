@@ -6,7 +6,7 @@
 ## What this program is
 FrostAura's spec-driven AI development toolkit, shipped as **three installable plugins** — `foundation` (the context layer: establishing it across a whole tree, authoring, memory, session close-out, auditing, repo durability), `engineering` (delivery) and `product` — for **both** Claude Code and GitHub Copilot. The plugins carry the skills and agent definitions that encode FrostAura's delivery method (intake → architecture → planning → engineering → testing → release), and they are **self-contained**: the plan is the session's native todo list, and everything durable is files in the consuming repository. Gaia is simultaneously the tool FrostAura uses and a public developer product.
 
-The repository also holds a small .NET 10 MCP server, deployed behind `https://gaia.frostaura.net/mcp`, which exposes **third-party consumer integrations** as agent tools and a REST API. **The server and the plugins are separate concerns and neither requires the other.** Its only integration is Woolworths South Africa grocery, migrated whole from the retired `fa.integrations`. Whether that endpoint is serving, which image it runs, and whether any shipped plugin wires it are all state, and belongs to [`MEMORY.md`](MEMORY.md) — check there before assuming either way. That the two live in one repository under one brand is a real coherence question, recorded as open in `MEMORY.md`, not settled here.
+The repository also holds a small .NET 10 MCP server, whose deployment target is `https://gaia.frostaura.net/mcp`, which exposes **third-party consumer integrations** as agent tools and a REST API. **The server and the plugins are separate concerns and neither requires the other.** Its only integration is Woolworths South Africa grocery, migrated whole from the retired `fa.integrations`. Whether that endpoint is serving, which image it runs, and whether any shipped plugin wires it are all state, and belongs to [`MEMORY.md`](MEMORY.md) — check there before assuming either way. That the two live in one repository under one brand is a real coherence question, recorded as open in `MEMORY.md`, not settled here.
 
 ## Stack & repo
 `github.com/frostaura/ai.toolkit.gaia` (public). **.NET 10 only — no database, no ORM, no frontend, no persistence of any kind.** The server is stateless by design: no credential store, no data directory. This is a declared deviation from the mandated stack, recorded with its why in [`memory/decisions.md`](memory/decisions.md) — and it stays declared even though this repo ships the `fa-engineering-default-tech-stack` skill that holds every other project to that stack.
@@ -18,7 +18,7 @@ Dean Martin (founder). Gaia is the delivery substrate for every other FrostAura 
 
 ## Milestones
 1. **Two-ecosystem distribution** — installable and working in both Claude Code and GitHub Copilot from a published marketplace.
-2. **Hosted MCP reliability** — the remote server is a live integration gateway handling other people's provider credentials in transit, and must behave like a service, not a prototype.
+2. **Hosted MCP reliability** — the remote server handles other people's provider credentials in transit, so it must behave like a service, not a prototype.
 3. **A real test suite** — see kill criteria; a delivery-discipline product with no tests of its own is a credibility problem, not just a quality one.
 4. **Placement resolved** — moved to `Technologies/` or explicitly retained in Labs with a reason.
 
@@ -28,7 +28,7 @@ Dean Martin (founder). Gaia is the delivery substrate for every other FrostAura 
 - Maintaining plugin parity across two ecosystems costs more than the second ecosystem returns.
 
 ## Graduation pathway
-`Technologies/`. Keep the OSS posture; move the home. The case for it is argued once, in [`memory/questions.md`](memory/questions.md) §3. Placement is parent-controlled: recommend, escalate, do not move it from inside Labs.
+`Technologies/`. Keep the OSS posture; move the home. The case for it is argued once, in [`memory/questions.md`](memory/questions.md) §3.
 
 ## Conventions & invariants
 - **Every skill and agent is named `fa-<plugin>-<name>`, and a skill's directory name must equal its frontmatter `name`.** The loader matches on the directory; a mismatch silently produces a skill that cannot be invoked. Renaming one therefore means moving the directory, editing the frontmatter and repairing every cross-reference in the same pass.
