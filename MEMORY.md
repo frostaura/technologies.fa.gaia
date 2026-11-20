@@ -1,6 +1,6 @@
 # MEMORY — Labs/projects/ai.toolkit.gaia
 
-- [Current state](memory/state.md) — v14.3.1 is what origin serves; local main is ahead-only with one unversioned audit fix plus context commits (14.3.2 bump owed). gaia.frostaura.net still answers 530 on 2026-11-20, so the unratified foundation MCP wiring fails every install.
+- [Current state](memory/state.md) — Level with origin since a 2026-11-20 push that published the audit fix still at 14.3.1, so installs won't re-fetch it (14.3.2 owed). gaia.frostaura.net answers 530, so the unratified foundation MCP wiring fails every install.
 - [Live decisions — product shape](memory/decisions.md) — The server's task/memory/evolve tools were removed rather than deprecated, so the completion contract is enforced by nothing but the skills; fa.integrations folded in whole, keeping REST alongside MCP; the MCP re-wiring shipped unratified.
 - [Live decisions — distribution, versioning and the catalog](memory/decisions-distribution.md) — Public distribution is a granted Labs stealth exception; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is deliberately not a catalog.
 - [Gotchas](memory/gotchas.md) — MSBuildEnableWorkloadResolver=false is mandatory on this Mac; the MCP session mode silently governs whether header credentials resolve; Woolworths returns HTTP 200 for every failure; audit this repo from the tree root, not its own.
