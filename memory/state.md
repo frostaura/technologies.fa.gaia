@@ -1,6 +1,6 @@
 ---
 name: ai-toolkit-gaia-state
-description: "Pushed 2026-11-20 (ahead-only by context since); that push published the audit fix still at 14.3.1, so installs won't re-fetch it (14.3.2 owed). gaia.frostaura.net answers 530, so the unratified foundation MCP wiring fails every install."
+description: "Pushed 2026-11-20, local main level with origin; that push published the audit fix still at 14.3.1, so installs won't re-fetch it (14.3.2 owed). gaia.frostaura.net answers 530, so the unratified foundation MCP wiring fails every install."
 type: state
 last_verified: 2026-11-20
 ---
@@ -9,8 +9,8 @@ last_verified: 2026-11-20
 
 **Published line: still `14.3.1`, but `origin/main` moved on 2026-11-20.** Re-probed late that
 day with `git fetch --prune` and `git ls-remote`: only `main` exists on origin, and it
-took the 2026-11-20 context commit `d20c3a4` — pushed by someone other than an agent, after that
-commit; local `main` is ahead-only of it by later context commits. Re-measure with `git rev-list --left-right --count @{u}...HEAD` after a
+took the 2026-11-20 context commit `d20c3a4` and, that evening, the follow-up context commits —
+pushed by the founder, not an agent; local `main` is level with it, clean, no stash. Re-measure with `git rev-list --left-right --count @{u}...HEAD` after a
 fetch before acting; never quote a count from here. A push is a release (`../CLAUDE.md`,
 *Conventions*).
 
@@ -46,9 +46,6 @@ rule is in [`decisions-distribution.md`](decisions-distribution.md)); the one ou
 on SDK 10.0.302.
 
 **CI builds; it never deploys.** `build-gaia-mcp.yml` has two jobs, `test` and
-`build-and-push`; `gh run list` late on 2026-11-20 shows the run for the `d20c3a4` push green — a
-new image built and pushed — and none between it and 2026-09-16. Which image `gaia.frostaura.net`
+`build-and-push`; `gh run list` late on 2026-11-20 shows the runs for both 2026-11-20 pushes green — new
+images built and pushed — and none between them and 2026-09-16. Which image `gaia.frostaura.net`
 is running cannot be answered from here — [`questions.md`](questions.md) §1.
-
-**Harmless debris:** local branch `system/deanm/research-scientist-edition`, upstream gone, already
-merged into `main` (re-checked 2026-11-20) — deleting it loses nothing; the owner's call.
