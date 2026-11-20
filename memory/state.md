@@ -51,7 +51,8 @@ on SDK 10.0.302.
 `build-and-push`. The runs for `ee873fd` and `e681a14` were green and published
 `frostaura/technologies.fa.gaia` (`:latest` plus a tag per commit SHA). **By the last check that night
 it was gone too**: the Docker Hub API listed zero repositories in the `frostaura` namespace (this one
-404), so no Gaia image exists until CI publishes again; whether that deletion was meant is unrecorded. The
+404), so no Gaia image exists until CI publishes again — deleted on the founder's instruction to empty
+the namespace. The
 founder then disabled both repository workflows (`gh workflow list`: `disabled_manually`; only
 GitHub's own Copilot workflows still show active), so nothing builds until he re-enables them. The old
 `gaia-mcp` image repository was **deleted** that night (404). Which image `gaia.frostaura.net` runs
