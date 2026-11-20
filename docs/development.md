@@ -31,7 +31,7 @@ Point the install at a plugin directory (where `plugin.json` lives), not the rep
 ### GitHub Copilot
 
 ```bash
-copilot plugin install /absolute/path/to/ai.toolkit.gaia/plugins/foundation
+copilot plugin install /absolute/path/to/technologies.fa.gaia/plugins/foundation
 ```
 
 ### Claude Code
@@ -48,7 +48,7 @@ Claude Code clones the marketplace source, so the published [`.claude-plugin/mar
 Then install from your local clone:
 
 ```bash
-/plugin marketplace add /absolute/path/to/ai.toolkit.gaia
+/plugin marketplace add /absolute/path/to/technologies.fa.gaia
 /plugin install foundation@frostaura
 ```
 
@@ -98,8 +98,11 @@ dotnet build Gaia.slnx
 dotnet test Gaia.slnx
 ```
 
-On this volume both need `MSBuildEnableWorkloadResolver=false` exported first — the
-workload resolver crashes under an iCloud-synced path, and nothing here uses workloads.
+If either fails with MSB4242 inside `SdkDirectoryWorkloadManifestProvider.GetManifests`
+(usually alongside MSB4014 and MSB4236), the machine's installed .NET SDK workload set has
+missing manifests. The repository path is not the cause. Nothing here uses workloads, so
+export `MSBuildEnableWorkloadResolver=false` before any `dotnet` command, or repair the
+SDK's workload set.
 
 `dotnet test` is a **real gate**: `src/Gaia.Mcp.Tests` asserts the `ShoppingListParser`
 contract, and CI runs it before the image builds. It was vacuous until 13.0.0, so any

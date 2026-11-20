@@ -65,5 +65,12 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/gaia-mcp:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/gaia-mcp:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/technologies.fa.gaia:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/technologies.fa.gaia:${{ github.sha }}
+          labels: |
+            org.opencontainers.image.title=technologies.fa.gaia
+            org.opencontainers.image.description=Gaia MCP server: third-party consumer integrations exposed as agent tools and a REST API.
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.url=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.licenses=MIT

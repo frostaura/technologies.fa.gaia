@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/frostaura/ai.toolkit.gaia/blob/main/README.icon.png?raw=true" alt="Gaia" width="300" />
+  <img src="https://github.com/frostaura/technologies.fa.gaia/blob/main/README.icon.png?raw=true" alt="Gaia" width="300" />
 </p>
 
 <h1 align="center"><b>Gaia</b></h1>
@@ -9,7 +9,7 @@
 ---
 
 <p align="center">
-  <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/Version-14.3.1-purple.svg" alt="Version 14.3.1" /></a>
+  <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/Version-14.3.2-purple.svg" alt="Version 14.3.2" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
   <a href="https://github.com/features/copilot"><img src="https://img.shields.io/badge/GitHub-Copilot-blue.svg" alt="GitHub Copilot" /></a>
   <a href="https://www.claude.com/product/claude-code"><img src="https://img.shields.io/badge/Claude-Code-orange.svg" alt="Claude Code" /></a>
@@ -46,7 +46,7 @@ Install only what you need. **Install `foundation` first** — `engineering` and
 ### Claude Code
 
 ```bash
-/plugin marketplace add frostaura/ai.toolkit.gaia
+/plugin marketplace add frostaura/technologies.fa.gaia
 
 /plugin install foundation@frostaura
 /plugin install engineering@frostaura
@@ -56,7 +56,7 @@ Install only what you need. **Install `foundation` first** — `engineering` and
 ### GitHub Copilot
 
 ```bash
-copilot plugin marketplace add frostaura/ai.toolkit.gaia
+copilot plugin marketplace add frostaura/technologies.fa.gaia
 
 copilot plugin install foundation@frostaura
 copilot plugin install engineering@frostaura
@@ -65,7 +65,7 @@ copilot plugin install product@frostaura
 
 ### Claude Desktop, claude.ai and Cowork
 
-Add this marketplace from its repository URL — `https://github.com/frostaura/ai.toolkit.gaia` — then install the plugins you want. The exact path differs by surface and changes as the product moves, so follow [Anthropic's plugin documentation](https://code.claude.com/docs/en/plugins) rather than a click-path copied into a README.
+Add this marketplace from its repository URL — `https://github.com/frostaura/technologies.fa.gaia` — then install the plugins you want. The exact path differs by surface and changes as the product moves, so follow [Anthropic's plugin documentation](https://code.claude.com/docs/en/plugins) rather than a click-path copied into a README.
 
 > **Surface caveat.** Skills load on every surface. **Sub-agents and hooks run in Claude Code**, not in Desktop or claude.ai chat — which matters more for Gaia than for most plugins, because Gaia's method *is* the fan-out. Everything still works without them; it runs serially instead, and the skills say so where it changes what you get.
 

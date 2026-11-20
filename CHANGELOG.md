@@ -4,12 +4,19 @@ All notable changes to the Gaia plugins are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions are lockstep across all plugins. Plugin sources track `ref: main`; the `version` field in each `plugin.json` is the update trigger, and changes reach users when pushed to GitHub.
 
-## [Unreleased]
+## [14.3.2] - 2026-11-20
 
-Two exclusions in `context-audit.py`, both directories that look like a context layer and are not one. No new finding codes. Unversioned: the lockstep bump is owed before this is pushed.
+The repository is renamed `frostaura/technologies.fa.gaia` (was `frostaura/ai.toolkit.gaia`), and this release carries the two `context-audit.py` exclusions already on `main`, which were pushed without a version bump and so never reached installs on 14.3.1. No new finding codes, no contract change. The marketplace id `frostaura`, the plugin names and every skill and agent name are unchanged, so `foundation@frostaura` and every `fa-…` name keep working.
+
+### Changed
+
+- **Every repository reference names `frostaura/technologies.fa.gaia`.** The Claude Code marketplace's `git-subdir` source URLs, the `repository` field in all six `plugin.json` files, and the README install commands for Claude Code, GitHub Copilot and Claude Desktop. GitHub redirects the old URL, but a redirect is not a contract — re-add the marketplace from the new name: `/plugin marketplace add frostaura/technologies.fa.gaia` or `copilot plugin marketplace add frostaura/technologies.fa.gaia`.
+- **The MCP server image is published as `technologies.fa.gaia`** (was `gaia-mcp`) under the same Docker Hub namespace, and now carries the OCI `title`, `description`, `source`, `url`, `revision` and `licenses` labels.
+- **`fa-foundation-memory-maintenance`'s description is back under the 1,024-character cap** (1,038 → 1,008). Wording tightened only; every trigger is unchanged.
 
 ### Fixed
 
+- **`docs/development.md` names the real cause of MSB4242.** It blamed an iCloud-synced path; the crash comes from a .NET SDK workload set with missing manifests, wherever the repository lives. `MSBuildEnableWorkloadResolver=false` remains the workaround, because nothing here uses workloads.
 - **`fixtures/` is skipped like `bin/` and `obj/`.** A test-fixture workspace shaped like a context layer (its own instruction file, `MEMORY.md` and `memory/`) was audited as a scope — phantom `MEMORY-*` and `UPKEEP-*` findings — and `--fix-index` rewrote the fixture under the suite that depends on it.
 - **A bare `memory/` with no `*.md`, beside no `MEMORY.md` and no instruction file, is not a store.** On a case-insensitive volume a C# `Memory/` namespace folder answers to `memory/`, and its source files were reported as `MEMORY-STORE-DEBRIS` with a `MEMORY-STORE-EMPTY` alongside.
 

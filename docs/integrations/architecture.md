@@ -1,6 +1,7 @@
 # Integrations — system overview
 
-> Migrated from the retired `fa.integrations` repository (`ARCH-001`) and
+> Migrated from the retired `fa.integrations` repository (since renamed
+> `technologies.fa.integrations`; `ARCH-001`) and
 > reconciled against Gaia's actual structure on 2026-08-21. Where this document
 > and the code disagree, the code is right and this document is a defect — fix
 > it in the same change.
