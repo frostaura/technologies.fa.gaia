@@ -1,6 +1,6 @@
 ---
 name: technologies-fa-gaia-watch
-description: "Shipped defects in 14.3.2: the server advertises 13.0.0; the audit script skips plugin skills; create-agent and create-skill route policy to AGENTS.md; Playwright MCP unpinned. A restored host must pull the renamed image."
+description: "Shipped defects in 14.3.2: the server advertises 13.0.0; the audit script skips plugin skills; create-agent and create-skill route policy to AGENTS.md; Playwright MCP unpinned. A restored host needs a republished, renamed image."
 type: watch
 last_verified: 2026-11-20
 ---
@@ -39,9 +39,13 @@ last_verified: 2026-11-20
 
 **Repository hygiene**
 
-- **A restored `gaia.frostaura.net` must pull the renamed image.** Since 14.3.2 CI publishes
-  `<namespace>/technologies.fa.gaia`, not `gaia-mcp`. A stack that still names `gaia-mcp` comes back
-  on the last pre-rename image and silently never updates.
+- **A restored `gaia.frostaura.net` must name the renamed image, and it must exist first.** CI
+  publishes `frostaura/technologies.fa.gaia`; the old `gaia-mcp` repository was deleted on 2026-11-20,
+  so a stack still naming it cannot pull, and a host that has it cached runs a pre-14.3.2 image forever.
+  By the last check that night the new repository was deleted as well, so a restore waits on CI.
+- **The CI runner is unpinned** (`ubuntu-latest` in both jobs). It moved to Ubuntu 26.04 and broke the
+  public site's Playwright install on 2026-11-20; Gaia's jobs install no browser and were green after the
+  move, so this is exposure, not a failure.
 - **This repo is public and its context layer is not written as if it were** — `CLAUDE.md` names
   the owner, the decision topics name the parent's internal structure and a killed internal
   project, all pushed. Genericize deliberately, or accept it deliberately.

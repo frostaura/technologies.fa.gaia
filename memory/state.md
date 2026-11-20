@@ -1,6 +1,6 @@
 ---
 name: technologies-fa-gaia-state
-description: "Renamed from ai.toolkit.gaia and moved from Labs 2026-11-20; the founder shipped 14.3.2 for the rename the same night, which also delivered the audit fix. gaia.frostaura.net 530s, so foundation's MCP wiring fails every install."
+description: "Renamed from ai.toolkit.gaia and moved from Labs 2026-11-20; 14.3.2 shipped the rename. Its image published, then went with the whole Docker Hub namespace; CI paused. gaia.frostaura.net 530s, so foundation MCP wiring fails."
 type: state
 last_verified: 2026-11-20
 ---
@@ -10,17 +10,19 @@ last_verified: 2026-11-20
 **Renamed and moved on 2026-11-20, by founder decision.** `Labs/projects/ai.toolkit.gaia` became
 `Technologies/projects/technologies.fa.gaia`: a Technologies product, no longer a Labs program.
 The repository is `https://github.com/frostaura/technologies.fa.gaia`, and GitHub redirects the
-old `frostaura/ai.toolkit.gaia` (`gh repo view` on the old name resolves to the new one). There is
-no `~/src` clone; this iCloud clone is the only one.
+old `frostaura/ai.toolkit.gaia` (`gh repo view` on the old name resolves to the new one). Two clones,
+both on `main` and level with `origin/main` after a fetch late on 2026-11-20: this iCloud one and
+`~/src/technologies.fa.gaia`, made that night. Public, as all nine `frostaura` repos are by the
+founder's 2026-11-20 decision.
 
 **Published line: `14.3.2`, released by the founder late on 2026-11-20** (`ee873fd`, "release:
 14.3.2 — repository renamed technologies.fa.gaia"). It repoints every product reference to the new
 repo name: marketplace sources, all six `plugin.json` `repository` fields, the README install
 commands and `docs/development.md`. Only `CHANGELOG.md` history still says `ai.toolkit.gaia`. It also
 ships the context-audit fix `ade2b60`, which had been pushed unversioned at 14.3.1, so floating
-installs now re-fetch it. `origin/main` carries only `main`; local `main` was fast-forwarded to it,
-and this pass's context commit followed. Re-measure with `git rev-list --left-right --count
-@{u}...HEAD` after a fetch, and never quote a count from here. A push is a release (`../CLAUDE.md`).
+installs now re-fetch it. `e681a14` followed it, context files only. Re-measure topology with
+`git rev-list --left-right --count @{u}...HEAD` after a fetch, and never quote a count from here. A
+push is a release (`../CLAUDE.md`).
 
 **The `foundation` MCP wiring is published.** Both copies of `plugins/foundation/plugin.json`
 declare `fa-gaia-remote` → `https://gaia.frostaura.net/mcp` (re-read 2026-11-20). Unratified and
@@ -45,8 +47,12 @@ nothing to pin or roll back to.
 `src/Gaia.Mcp.Tests`, whose `dotnet test Gaia.slnx --no-restore` ran 12 passing xUnit tests
 on SDK 10.0.302.
 
-**CI builds; it never deploys.** `build-gaia-mcp.yml` has two jobs, `test` and `build-and-push`.
-Since `ee873fd` the image is pushed as `<namespace>/technologies.fa.gaia` (it was `gaia-mcp`), with OCI
-labels. Every earlier 2026-11-20 run was green, and the 14.3.2 run was still in progress when
-this was written. Which image `gaia.frostaura.net` runs cannot be answered from here
-([`questions.md`](questions.md) §1).
+**CI builds; it never deploys — and it is paused.** `build-gaia-mcp.yml` has two jobs, `test` and
+`build-and-push`. The runs for `ee873fd` and `e681a14` were green and published
+`frostaura/technologies.fa.gaia` (`:latest` plus a tag per commit SHA). **By the last check that night
+it was gone too**: the Docker Hub API listed zero repositories in the `frostaura` namespace (this one
+404), so no Gaia image exists until CI publishes again; whether that deletion was meant is unrecorded. The
+founder then disabled both repository workflows (`gh workflow list`: `disabled_manually`; only
+GitHub's own Copilot workflows still show active), so nothing builds until he re-enables them. The old
+`gaia-mcp` image repository was **deleted** that night (404). Which image `gaia.frostaura.net` runs
+cannot be answered from here ([`questions.md`](questions.md) §1).

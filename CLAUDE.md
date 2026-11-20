@@ -44,7 +44,7 @@ Dean Martin (founder). Gaia is the delivery substrate for every other FrostAura 
 | Run (HTTP) | `dotnet run --project src/Gaia.Mcp.Server` — the web host is the default; serves `/mcp` and `/api` |
 | Run (stdio) | `MCP_TRANSPORT=stdio dotnet run --project src/Gaia.Mcp.Server` — without the variable `Program.cs` starts the HTTP web host instead, so a stdio client gets no MCP server on its pipe at all |
 
-Container image publishing goes to Docker Hub under a namespace derived from a CI secret, so the full published image reference is not discoverable from the repo alone.
+The MCP server image is published to Docker Hub as `<namespace>/technologies.fa.gaia` (`:latest` plus a tag per commit SHA) by `.github/workflows/build-gaia-mcp.yml`. The namespace comes from a CI secret, so the full reference is not discoverable from the repo alone; what it resolved to is in `MEMORY.md`.
 
 ## Where docs live
 The README is the entry point and is deliberately an **install-and-first-run document, not a catalog** — a hand-maintained roster in it goes stale faster than anyone maintains it, so skills are listed only in `docs/catalog.md`, which opens by dating itself and pointing at `/plugin` as the live roster. `docs/development.md` is the contributor layer: releases and the version sites, manifest agreement, local-clone installs, authoring invariants and the pre-ship checks. `AGENTS.md` is an **interop pointer at this file and carries no policy of its own** — if it starts explaining rules rather than pointing at them, delete the explanation. Any status, version or count claimed in any of them is `MEMORY.md`'s to confirm; read it before trusting one.
