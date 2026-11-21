@@ -24,7 +24,7 @@ last_verified: 2026-11-21
   catalog's shape, not the plugins'. Major when a contract breaks (tools removed, skill
   descriptions changed, the agent-schema rewrite); minor when purely additive. A bump touches
   twelve sites — six `plugin.json` files plus all three plugin rows in each of the two
-  marketplace manifests — and the README badge on top of those. Since the 15.0.0 branch
+  marketplace manifests — and the README badge on top of those. Since `15.0.0`
   `scripts/validate-plugins.py` (run by the `Validate Plugins` workflow) fails on any disagreement
   among the twelve; the badge is still unchecked. **The version the MCP server advertises is outside that lockstep and no
   decision records whether it should be** ([`watch.md`](watch.md)).

@@ -1,17 +1,19 @@
 ---
 name: technologies-fa-gaia-state
-description: "Published line is 14.3.2. A breaking 15.0.0 clean-up sits unmerged as a draft PR: 40 skills become 34 and 20 agents become 6. CI re-enabled 2026-11-21; gaia.frostaura.net 530s, so foundation MCP wiring fails."
+description: "Published line is 15.0.0 since 2026-11-21 (PR #60 merged): 40 skills became 34, 20 agents became 6, breaking, and the new agents have never been spawned. gaia.frostaura.net 530s, so foundation MCP wiring fails."
 type: state
 last_verified: 2026-11-21
 ---
 
 # Current state
 
-**Update 2026-11-21 — a breaking 15.0.0 is prepared and NOT published.** A scheduled agent run left
-it as a draft pull request (skills 40 → 34, agents 20 → 6) on `claude/adoring-turing-1v4fz1`; merging to `main` is the release. What
-it changes and why: [`decisions-roster.md`](decisions-roster.md). Checked: `validate-plugins.py`
-green. Not checked: `claude plugin validate --strict`, a Copilot install, a real session's listing.
-The founder re-enabled every CI workflow the same day; that branch's push is the first run since.
+**Published line: `15.0.0`, since 2026-11-21.** The founder merged pull request #60 to `main`
+(merge commit `1bb6f18`), about three quarters of an hour after a scheduled agent run opened it:
+skills 40 → 34, agents 20 → 6, breaking. What changed and why:
+[`decisions-roster.md`](decisions-roster.md). CI on the PR head was green, including the first
+`Validate Plugins` run. Still unchecked against the published line: `claude plugin validate
+--strict`, a spawn of any of the three new agents, a Copilot install, a real session's listing.
+Paragraphs below that call `14.3.2` the published line describe the day before.
 
 **Renamed and moved on 2026-11-20, by founder decision.** `Labs/projects/ai.toolkit.gaia` became
 `Technologies/projects/technologies.fa.gaia`: a Technologies product, no longer a Labs program.
