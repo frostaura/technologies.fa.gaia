@@ -21,7 +21,7 @@ Use when:
 
 Do not use when:
 
-- the title has not cleared the S8 scale gate (return to `fa-product-growth-marketer`, S8)
+- the title has not cleared the S8 scale gate (return to `fa-product-soft-launch`, S8)
 - the work is steady-state live-ops revenue, not acquisition (use `fa-product-liveops`)
 
 ## Required inputs
@@ -65,7 +65,7 @@ not last-click vanity installs.
 
 - hand the validated acquisition engine, CVR-passing listing, and cohort dashboard to the coordinator
 - on store-listing CVR failure, loop back to creative/positioning (S9) and possibly reposition the concept
-- hand the scaled, instrumented title to `fa-product-liveops-manager` (S10)
+- hand the scaled, instrumented title to `fa-product-liveops` (S10)
 
 ## Completion checklist
 
@@ -78,4 +78,4 @@ not last-click vanity installs.
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

@@ -55,9 +55,9 @@ Do not use when:
 |---|---|---|
 | thresholds not pre-registered | register and flag goalpost-bias | stay at gate |
 | gross used instead of net | recompute net-of-fee | stay at gate |
-| WTP unconfirmed by money | run a fake-door / ad test | `fa-product-validation-researcher` |
-| CPI > net LTV | re-tune economy or kill | `fa-product-monetization-economist` |
-| LTV>CAC but cash gap | confirm financing or descope | `fa-product-monetization-economist` |
+| WTP unconfirmed by money | run a fake-door / ad test | `fa-product-validation` |
+| CPI > net LTV | re-tune economy or kill | `fa-product-monetization-design` |
+| LTV>CAC but cash gap | confirm financing or descope | `fa-product-monetization-design` |
 
 ## Anti-patterns
 

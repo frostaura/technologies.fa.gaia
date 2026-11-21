@@ -21,7 +21,7 @@ Use when:
 
 Do not use when:
 
-- the build is not certified (return to `fa-product-compliance-officer`, S7)
+- the build is not certified (return to `fa-product-compliance`, S7)
 - the title is already scale-ready and only needs the GTM engine (use `fa-product-gtm-launch`)
 
 ## Required inputs
@@ -43,7 +43,7 @@ Do not use when:
 3. Run closed beta for crash-hardening, FTUE legibility, and the full purchase pipeline incl. restore/refund.
 4. Run open/wider beta for FTUE funnel significance; treat tutorial completion <75% as a pivot trigger.
 5. Soft-launch in cheap representative geos with controlled, attributed UA; read D1/D7/D30 + conversion + lifetime ARPPU + ARPDAU by cohort/source and model pLTV vs CPI — require net LTV > CPI + payback.
-6. Tune economy + onboarding, then prove each change with ONE-VARIABLE A/B; loop validated prices back to `fa-product-monetization-economist` (S3).
+6. Tune economy + onboarding, then prove each change with ONE-VARIABLE A/B; loop validated prices back to `fa-product-monetization-design` (S3).
 7. Apply iterate-or-kill discipline (bright-line triggers, bounded cycles, diagnose retention vs monetization vs UA), then clear the multi-condition SCALE GATE (reproducible across cohorts + ≥2 acquisition sources) → scale-ready package.
 
 ## Stage focus — instrument first, then trust the read
@@ -64,7 +64,7 @@ across cohorts and ≥2 sources is not a pass — it is noise.
 ## Handoff and downstream impact
 
 - hand the scale-ready package, cohort KPI reads, and calibrated pLTV to the coordinator
-- loop validated prices/economy back to `fa-product-monetization-economist` (S3)
+- loop validated prices/economy back to `fa-product-monetization-design` (S3)
 - on CPI > net LTV, route to S3 + unit-economics model update; on high-retention/zero-conversion, route to S2
 
 ## Completion checklist
@@ -78,4 +78,4 @@ across cohorts and ≥2 sources is not a pass — it is noise.
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

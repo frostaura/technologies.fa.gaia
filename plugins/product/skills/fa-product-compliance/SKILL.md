@@ -21,7 +21,7 @@ Use when:
 
 Do not use when:
 
-- the build is not yet content/perf-complete (return to `fa-product-build-architect`)
+- the build is not yet content/perf-complete (return to `fa-product-production-hardening`)
 - the request is pure software delivery with no legal/cert surface (use the delivery roles)
 
 ## Required inputs
@@ -65,7 +65,7 @@ loot-box that is merely "documented" but still purchasable is a hard fail.
 
 - hand the signed certificate, per-geo loot-box matrix, and tax-remittance note to the coordinator
 - push the net-revenue tax delta into the unit-economics model before S8 gating
-- route any rejection back to `fa-product-build-architect` (S6) with the exact defect
+- route any rejection back to `fa-product-production-hardening` (S6) with the exact defect
 
 ## Completion checklist
 
@@ -78,4 +78,4 @@ loot-box that is merely "documented" but still purchasable is a hard fail.
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

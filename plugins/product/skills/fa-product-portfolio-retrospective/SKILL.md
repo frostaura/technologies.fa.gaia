@@ -64,7 +64,7 @@ next cycle's unit-economics model starts smarter than this one did.
 ## Handoff and downstream impact
 
 - return the end-state decision, sunset plan, and harvested priors to the coordinator
-- on a GO follow-on, hand priors + payer base + tooling to `fa-product-market-researcher` (S1)
+- on a GO follow-on, hand priors + payer base + tooling to `fa-product-discovery` (S1)
 - feed the realized-vs-predicted calibration into the next unit-economics model version
 
 ## Completion checklist
@@ -78,4 +78,4 @@ next cycle's unit-economics model starts smarter than this one did.
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

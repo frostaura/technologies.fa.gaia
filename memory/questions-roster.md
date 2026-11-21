@@ -1,6 +1,6 @@
 ---
 name: technologies-fa-gaia-questions-roster
-description: "Founder-owned, from the 2026-11-21 clean-up: which skills should go (create-plan, registry-audit, the fa-gaia-remote wiring), which should merge, and what to bring in — hooks, skills preloading on agents, plugin evals."
+description: "Founder-owned, from the 2026-11-21 clean-up: which skills should go (create-plan, registry-audit, the fa-gaia-remote wiring), which should merge, and what to bring in — an audit hook, plugin evals, two missing delivery skills."
 type: question
 last_verified: 2026-11-21
 ---
@@ -17,8 +17,7 @@ which did the consolidation that kept every procedure and left these for a rulin
 - *Candidates to merge:* `fa-product-liveops` with `fa-product-portfolio-retrospective` (one stage,
   one agent); `fa-foundation-memory-maintenance` into `fa-foundation-context-authoring`.
 - *Candidates to bring in:* a `SessionStart`/`Stop` hook in `foundation` that runs the audit
-  script, so close-out stops depending on an agent remembering; `skills:` preloading on the stage
-  agents instead of "Skills to invoke" prose; `plugin eval` cases for the triggers; a
-  `userConfig` prompt if the Woolworths wiring stays; shorter agent descriptions (twenty at about
-  950 characters each, loaded every session); a security-review and a database-migration skill
+  script, so close-out stops depending on an agent remembering; whether `skills:` preloading resolves a bare skill name inside a plugin (the 15.0.0 orchestrators use it; a miss only logs a
+  debug warning, so nobody has seen it work); `plugin eval` cases for the triggers; a
+  `userConfig` prompt if the Woolworths wiring stays; a security-review and a database-migration skill
   for `engineering`, the two delivery steps it has no playbook for.

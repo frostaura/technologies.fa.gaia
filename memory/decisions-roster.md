@@ -1,6 +1,6 @@
 ---
 name: technologies-fa-gaia-decisions-roster
-description: "Unratified until merged: 15.0.0 folds five stack skills and two test-lane skills into references under two survivors, and cuts every description's how-clause, because a crowded install was dropping descriptions from the listing."
+description: "Unratified until merged: 15.0.0 folds seven skills into references and cuts twenty agents to six — an orchestrator per plugin plus an independent judge — because a crowded install was dropping descriptions and role hand-offs bought nothing."
 type: decision
 last_verified: 2026-11-21
 ---
@@ -21,6 +21,17 @@ last_verified: 2026-11-21
   "Use it by…" clause was cut, and `product`'s stage descriptions lost the enumeration of their
   playbook. 36.4k characters across 40 skills became 18.8k across 34. **Why not shorter still:** the
   triggers were the founder's wording and an unattended run should not rewrite them by hand.
+- **Twenty agents became six: an orchestrator per plugin, plus the judge** (2026-11-21, same
+  branch). The founder's steer, given as a suggestion with the call left to the agent: agents are
+  probably not needed at all, unless one orchestrates a skill set. Taken most of the way.
+  `fa-engineering-delivery-lead` and `fa-product-manager` wear each phase's skill in turn;
+  `fa-engineering-verifier` and `fa-product-reviewer` judge work they did not write and cannot
+  edit; `fa-foundation-context-auditor` and `-repo-durability-auditor` stay as they were.
+  **Why not zero:** three properties are structural and no skill provides them — a separate
+  context, independence of the judge, and a tool restriction. The completion contract is enforced
+  by nothing mechanical, so an author grading its own work is the one hand-off worth keeping.
+  **Accepted cost:** the retired role bodies held decision trees and routing tables; only the
+  loop-back edges were carried into the orchestrators, on the judgement that the skills hold the rest.
 - **Retired names get no alias.** A skill directory left behind to redirect would cost the same
   listing entry the merge removed. Consuming instruction files cite capabilities with the skill
   name "as an example only", which is what makes a rename survivable; `CHANGELOG.md` carries the map.

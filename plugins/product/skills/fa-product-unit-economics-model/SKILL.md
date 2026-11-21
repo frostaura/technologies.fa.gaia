@@ -1,6 +1,6 @@
 ---
 name: fa-product-unit-economics-model
-description: Provides the single shared, versioned unit-economics model for consumer one-off / in-app-purchase products, created in Discovery and re-run at every gate. Use it when Discovery must initialize model v0 with every input flagged as an assumption, when a specialist returns measured CPI, willingness-to-pay, ARPPU or retention to fold in, or when a gate needs the current net-of-fee LTV:CAC, payback and cashflow read. It never makes the advance-or-kill call itself - that is `fa-product-money-gate` - and its math does not fit B2B seat-based SaaS.
+description: Provides the single shared, versioned unit-economics model for consumer one-off / in-app-purchase products, created in Discovery and re-run at every gate. Use it when Discovery must initialize model v0 with every input flagged as an assumption, when a stage returns measured CPI, willingness-to-pay, ARPPU or retention to fold in, or when a gate needs the current net-of-fee LTV:CAC, payback and cashflow read. It never makes the advance-or-kill call itself - that is `fa-product-money-gate` - and its math does not fit B2B seat-based SaaS.
 license: MIT
 ---
 
@@ -15,7 +15,7 @@ No stage re-derives economics from scratch. Premium LTV is realized at install
 Use when:
 
 - Discovery must initialize model v0 (all inputs flagged as assumptions)
-- a specialist returns measured inputs (CPI, WTP, ARPPU, retention) to fold in
+- a stage returns measured inputs (CPI, WTP, ARPPU, retention) to fold in
 - a gate needs the current net-of-fee LTV:CAC, payback, and cashflow read
 
 Do not use when:
@@ -63,7 +63,7 @@ Do not use when:
 ## Handoff and downstream impact
 
 - give the money gate the net-of-fee LTV:CAC, payback, and cash gap
-- give specialists the current version and which inputs still need measuring
+- give each stage's work the current version and which inputs still need measuring
 
 ## Completion checklist
 

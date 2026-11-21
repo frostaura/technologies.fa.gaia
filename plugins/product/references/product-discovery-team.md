@@ -1,9 +1,9 @@
-# Product Discovery Team — Architecture
+# Product Lifecycle — Architecture
 
-The Gaia product plugin ships an 11-agent team that takes a CONSUMER software
+The Gaia product plugin takes a CONSUMER software
 product (one-off purchase or in-app / in-game purchase — never B2B seat-based
 SaaS, never auto-renew without an explicit recorded in-scope decision) from idea
-to a money-validated bet, through launch, and into live-ops. The team runs a
+to a money-validated bet, through launch, and into live-ops. It runs a
 **10-stage, money-gated lifecycle** in which every stage exits only on a
 willingness-to-PAY gate.
 
@@ -28,71 +28,76 @@ failures backward along explicit loop-back edges — or kill the bet. The gate
 discipline is `fa-product-money-gate`; the lifecycle contract is
 `fa-product-process`.
 
-## The 11-agent team
+## Two agents, fourteen skills
 
-One coordinator, eight stage specialists, one adversarial reviewer (run as ≥2
-independent instances), one synthesizer. Specialists are leaf workers: they
-never call each other; all routing goes through the coordinator.
+The expertise for each stage is a **skill**; it is not a role. Two agents exist
+because two things need a context of their own:
 
-| Agent | Role | Stage(s) |
-|---|---|---|
-| `fa-product-coordinator` | The only coordinator: frames the brief, guards the shared model, fans out, gates, routes loop-backs | all |
-| `fa-product-market-researcher` | Trend scan, demand-signal kill gate, teardowns, personas/JTBD, net-of-fee sizing | 1 |
-| `fa-product-ideation-strategist` | Divergence, monetization-seeded backlog, three-lens filter, one concept | 2 |
-| `fa-product-monetization-economist` | Money model, price ladder, IAP catalogue, economy balance; steward of the unit-economics model | 3 |
-| `fa-product-validation-researcher` | IP clearance, real-spend interviews, deflated WTP, fake-door/CPI tests | 4 |
-| `fa-product-build-architect` | Spec stack, fidelity ladder, billing/entitlement rails, hardening | 5–6 |
-| `fa-product-compliance-officer` | Ratings, store/console submission, loot-box/kids/privacy law, tax, legal docs | 7 |
-| `fa-product-growth-marketer` | Soft-launch reads, scale gate, ASO, paid UA, CAC:LTV control loop | 8–9 |
-| `fa-product-liveops-manager` | Live-ops calendar, experiments, CRM, whale program, end-of-life + retrospective | 10 |
-| `fa-product-reviewer` | Adversarial stress-test of one stage artifact; ≥2 independent instances per stage | every stage |
-| `fa-product-synthesizer` | Merges specialist outputs + reviewer corrections into one artifact; adds no new analysis | every stage |
+| Agent | Why it is an agent |
+|---|---|
+| `fa-product-manager` | Orchestrates the stage skills across a long run without filling the invoking session's context; the only writer of the shared model; gates and routes loop-backs |
+| `fa-product-reviewer` | Judges an artifact it did not write, from a fresh context, with no write or execute tools; run as ≥2 independent instances |
 
-## Fan-out → adversarial review → synthesis
+The main session can also run the lifecycle directly by following
+`fa-product-process`; the manager is that same procedure in its own context.
+
+| Stage | Skill |
+|---|---|
+| 1 | `fa-product-discovery` |
+| 2 | `fa-product-ideation` |
+| 3 | `fa-product-monetization-design` |
+| 4 | `fa-product-validation` |
+| 5 | `fa-product-vertical-slice` |
+| 6 | `fa-product-production-hardening` |
+| 7 | `fa-product-compliance` |
+| 8 | `fa-product-soft-launch` |
+| 9 | `fa-product-gtm-launch` |
+| 10 | `fa-product-liveops`, then `fa-product-portfolio-retrospective` |
+
+## Produce → adversarial review → synthesis → gate
 
 Every stage runs the same pattern:
 
-1. **Fan-out** — the coordinator launches the stage's owning specialist(s) as
-   concurrent Task invocations in a single message, each with the brief, the
-   current model version, and the pre-registered thresholds. Long-running work
-   (scans, experiments) runs as background subagents; the coordinator awaits
-   only the results that gate the stage decision.
+1. **Produce** — the manager follows the stage skill. Tracks with no data
+   dependency fan out as concurrent general-purpose subagents launched in a
+   single message, each briefed with the stage skill's name, the run brief, the
+   current model version, the pre-registered thresholds and its own disjoint
+   output file. Long-running work (scans, experiments) runs in the background;
+   the manager awaits only the results that gate the stage decision.
 2. **Adversarial review** — ≥2 independent `fa-product-reviewer` instances,
    launched in parallel (never sequentially, never shown each other's output),
    attack the artifact for gross-instead-of-net economics, un-deflated WTP,
    moved goalposts, smuggled subscriptions, and unsupported claims, emitting
    traceable `CORRECTION from review:` notes. Reviewers never coordinate with
    each other and never rewrite the artifact.
-3. **Synthesis** — `fa-product-synthesizer` merges outputs and corrections into
-   ONE coherent artifact, retaining every correction visibly.
-4. **Gate** — the coordinator applies `fa-product-money-gate`: PASS →
-   auto-advance; FAIL on a fixable lever → loop-back to the true upstream
-   owner; uneconomic after honest net math → kill.
+3. **Synthesis** — the manager merges the tracks and the corrections into ONE
+   coherent artifact, retaining every correction visibly and adding no new
+   analysis at this step.
+4. **Gate** — the manager applies `fa-product-money-gate`: PASS →
+   auto-advance; FAIL on a fixable lever → loop-back to the stage that owns
+   the lever; uneconomic after honest net math → kill.
 
 Work is parallel-safe within a stage, never across a causal gate — the money
-gate is a hard barrier. Within a stage, artifacts with no data dependency are
-produced concurrently (Stage 1's trend scan, teardowns, and persona work; Stage
-4's interview, fake-door, and landing-page tracks); only true dependencies
-serialize, and a plan that serializes independent work is a defect. Concurrent
-artifact edits get disjoint file scopes per agent — two agents in one scope
-overwrite each other; overlapping scopes require isolated git worktrees merged
-deliberately. Parallel branches are registered as sibling todo items with
-per-item gates, blockers, and proof, so they complete independently.
+gate is a hard barrier. Only true dependencies serialize, and a plan that
+serializes independent work is a defect. Concurrent artifact edits get disjoint
+file scopes per agent — two agents in one scope overwrite each other;
+overlapping scopes require isolated git worktrees merged deliberately. Parallel
+branches are registered as sibling todo items with per-item gates, blockers,
+and proof, so they complete independently.
 
 ## The shared unit-economics model
 
 One versioned model (`fa-product-unit-economics-model`) is the passed state of the whole
 lifecycle: initialized as v0 in Discovery, advanced whenever a measured input
 (CPI, WTP, ARPPU, retention) replaces an assumption, and re-run at every gate.
-The monetization economist is its steward; every specialist reads and updates
-it; nobody re-derives it privately. All revenue in it is NET of store
+The manager is its only writer; every stage reads it and returns measured
+inputs; nobody re-derives it privately. All revenue in it is NET of store
 commission (at the tier each actual channel pays), refunds, chargebacks, fraud,
 and tax. The schema lives at
 [`../skills/fa-product-unit-economics-model/references/model-schema.md`](../skills/fa-product-unit-economics-model/references/model-schema.md).
 
-## Handoff out of the team
+## Handoff out of the plugin
 
-A validated, built, certified bet leaves this team for software construction
-via the Gaia delivery roles (`fa-engineering-solutions-architect` and the engineering
-plugin's chain). This team decides WHAT earns a build and proves it makes
+A validated bet leaves this plugin for software construction via the
+engineering plugin (`fa-engineering-delivery-lead`). This plugin decides WHAT earns a build and proves it makes
 money; it does not run final code delivery or release gating.

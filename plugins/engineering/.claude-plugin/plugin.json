@@ -1,6 +1,6 @@
 {
     "name": "engineering",
-    "description": "Gaia's spec-driven software delivery lifecycle: intake, architecture, planning, implementation, testing, and release. Provides stage playbooks (architecture documentation, default tech stack, execution planning, engineering delivery, UI engineering, formal testing, and end-to-end process orchestration) plus the specialist agents (intake coordinator, solutions architect, implementation planner, software engineer, tester, release engineer) that take a goal from request to validated, released software through enforced QA and release gates.",
+    "description": "Gaia's spec-driven software delivery lifecycle: intake, architecture, planning, implementation, testing, and release. Provides stage playbooks (architecture documentation, default tech stack, execution planning, engineering delivery, UI engineering, formal testing, and end-to-end process orchestration) plus two agents — a delivery lead that orchestrates those playbooks from request to tested change, and an independent verifier that makes the ready / not-ready call on work it did not write.",
     "version": "15.0.0",
     "author": {
         "name": "FrostAura Technologies",

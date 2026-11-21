@@ -1,6 +1,6 @@
 ---
 name: technologies-fa-gaia-state
-description: "Published line is 14.3.2. A breaking 15.0.0 clean-up sits unmerged as a draft PR: 40 skills become 34, seven engineering names retired. CI re-enabled 2026-11-21; gaia.frostaura.net 530s, so foundation MCP wiring fails."
+description: "Published line is 14.3.2. A breaking 15.0.0 clean-up sits unmerged as a draft PR: 40 skills become 34 and 20 agents become 6. CI re-enabled 2026-11-21; gaia.frostaura.net 530s, so foundation MCP wiring fails."
 type: state
 last_verified: 2026-11-21
 ---
@@ -8,7 +8,7 @@ last_verified: 2026-11-21
 # Current state
 
 **Update 2026-11-21 — a breaking 15.0.0 is prepared and NOT published.** A scheduled agent run left
-it as a draft pull request on `claude/adoring-turing-1v4fz1`; merging to `main` is the release. What
+it as a draft pull request (skills 40 → 34, agents 20 → 6) on `claude/adoring-turing-1v4fz1`; merging to `main` is the release. What
 it changes and why: [`decisions-roster.md`](decisions-roster.md). Checked: `validate-plugins.py`
 green. Not checked: `claude plugin validate --strict`, a Copilot install, a real session's listing.
 The founder re-enabled every CI workflow the same day; that branch's push is the first run since.

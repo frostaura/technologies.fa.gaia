@@ -141,6 +141,11 @@ def main():
         for agent in sorted((pdir / "agents").glob("*.md")):
             known.add(agent.stem)
             check_definition(agent, agent.stem, plugin, AGENT_KEYS, "agent")
+            # A preloaded skill that does not exist is skipped with a debug-log
+            # warning only, so the agent silently starts without its playbook.
+            for skill in (frontmatter(agent) or {}).get("skills") or []:
+                if not (pdir / "skills" / str(skill) / "SKILL.md").is_file():
+                    err(agent, f"preloads `{skill}`, which is not a skill in this plugin")
         budget[plugin] = (total, sum(1 for _ in (pdir / "skills").glob("*/SKILL.md")))
         check_links(pdir)
 

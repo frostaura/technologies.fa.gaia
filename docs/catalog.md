@@ -6,6 +6,8 @@ Nothing routes off this page: skills fire from their own `description`, so you i
 
 ## Plugins
 
+The method lives in the skills. An agent exists only where something needs a context of its own: an orchestrator per plugin, and a judge that did not write what it judges.
+
 | Plugin | What it covers |
 | --- | --- |
 | **`foundation`** | The context layer and authoring base: establishing and maintaining instruction/memory files across a tree, auditing them, judging repository durability, and authoring new skills, agents and plans. Required by the other two. |
@@ -33,7 +35,6 @@ Nothing routes off this page: skills fire from their own `description`, so you i
 | --- | --- |
 | `fa-foundation-context-auditor` | Reconciles **one** scope's context layer; invoked once per scope during a sweep. |
 | `fa-foundation-repo-durability-auditor` | Judges durability and push-safety across one or many repositories. |
-| `fa-foundation-skills-auditor` | Audits a definitions directory for staleness, sprawl, dead pointers and descriptions that never fire. |
 
 ## engineering — skills
 
@@ -54,12 +55,8 @@ Nothing routes off this page: skills fire from their own `description`, so you i
 
 | Agent | Role |
 | --- | --- |
-| `fa-engineering-intake-coordinator` | Entry point — frames a raw request, clarifies scope, routes the work. |
-| `fa-engineering-solutions-architect` | Designs the system and drafts the architecture documentation before code. |
-| `fa-engineering-implementation-planner` | Breaks approved architecture into a sequenced, gated task plan. |
-| `fa-engineering-software-engineer` | Implements planned tasks. |
-| `fa-engineering-tester` | Writes tests and validates behaviour against QA gates. |
-| `fa-engineering-release-engineer` | Verifies release gates and ships the change. |
+| `fa-engineering-delivery-lead` | Carries one request from raw ask to tested change in its own context, orchestrating the skills above and fanning independent branches out. |
+| `fa-engineering-verifier` | The independent ready / not-ready / blocked call on work it did not write. Cannot edit files. |
 
 ## product — skills
 
@@ -84,18 +81,9 @@ Nothing routes off this page: skills fire from their own `description`, so you i
 
 | Agent | Role |
 | --- | --- |
-| `fa-product-coordinator` | Entry point — frames the brief and orchestrates the 10 money-gated stages. |
-| `fa-product-market-researcher` | Sizes demand, competition and opportunity. |
-| `fa-product-ideation-strategist` | Generates and shapes concepts. |
-| `fa-product-monetization-economist` | Designs pricing and the unit-economics model. |
-| `fa-product-validation-researcher` | Tests demand signals and de-risks assumptions with evidence. |
-| `fa-product-build-architect` | Scopes the vertical slice / MVP and production hardening. |
-| `fa-product-compliance-officer` | Checks platform, legal and store-policy compliance. |
-| `fa-product-growth-marketer` | Designs go-to-market, soft launch and acquisition. |
-| `fa-product-liveops-manager` | Plans post-launch live-ops and retention. |
-| `fa-product-reviewer` | Adversarially reviews each stage's output. |
-| `fa-product-synthesizer` | Reconciles fan-out and review into one decision against the economics model. |
+| `fa-product-manager` | Runs the 10 money-gated stages through their skills, owns the unit-economics model, merges review corrections and gates. |
+| `fa-product-reviewer` | Adversarially reviews each stage's output; run as two or more independent instances. Read-only. |
 
 ---
 
-Counts as of the snapshot date: **3 plugins · 34 skills · 20 agents**. The plugins are the product; the MCP server in [`../src/`](../src) is a separate concern and its tools are catalogued in [`../src/README.md`](../src/README.md), not here. Changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md); maintenance of this page is described in [`development.md`](development.md).
+Counts as of the snapshot date: **3 plugins · 34 skills · 6 agents**. The plugins are the product; the MCP server in [`../src/`](../src) is a separate concern and its tools are catalogued in [`../src/README.md`](../src/README.md), not here. Changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md); maintenance of this page is described in [`development.md`](development.md).

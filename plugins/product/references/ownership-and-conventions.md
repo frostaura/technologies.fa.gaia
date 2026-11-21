@@ -24,23 +24,18 @@ in-app-purchase products.
 | `fa-product-money-gate` | Gate discipline at every stage boundary: net-of-fee math, thresholds, routing |
 | `fa-product-unit-economics-model` | The single shared, versioned model and its schema |
 
-## Stage ownership (11 agents)
+## Agents (2)
 
 | Agent | Owns |
 |---|---|
-| `fa-product-coordinator` | The whole lifecycle; the only coordinator; gates and loop-back routing |
-| `fa-product-market-researcher` | Stage 1 |
-| `fa-product-ideation-strategist` | Stage 2 |
-| `fa-product-monetization-economist` | Stage 3 + stewardship of the unit-economics model |
-| `fa-product-validation-researcher` | Stage 4 |
-| `fa-product-build-architect` | Stages 5–6 |
-| `fa-product-compliance-officer` | Stage 7 |
-| `fa-product-growth-marketer` | Stages 8–9 |
-| `fa-product-liveops-manager` | Stage 10 |
-| `fa-product-reviewer` | Adversarial review of any stage artifact (≥2 independent instances) |
-| `fa-product-synthesizer` | Merging specialist outputs + reviewer corrections into one artifact |
+| `fa-product-manager` | The whole lifecycle: runs each stage through its skill, is the only writer of the unit-economics model, merges reviewer corrections, gates and routes loop-backs |
+| `fa-product-reviewer` | Adversarial review of any stage artifact (≥2 independent instances); read-only by tool restriction |
 
-Team architecture, the fan-out → adversarial review → synthesis pattern, and
+Stage expertise is the stage skills above, not a role per stage. One agent
+produces and one judges, because independence of the judge is the only property
+here that a skill cannot provide.
+
+Lifecycle architecture, the produce → adversarial review → synthesis pattern, and
 the shared-model contract: [`product-discovery-team.md`](product-discovery-team.md).
 
 ## Conventions
@@ -48,8 +43,8 @@ the shared-model contract: [`product-discovery-team.md`](product-discovery-team.
 - Skill and agent names are `fa-product-<lowercase-hyphenated-role>`; the two
   plugin-wide exceptions are `fa-product-unit-economics-model` (the shared model) and
   the gate/process pair, which keep their established names.
-- Specialists are leaf workers: they return artifacts to the coordinator and
-  never call peer specialists.
+- Subagents the manager launches for a stage's parallel tracks are leaf
+  workers: they return artifacts to it and never write the model.
 - Every revenue figure anywhere in the plugin is quoted NET of the platform fee
   the actual channel pays, refunds, chargebacks, fraud, and tax.
 - Auto-renewing subscriptions are red-lined unless an explicit in-scope

@@ -34,12 +34,10 @@ Skill-definition and agent-definition maintenance is owned by the **foundation p
 
 | Agent | Role |
 |---|---|
-| `fa-engineering-intake-coordinator` | Request framing, complexity classification, drift detection, and first routing |
-| `fa-engineering-solutions-architect` | Target-solution ownership and architecture documentation in the consuming repository |
-| `fa-engineering-implementation-planner` | Turning approved architecture into the todo plan with gates and proof expectations |
-| `fa-engineering-software-engineer` | Planned implementation delivery and branch stabilization |
-| `fa-engineering-tester` | Formal validation, evidence, and pass-fail-blocked authority |
-| `fa-engineering-release-engineer` | Final gate evaluation, proof recording, and ready-or-not-ready decisions |
+| `fa-engineering-delivery-lead` | One request carried through intake, architecture, planning, implementation and testing in its own context, by orchestrating the skills above; fans independent branches out in parallel |
+| `fa-engineering-verifier` | The independent ready / not-ready / blocked decision on work it did not write; cannot edit files |
+
+The phases of the method — intake, architecture, planning, implementation, testing, release — are **skills, worn in order as hats**, not a role per phase. Where a skill's recovery table names an owner such as *architect*, *planner*, *engineer* or *tester*, it means whoever is wearing that hat at that phase, not a separate agent. The one separation that is structural is author from judge.
 
 ## Repository artifacts
 
@@ -56,7 +54,7 @@ These paths refer to the **consuming repository** — the project Gaia is operat
 
 ## Naming conventions
 
-- Skills and agents carry the `fa-` prefix followed by a lowercase-hyphenated role or domain name: `fa-engineering-planning`, `fa-engineering-solutions-architect`, `fa-engineering-default-tech-stack`.
+- Skills and agents carry the `fa-` prefix followed by a lowercase-hyphenated role or domain name: `fa-engineering-planning`, `fa-engineering-verifier`, `fa-engineering-default-tech-stack`.
 - Prefer role or domain names over implementation details; the name should survive a refactor of how the job is done.
 
 These are Gaia conventions layered on top of any lower-level format constraints required by the underlying skill or agent specification.

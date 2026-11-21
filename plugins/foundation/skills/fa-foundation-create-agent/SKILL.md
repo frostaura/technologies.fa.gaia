@@ -67,6 +67,8 @@ deliberately. The full parallel-composition rules are in the agent specification
 
 ## The bar for a new agent
 
+**Start from the assumption that the answer is a skill.** An agent earns a file only for a property a skill cannot provide: a context of its own (a long orchestration that would flood the invoking session, or a worker dispatched many times in parallel over disjoint scopes), independence (a judge that did not write the thing it judges), or a tool restriction (a reviewer that cannot edit). A role whose body amounts to "follow skill X" is that skill with a hand-off in front of it — every hand-off drops context, and every agent description is loaded into every session. One orchestrator per skill set, plus whichever independent judge the workflow needs, is the usual ceiling.
+
 Narrower than the bar for a new skill. Both, or extend an existing role:
 
 - **The fan-out actually recurs.** A role dispatched once is a brief, not an agent.
@@ -103,7 +105,7 @@ If one existing agent plus a different scope line covers the case, that is the a
 
 ## Examples
 
-- **Good fit:** rewrite all six Gaia agents to a shared execution template after the contract layer changes.
+- **Good fit:** collapse a role-per-phase roster into one orchestrator that wears each phase's skill in turn, keeping only the independent reviewer as a second agent.
 - **Good fit:** decide whether a proposed analyzer role is actually needed or should be folded into intake and architecture.
 - **Not a fit:** define planning procedures or architecture artifacts; those belong to skills and docs.
 
