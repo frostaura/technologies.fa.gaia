@@ -1,6 +1,6 @@
 ---
 name: technologies-fa-gaia-watch
-description: "Fixed on the unmerged 15.0.0 branch: three shipped defects. Still live: the server advertises 13.0.0; foundation wires an MCP endpoint that 530s; skill descriptions cost 18.8k chars a session. A restored host needs a republished image."
+description: "Live in published 15.0.0: its three new agents were never spawned; the server advertises 13.0.0; foundation wires an MCP endpoint that 530s; skill descriptions cost 18.8k chars a session. A restored host needs a republished image."
 type: watch
 last_verified: 2026-11-21
 ---
@@ -33,9 +33,13 @@ last_verified: 2026-11-21
   cut, a session with these three plugins plus a design plugin listed every `foundation` skill and
   eight `product` skills with no description at all. Nobody has re-measured after it — the client's
   total budget is undocumented, so the only evidence is a real session's listing or `/skill-doctor`.
-- **Fixed on the 15.0.0 branch, live in published `14.3.2` until it merges:** `context-audit.py`
+- **Fixed in published `15.0.0`:** `context-audit.py`
   skipping plugin skills; `create-skill` and `create-agent` routing policy to `AGENTS.md`; the
   unpinned Playwright MCP (now `@0.0.86` — a pin that needs moving by hand from here on).
+- **The three agents `15.0.0` introduced were published without ever being spawned.**
+  `fa-engineering-delivery-lead`, `fa-engineering-verifier` and `fa-product-manager` preload skills
+  by bare name through `skills:`; whether that resolves inside a plugin is unobserved, and a miss
+  only logs a debug warning. Each body also says to invoke the skill by name, so it fails soft.
 - **The README's marketplace-add path for Claude Desktop / claude.ai / Cowork has never been
   confirmed end to end.** The plugins demonstrably load on that surface from a session-local
   bundle; the install mechanism is what is unconfirmed.

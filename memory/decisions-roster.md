@@ -1,14 +1,14 @@
 ---
 name: technologies-fa-gaia-decisions-roster
-description: "Unratified until merged: 15.0.0 folds seven skills into references and cuts twenty agents to six — an orchestrator per plugin plus an independent judge — because a crowded install was dropping descriptions and role hand-offs bought nothing."
+description: "Shipped in 15.0.0, founder-merged: seven skills folded into references and twenty agents cut to six — an orchestrator per plugin plus an independent judge — because a crowded install dropped descriptions and role hand-offs bought nothing."
 type: decision
 last_verified: 2026-11-21
 ---
 
 # Live decisions — the skill roster
 
-- **Variants of one procedure are references under one skill** (2026-11-21, 15.0.0 branch — an
-  agent's call on a scheduled run, unratified until the founder merges it). The five stack baselines
+- **Variants of one procedure are references under one skill** (2026-11-21, `15.0.0` — an
+  agent's call on a scheduled run, ratified when the founder merged PR #60 the same day). The five stack baselines
   and the two test-execution lanes were demoted, not deleted. **Why:** each restated one shared
   procedure, and every description is charged to every session — with the full set installed, a
   client was already dropping `foundation`'s and most of `product`'s descriptions from its listing,
@@ -22,7 +22,7 @@ last_verified: 2026-11-21
   playbook. 36.4k characters across 40 skills became 18.8k across 34. **Why not shorter still:** the
   triggers were the founder's wording and an unattended run should not rewrite them by hand.
 - **Twenty agents became six: an orchestrator per plugin, plus the judge** (2026-11-21, same
-  branch). The founder's steer, given as a suggestion with the call left to the agent: agents are
+  release). The founder's steer, given as a suggestion with the call left to the agent: agents are
   probably not needed at all, unless one orchestrates a skill set. Taken most of the way.
   `fa-engineering-delivery-lead` and `fa-product-manager` wear each phase's skill in turn;
   `fa-engineering-verifier` and `fa-product-reviewer` judge work they did not write and cannot
