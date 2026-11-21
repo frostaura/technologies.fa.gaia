@@ -1,27 +1,21 @@
----
-name: fa-engineering-stack-flutter
-description: Provides the Flutter and Dart app-repository baseline - `dart format` drift checking that actually fails, a lint rule set wired into `analysis_options.yaml` so the analyzer has something to say, `flutter test` widget and unit coverage, and a command surface CI calls verbatim. Use it by auditing a Flutter repository against the baseline table and closing only its real gaps, deferring to whatever lint package, test layout and SDK pinning the repository already established. Use it when a Flutter repository has a formatter that never fails CI, an analyzer reporting no issues because no rules are enabled, or no runnable test command, and before UI flow work that needs a gate. There is no container stack here; any backend is a separate repository with its own baseline, and this skill never chooses between Flutter and another client framework — that call belongs to `fa-engineering-default-tech-stack`.
-license: MIT
----
-
 # Stack Baseline: Flutter
 
 ## Scope and when to use
 
-Use this skill to give a Flutter repository a foundation where formatting drift,
+Use this reference to give a Flutter repository a foundation where formatting drift,
 analyzer findings and test failures all actually stop a build.
 
-Use this skill when:
+Use this reference when:
 
 - a Flutter repository lacks a failing format check, an enabled lint set, or a test command
 - a new Flutter app is being bootstrapped and needs a defensible foundation
 - UI flow work is about to start with nothing gating it
 - an existing Flutter repository's checks pass suspiciously easily
 
-Do not use this skill when:
+Do not use this reference when:
 
 - the stack itself is still undecided - choosing between stacks belongs to `fa-engineering-default-tech-stack`
-- the repository is .NET, JS/TS or Python; use the sibling stack skill for that language
+- the repository is .NET, JS/TS or Python; use the sibling stack reference for that language
 - the work is on a backend the app talks to, which is its own repository and its own baseline
 
 ## Required inputs
@@ -121,6 +115,6 @@ Do not use this skill when:
 
 ## References
 
-- [Gaia delivery policy](../../references/delivery-policy.md)
-- [Gaia ownership and conventions](../../references/ownership-and-conventions.md)
-- [Default tech stack routing](../fa-engineering-default-tech-stack/SKILL.md)
+- [Gaia delivery policy](../../../references/delivery-policy.md)
+- [Gaia ownership and conventions](../../../references/ownership-and-conventions.md)
+- [Default tech stack routing](../../fa-engineering-default-tech-stack/SKILL.md)

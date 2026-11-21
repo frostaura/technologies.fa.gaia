@@ -1,6 +1,6 @@
 ---
 name: fa-product-process
-description: Provides the money-gated lifecycle and coordination playbook that takes a consumer one-off / in-app-purchase product from an idea to a validated bet and on through launch and live-ops. Use it by classifying the product request, running each of the 10 stages as fan-out -> adversarial review -> synthesis against one shared unit-economics model, and applying net-of-fee money gates with explicit loop-back edges. Use it when a consumer-product goal needs framing, discovery, monetization design, demand validation, soft-launch or live-ops coordination, when a stage needs review and a gate before it may advance, or when a gate has failed and the work must loop back to the right upstream stage. It never covers B2B seat-based SaaS, and it never runs software construction, testing or release gating - a validated bet is handed to the engineering plugin.
+description: Provides the money-gated lifecycle and coordination playbook that takes a consumer one-off / in-app-purchase product from an idea to a validated bet and on through launch and live-ops. Use it when a consumer-product goal needs framing, discovery, monetization design, demand validation, soft-launch or live-ops coordination, when a stage needs review and a gate before it may advance, or when a gate has failed and the work must loop back to the right upstream stage. It never covers B2B seat-based SaaS, and it never runs software construction, testing or release gating - a validated bet is handed to the engineering plugin.
 license: MIT
 ---
 

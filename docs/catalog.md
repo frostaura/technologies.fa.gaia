@@ -1,6 +1,6 @@
 # Catalog
 
-> **Snapshot taken 2026-08-21 against `13.0.0`.** This page is a hand-maintained snapshot, not the source of truth. The **live roster is `/plugin` in your client** (Claude Code: `/plugin`; Copilot CLI: `copilot plugin list`) — it enumerates exactly what you have installed, at the version you have it. Where this page and your client disagree, your client is right. Anything not listed here may simply be newer than the date above.
+> **Snapshot taken 2026-11-21 against `15.0.0`.** This page is a hand-maintained snapshot, not the source of truth. The **live roster is `/plugin` in your client** (Claude Code: `/plugin`; Copilot CLI: `copilot plugin list`) — it enumerates exactly what you have installed, at the version you have it. Where this page and your client disagree, your client is right. Anything not listed here may simply be newer than the date above.
 
 Nothing routes off this page: skills fire from their own `description`, so you invoke a capability by describing the job, not by looking up a name. The names below exist for when you want to call one explicitly.
 
@@ -44,17 +44,11 @@ Nothing routes off this page: skills fire from their own `description`, so you i
 | `fa-engineering-planning` | Turning approved architecture into a branch-aware, gated task plan. |
 | `fa-engineering-implementation` | Delivering planned tasks against existing repo conventions. |
 | `fa-engineering-ui` | React UI work held to the design system and semantic tokens. |
-| `fa-engineering-testing` | Formal validation across unit, integration, regression and evidence review. |
-| `fa-engineering-e2e-testing` | Browser end-to-end coverage for user-visible behaviour changes. |
-| `fa-engineering-manual-regression` | Interactive regression in an API lane and a web lane against the running system. |
+| `fa-engineering-testing` | Formal validation across unit, integration, regression and evidence review — with browser end-to-end specs and the manual API and web regression lanes carried as references. |
 | `fa-engineering-default-tech-stack` | Stack choice is open, or a new application's stack is being bootstrapped from scratch. |
 | `fa-engineering-containerization` | Compose-first containerization for a service with an HTTP surface. |
 | `fa-engineering-deploy-chain` | A CI workflow carries build-and-deploy jobs but nothing actually publishes or redeploys. |
-| `fa-engineering-stack-web-ts` | JavaScript/TypeScript web repository baseline. |
-| `fa-engineering-stack-dotnet-api` | .NET HTTP API repository baseline. |
-| `fa-engineering-stack-dotnet-maui` | .NET MAUI client-app repository baseline, plus device build and deploy to emulators, simulators and physical hardware. |
-| `fa-engineering-stack-flutter` | Flutter and Dart app repository baseline. |
-| `fa-engineering-stack-python` | Python repository baseline. |
+| `fa-engineering-stack-baseline` | A repository has no enforced lint, no single test command or a CI job that guards nothing — one procedure, with a reference per stack: JS/TS web, .NET HTTP API, .NET MAUI (plus device build and deploy), Flutter, Python. |
 
 ## engineering — agents
 
@@ -104,4 +98,4 @@ Nothing routes off this page: skills fire from their own `description`, so you i
 
 ---
 
-Counts as of the snapshot date: **3 plugins · 40 skills · 20 agents**. The plugins are the product; the MCP server in [`../src/`](../src) is a separate concern and its tools are catalogued in [`../src/README.md`](../src/README.md), not here. Changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md); maintenance of this page is described in [`development.md`](development.md).
+Counts as of the snapshot date: **3 plugins · 34 skills · 20 agents**. The plugins are the product; the MCP server in [`../src/`](../src) is a separate concern and its tools are catalogued in [`../src/README.md`](../src/README.md), not here. Changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md); maintenance of this page is described in [`development.md`](development.md).

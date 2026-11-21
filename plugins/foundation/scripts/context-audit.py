@@ -1119,9 +1119,17 @@ def check_skill_indexes(root, out, include_vendored=False):
       checked, and the mirror is where drift lands first.
     """
     for dirpath, filenames in walk(root, include_vendored):
-        if dirpath.name != "skills" or dirpath.parent.name not in (".claude", ".github"):
+        if dirpath.name != "skills":
             continue
-        if not (dirpath / "README.md").is_file():
+        # A plugin's `skills/` sits beside its manifest rather than under
+        # `.claude`/`.github`. It was skipped outright, so the name↔directory
+        # check never ran on a plugin's own skills. A plugin loader reads no
+        # index, so the README requirement stays local-skills-only.
+        is_plugin = ((dirpath.parent / ".claude-plugin").is_dir()
+                     or (dirpath.parent / "plugin.json").is_file())
+        if dirpath.parent.name not in (".claude", ".github") and not is_plugin:
+            continue
+        if not is_plugin and not (dirpath / "README.md").is_file():
             out.append(("SKILLS-INDEX-MISSING", rel(root, dirpath),
                         "skills directory with no README.md index"))
         for sub in sorted(dirpath.iterdir()):

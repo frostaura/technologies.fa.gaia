@@ -1,6 +1,6 @@
 ---
 name: fa-product-compliance
-description: Provides the compliance, ratings, legal and certification playbook (Stage 7) for consumer one-off / in-app-purchase products - IARC age ratings and content descriptors, store and console submission with resubmission loops, loot-box / gacha / gambling-law handling (odds disclosure, disable where banned, minor spend limits), kids / privacy / consent (COPPA, GDPR-K, ATT, GDPR/CCPA), indirect tax, IP and asset licensing carry-through, and the EULA / ToS / privacy-policy set. Use it by clearing certification before soft-launch and looping any rejection back to production hardening, treating store-remitted vs developer-remitted tax as a net-revenue input. Use it when a content-complete build needs ratings, certification or legal review, when loot-box odds, minor spend limits or a banned-geo disable must be decided, or when a store review rejection must be answered. It never fixes the build itself - that loops back to `fa-product-production-hardening`.
+description: Provides the compliance, ratings, legal and certification playbook (Stage 7) for consumer one-off / in-app-purchase products. Use it when a content-complete build needs ratings, certification or legal review, when loot-box odds, minor spend limits or a banned-geo disable must be decided, or when a store review rejection must be answered. It never fixes the build itself - that loops back to `fa-product-production-hardening`.
 license: MIT
 ---
 

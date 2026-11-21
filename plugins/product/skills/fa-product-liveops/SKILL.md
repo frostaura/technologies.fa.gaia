@@ -1,6 +1,6 @@
 ---
 name: fa-product-liveops
-description: Provides the live-ops operations playbook (Stage 10) for consumer one-off / in-app-purchase products - a live-ops data, economy-health and experimentation foundation, a recurring events / sales / limited-time-offer calendar with rollback kill-switches, lifecycle CRM and in-app messaging, one-variable monetization and store/price experiments, spend-spectrum segmentation with personalized offers, a guardrailed whale program, community and crisis ops, churn analysis and resurrection, and platform-policy / SDK monitoring. Use it by running the steady-state revenue engine, reconciling revenue net-of-fee while guarding retention and refunds. Use it when a launched title needs a live-ops calendar, CRM or ongoing experiments, when segmentation, a whale program or churn work must run, or when a monetization-pressure or platform-policy signal must be diagnosed. It never makes the end-of-life call - sunset, sequel and portfolio harvest are `fa-product-portfolio-retrospective`.
+description: Provides the live-ops operations playbook (Stage 10) for consumer one-off / in-app-purchase products. Use it when a launched title needs a live-ops calendar, CRM or ongoing experiments, when segmentation, a whale program or churn work must run, or when a monetization-pressure or platform-policy signal must be diagnosed. It never makes the end-of-life call - sunset, sequel and portfolio harvest are `fa-product-portfolio-retrospective`.
 license: MIT
 ---
 

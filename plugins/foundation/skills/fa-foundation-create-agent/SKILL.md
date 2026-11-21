@@ -1,6 +1,6 @@
 ---
 name: fa-foundation-create-agent
-description: Provides the house rules for an agent definition that actually gets invoked and stays in its lane — one role per file, a description carrying what the agent is for and when to reach for it, an explicit anti-mission, an output contract, and a tool scope no wider than the role needs. Use it by reading the agent specification, then drafting or repairing the frontmatter and body against it, and checking the new role against every agent already installed for overlap. Use it when adding an agent, when an agent never fires or fires on the wrong work, when two agents claim the same scope, when a definition's tools no longer match what it does, or when rationalizing a set of agents that has sprawled. It never authors a skill — that is `fa-foundation-create-skill` — and it never audits a whole definition directory, which is the skills auditor's.
+description: Provides the house rules for an agent definition that actually gets invoked and stays in its lane — one role per file, a description carrying what the agent is for and when to reach for it, an explicit anti-mission, an output contract, and a tool scope no wider than the role needs. Use it when adding an agent, when an agent never fires or fires on the wrong work, when two agents claim the same scope, when a definition's tools no longer match what it does, or when rationalizing a set of agents that has sprawled. It never authors a skill — that is `fa-foundation-create-skill` — and it never audits a whole definition directory, which is the skills auditor's.
 license: MIT
 ---
 
@@ -26,7 +26,7 @@ Do not use this skill when:
 
 ## Required inputs
 
-- the current agent roster and `AGENTS.md`
+- the current agent roster and the scope's instruction file
 - the purpose, scope, and intended users of the proposed role change
 - any deliberate tool restrictions (`disallowedTools`) or model overrides the role needs
 - any overlapping definitions or maintenance pain the change is meant to solve
@@ -40,7 +40,7 @@ Do not use this skill when:
 
 ## Decision tree
 
-- If the gap is global policy, update `AGENTS.md` instead of a role file.
+- If the gap is global policy, update the scope's instruction file (`CLAUDE.md`, or whichever file the tree's convention makes canonical) instead of a role file — never an interop pointer such as an `AGENTS.md` that only points at the canonical file.
 - If an existing role can absorb the behavior cleanly, revise it rather than create a new role.
 - If a truly new role is needed, define its mission, adjacent roles, tool posture, and failure boundaries explicitly.
 - If tool posture is unclear, decide it before considering the definition complete: the default is to omit `tools` and inherit everything (including MCP tools); a role that must not mutate or execute expresses that with `disallowedTools`.
@@ -96,7 +96,7 @@ If one existing agent plus a different scope line covers the case, that is the a
 
 ## Handoff and downstream impact
 
-- tell maintainers whether the change belongs in `AGENTS.md` or only in local role files
+- tell maintainers whether the change belongs in the scope's instruction file or only in local role files
 - tell engineering when agent maintenance requires direct file edits after design approval
 - tell architecture when a role change implies a workflow-model change
 - tell skill maintainers when procedural guidance must be updated to match a role rewrite

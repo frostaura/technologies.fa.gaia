@@ -4,6 +4,44 @@ All notable changes to the Gaia plugins are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions are lockstep across all plugins. Plugin sources track `ref: main`; the `version` field in each `plugin.json` is the update trigger, and changes reach users when pushed to GitHub.
 
+## [15.0.0] - 2026-11-21
+
+A clean-up of the skill layer against the current Claude Code and Agent Skills documentation. **Breaking: seven skill names are retired** — their content is unchanged and now loads as references under two surviving skills. No agent is renamed or removed, and `foundation` and `product` keep every skill name.
+
+The reason is measured, not stylistic. Every installed skill's description is loaded into every session's listing, and a client over its listing budget drops descriptions while still showing the names. In a session with all three plugins installed, every `foundation` skill and eight of fourteen `product` skills were listed with **no description at all** — present in the roster and unable to fire. The 40 descriptions totalled 36,400 characters; the 34 that remain total 18,800.
+
+### Removed
+
+| Retired skill | Now |
+| --- | --- |
+| `fa-engineering-stack-web-ts` | `fa-engineering-stack-baseline` → `references/web-ts.md` |
+| `fa-engineering-stack-dotnet-api` | `fa-engineering-stack-baseline` → `references/dotnet-api.md` |
+| `fa-engineering-stack-dotnet-maui` | `fa-engineering-stack-baseline` → `references/dotnet-maui.md` and `references/dotnet-maui-device-build-and-deploy.md` |
+| `fa-engineering-stack-flutter` | `fa-engineering-stack-baseline` → `references/flutter.md` |
+| `fa-engineering-stack-python` | `fa-engineering-stack-baseline` → `references/python.md` |
+| `fa-engineering-e2e-testing` | `fa-engineering-testing` → `references/e2e-browser-specs.md` |
+| `fa-engineering-manual-regression` | `fa-engineering-testing` → `references/manual-regression.md` |
+
+An instruction file that names one of these should name the surviving skill instead.
+
+### Added
+
+- **`fa-engineering-stack-baseline`** — the audit-and-close-only-the-real-gaps procedure the five stack skills each restated, with one reference per stack. Only the reference for the stack in front of the agent is read.
+- **`scripts/validate-plugins.py` and the `Validate Plugins` workflow.** Marketplace-manifest agreement, byte-identical `plugin.json` pairs, lockstep versions, frontmatter that parses, `name` equal to its directory or file, the `fa-<plugin>-` prefix, the 1,024-character cap, unknown or plugin-ignored frontmatter keys, links that resolve inside their plugin, unpinned `@latest` MCP packages, and any backticked `fa-…` name that is neither a skill nor an agent. Repository tooling; not shipped in a plugin.
+
+### Changed
+
+- **Every skill description drops its "Use it by…" clause.** What a skill provides, when it fires and its boundary stay; the *how* was already the body's Core workflow. `product` stage descriptions also drop the enumeration of the playbook's contents. Triggers and boundaries are otherwise word-for-word.
+- **`fa-engineering-testing` owns its two execution lanes** and its description carries their triggers.
+- **The skills and agents specifications** (`fa-foundation-create-skill`, `fa-foundation-create-agent`) describe the current frontmatter fields, body substitutions, the per-entry listing truncation, `/skill-doctor`, agent `skills` preloading, and the four fields ignored on plugin-shipped agents.
+
+### Fixed
+
+- **`context-audit.py` checks a plugin's own skills.** `check_skill_indexes` entered a `skills/` directory only under `.claude` or `.github`, so the name↔directory check never ran on `plugins/<name>/skills/`. A `skills/` beside a plugin manifest is now checked; the `README.md` index is still required of local skill directories only.
+- **`fa-foundation-create-skill` and `fa-foundation-create-agent` no longer route global policy into `AGENTS.md`.** They name the scope's canonical instruction file, and say an interop pointer is not one.
+- **The Playwright MCP server is pinned** (`@playwright/mcp@0.0.86`, was `@latest`) in both copies of `engineering`'s `plugin.json`.
+- **`fa-foundation-create-plan`'s `name` is an unquoted scalar** like every other definition's.
+
 ## [14.3.2] - 2026-11-20
 
 The repository is renamed `frostaura/technologies.fa.gaia` (was `frostaura/ai.toolkit.gaia`), and this release carries the two `context-audit.py` exclusions already on `main`, which were pushed without a version bump and so never reached installs on 14.3.1. No new finding codes, no contract change. The marketplace id `frostaura`, the plugin names and every skill and agent name are unchanged, so `foundation@frostaura` and every `fa-…` name keep working.

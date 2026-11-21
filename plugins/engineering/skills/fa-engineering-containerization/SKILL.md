@@ -1,6 +1,6 @@
 ---
 name: fa-engineering-containerization
-description: Provides compose-first containerization guidance for services that expose an HTTP surface, covering the root compose file, the `.env.example` contract, the canonical `up`/`down`/`test`/`lint`/`build` task set, helper services for email and gateway flows, and runbook alignment. Use it by standing the whole stack up from one command with no undocumented environment, exposing a single canonical QA target, and updating the repository's local QA runbook in the same change. Use it when a repository exposes an HTTP API without a runnable compose stack and behaviour work is planned, since compose is blocking for behaviour changes. It stands the stack up locally and never publishes or redeploys an image — that is `fa-engineering-deploy-chain`.
+description: Provides compose-first containerization guidance for services that expose an HTTP surface, covering the root compose file, the `.env.example` contract, the canonical `up`/`down`/`test`/`lint`/`build` task set, helper services for email and gateway flows, and runbook alignment. Use it when a repository exposes an HTTP API without a runnable compose stack and behaviour work is planned, since compose is blocking for behaviour changes. It stands the stack up locally and never publishes or redeploys an image — that is `fa-engineering-deploy-chain`.
 license: MIT
 ---
 
@@ -24,8 +24,8 @@ Do not use this skill when:
 
 - the stack already comes up cleanly and the open question is what to test — that is `fa-engineering-testing`, the general testing authority
 - the choice of language, framework, or database is still open — settle it with `fa-engineering-default-tech-stack` first
-- **the gap is the language baseline rather than the runtime** — no enforced formatter, no runnable test command, ambiguous package management. Use that language's stack skill (`fa-engineering-stack-*`) first; containerizing a project whose own build is not yet trustworthy just moves the problem inside an image
-- the work is executing checks against a stack that already runs — use `fa-engineering-manual-regression`
+- **the gap is the language baseline rather than the runtime** — no enforced formatter, no runnable test command, ambiguous package management. Use `fa-engineering-stack-baseline` and that language's reference first; containerizing a project whose own build is not yet trustworthy just moves the problem inside an image
+- the work is executing checks against a stack that already runs — use `fa-engineering-testing` (manual-regression reference)
 
 ## Required inputs
 
@@ -88,8 +88,8 @@ Do not use this skill when:
 
 ## Handoff and downstream impact
 
-- give `fa-engineering-manual-regression` a reachable canonical QA target and the credentials story
-- give `fa-engineering-e2e-testing` a stack the browser lane can depend on, and a base URL it can read from the environment
+- give `fa-engineering-testing` (manual-regression reference) a reachable canonical QA target and the credentials story
+- give `fa-engineering-testing` (e2e browser-specs reference) a stack the browser lane can depend on, and a base URL it can read from the environment
 - give release the exact commands that reproduce the runtime
 - give architecture any dependency the stack revealed that the design never documented
 

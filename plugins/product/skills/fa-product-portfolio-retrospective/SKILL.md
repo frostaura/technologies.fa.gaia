@@ -1,6 +1,6 @@
 ---
 name: fa-product-portfolio-retrospective
-description: Provides the closure and portfolio-compounding playbook (Stage 10) for consumer one-off / in-app-purchase products - end-of-life triggers and review cadence, a three-way continue / maintenance / sunset evaluation plus sequel and DLC options, a humane sunset that honors recent one-off purchases, a retrospective that harvests reusable capabilities and calibrates the unit-economics model, documenting realized priors, and carrying the audience, CRM and payer base forward into a new Discovery cycle. Use it by deciding the end-state on net LTV against operating cost and on realized-versus-predicted calibration, then compounding the learnings back to Stage 1. Use it when a live title trips an end-of-life trigger or its review cadence comes due, when a continue / maintenance / sunset call must be made, or when a title is being shut down and its payer base and tooling must survive it. It never runs day-to-day operations of a healthy title - that is `fa-product-liveops`.
+description: Provides the closure and portfolio-compounding playbook (Stage 10) for consumer one-off / in-app-purchase products. Use it when a live title trips an end-of-life trigger or its review cadence comes due, when a continue / maintenance / sunset call must be made, or when a title is being shut down and its payer base and tooling must survive it. It never runs day-to-day operations of a healthy title - that is `fa-product-liveops`.
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
-name: "fa-foundation-create-plan"
-description: Provides a researched, executable plan for work that is large, ambiguous or hard to reverse — requirements clarified with the human first, three identical subagents fanned out to propose plans in parallel, all three critiqued dispassionately, and the best single plan synthesized and written to a file another agent can execute from. Use it by resolving ambiguity before dispatch so every planner receives the same payload, reading their disagreement as the real signal, and stopping at the plan for approval rather than starting the work. Use it before any multi-step build, refactor or migration, when two plausible approaches need deciding between, when the first choice made will be expensive to undo, or when the work will be handed to someone else to carry out. It plans; it never implements, and sequencing an approved architecture into gated delivery tasks is `fa-engineering-planning`'s.
+name: fa-foundation-create-plan
+description: Provides a researched, executable plan for work that is large, ambiguous or hard to reverse — requirements clarified with the human first, three identical subagents fanned out to propose plans in parallel, all three critiqued dispassionately, and the best single plan synthesized and written to a file another agent can execute from. Use it before any multi-step build, refactor or migration, when two plausible approaches need deciding between, when the first choice made will be expensive to undo, or when the work will be handed to someone else to carry out. It plans; it never implements, and sequencing an approved architecture into gated delivery tasks is `fa-engineering-planning`'s.
 license: MIT
 metadata:
   author: "FrostAura Technologies"

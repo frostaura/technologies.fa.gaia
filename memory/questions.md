@@ -1,8 +1,8 @@
 ---
 name: technologies-fa-gaia-questions
-description: "Mostly founder-owned: does the hosted service run at all, and on what image; one repo, two products; six Technologies rules it does not yet follow since the move; ref:main vs tags; unassigned: are per-plugin reference variants intended."
+description: "Mostly founder-owned: does the hosted service run, and on what image; one repo, two products; six Technologies rules unfollowed since the move; ref:main vs tags; are reference variants intended. Roster candidates have their own topic."
 type: question
-last_verified: 2026-11-20
+last_verified: 2026-11-21
 ---
 
 # Open questions

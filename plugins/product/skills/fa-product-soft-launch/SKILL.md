@@ -1,6 +1,6 @@
 ---
 name: fa-product-soft-launch
-description: Provides the build-iteration and soft-launch playbook (Stage 8) for consumer one-off / in-app-purchase products - an always-green trunk behind feature flags, a versioned telemetry and event taxonomy wired before external testers, closed and open beta hardening, soft-launch in cheap representative geos with attribution, reading D1/D7/D30 plus conversion and ARPPU/ARPDAU by cohort and source, modeling predicted LTV against CPI, one-variable A/B tuning, and iterate-or-kill discipline. Use it by proving real-money retention in a live market and clearing the multi-condition scale gate on net-of-fee economics before any paid spend. Use it when a certified build needs telemetry, beta hardening and a controlled soft-launch, when cohort retention and spend must be read against pre-set thresholds, or when the call is iterate, scale or kill. It never runs the acquisition engine past that gate - that is `fa-product-gtm-launch`.
+description: Provides the build-iteration and soft-launch playbook (Stage 8) for consumer one-off / in-app-purchase products. Use it when a certified build needs telemetry, beta hardening and a controlled soft-launch, when cohort retention and spend must be read against pre-set thresholds, or when the call is iterate, scale or kill. It never runs the acquisition engine past that gate - that is `fa-product-gtm-launch`.
 license: MIT
 ---
 

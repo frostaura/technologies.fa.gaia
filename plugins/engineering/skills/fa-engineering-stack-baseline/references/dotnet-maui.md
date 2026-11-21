@@ -1,17 +1,11 @@
----
-name: fa-engineering-stack-dotnet-maui
-description: Provides the .NET MAUI cross-platform client-app baseline - enforced analyzers, unit coverage of the non-UI logic that MAUI's UI automation cannot reach, per-target-framework build validation with the platform limits of CI stated honestly, a command surface CI calls verbatim, and a repeatable path for building and deploying to Android emulators, iOS simulators and physical devices. Use it by auditing a MAUI repository against the baseline table, closing only its real gaps, recording which target frameworks CI can and cannot build rather than implying full coverage, and following the device reference before installing or launching a build on any device. Use it when a MAUI repository has no enforced analyzers, no runnable unit project, or a CI build that quietly covers one platform only, and before UI feature work or on-device QA that needs a gate. It never chooses between MAUI and another client framework; that call belongs to `fa-engineering-default-tech-stack`.
-license: MIT
----
-
 # Stack Baseline: .NET MAUI
 
 ## Scope and when to use
 
-Use this skill to give a MAUI client repository a foundation that is honest about
+Use this reference to give a MAUI client repository a foundation that is honest about
 what CI can build and what its tests actually cover.
 
-Use this skill when:
+Use this reference when:
 
 - a MAUI repository lacks enforced analyzers, a unit project, or CI build validation
 - a new MAUI app is being bootstrapped and needs a defensible foundation
@@ -19,10 +13,10 @@ Use this skill when:
 - an existing MAUI repository's CI coverage is unclear or overstated
 - emulator, simulator or on-device validation is about to run with no repeatable deploy path
 
-Do not use this skill when:
+Do not use this reference when:
 
 - the stack itself is still undecided - choosing between stacks belongs to `fa-engineering-default-tech-stack`
-- the repository is a .NET service, JS/TS, Flutter or Python; use the sibling stack skill for it
+- the repository is a .NET service, JS/TS, Flutter or Python; use the sibling stack reference for it
 - the work is store submission, release distribution or signing-certificate administration
 
 ## Required inputs
@@ -125,7 +119,7 @@ Do not use this skill when:
 
 ## References
 
-- [Gaia delivery policy](../../references/delivery-policy.md)
-- [Gaia ownership and conventions](../../references/ownership-and-conventions.md)
-- [Default tech stack routing](../fa-engineering-default-tech-stack/SKILL.md)
-- [Device build and deploy](references/device-build-and-deploy.md)
+- [Gaia delivery policy](../../../references/delivery-policy.md)
+- [Gaia ownership and conventions](../../../references/ownership-and-conventions.md)
+- [Default tech stack routing](../../fa-engineering-default-tech-stack/SKILL.md)
+- [Device build and deploy](dotnet-maui-device-build-and-deploy.md)

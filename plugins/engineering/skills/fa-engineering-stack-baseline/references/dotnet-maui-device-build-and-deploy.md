@@ -1,6 +1,6 @@
 # Device Build and Deploy: .NET MAUI
 
-Companion to `fa-engineering-stack-dotnet-maui`. The baseline skill establishes analyzers, a build
+Companion to the [.NET MAUI baseline](dotnet-maui.md). The baseline establishes analyzers, a build
 target and a unit lane. This file covers getting that build onto an emulator, a simulator or
 physical hardware, and knowing which of those results may be believed.
 

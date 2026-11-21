@@ -1,6 +1,6 @@
 ---
 name: fa-product-validation
-description: Provides the money-on-the-line validation playbook (Stage 4) for consumer one-off / in-app-purchase products - falsifiable money hypotheses under a cost ceiling, IP / trademark / name / domain clearance, problem and solution interviews that probe real past spend, concept tests with a clickable paywall, deflated willingness-to-pay (Van Westendorp, conjoint / MaxDiff), fake-door and painted-price tests, landing-page commitment ladders, ad-creative CPI tests that replace the placeholder CAC, and community pre-validation. Use it by buying at least one behavioural money signal cheaply and re-running the gate on measured inputs. Use it when a designed money model must be falsified before anything is built, when "they said they would buy it" needs testing against behaviour, or when a measured CPI must replace an assumed CAC. It never designs the price ladder - that is `fa-product-monetization-design`.
+description: Provides the money-on-the-line validation playbook (Stage 4) for consumer one-off / in-app-purchase products. Use it when a designed money model must be falsified before anything is built, when "they said they would buy it" needs testing against behaviour, or when a measured CPI must replace an assumed CAC. It never designs the price ladder - that is `fa-product-monetization-design`.
 license: MIT
 ---
 

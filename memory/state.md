@@ -1,16 +1,17 @@
 ---
 name: technologies-fa-gaia-state
-description: "Renamed from ai.toolkit.gaia and moved from Labs 2026-11-20; 14.3.2 shipped the rename. Its image published, then went with the whole Docker Hub namespace; CI paused. gaia.frostaura.net 530s, so foundation MCP wiring fails."
+description: "Published line is 14.3.2. A breaking 15.0.0 clean-up sits unmerged as a draft PR: 40 skills become 34, seven engineering names retired. CI re-enabled 2026-11-21; gaia.frostaura.net 530s, so foundation MCP wiring fails."
 type: state
-last_verified: 2026-11-20
+last_verified: 2026-11-21
 ---
 
 # Current state
 
-**Update 2026-11-21:** the founder re-enabled every CI workflow. The push that carries this line is
-the first since, so its run is the first chance to publish under the new image names. Sentences
-below that call CI paused or disabled describe the night of 2026-11-20 and are superseded once that
-run's result is recorded here.
+**Update 2026-11-21 — a breaking 15.0.0 is prepared and NOT published.** A scheduled agent run left
+it as a draft pull request on `claude/adoring-turing-1v4fz1`; merging to `main` is the release. What
+it changes and why: [`decisions-roster.md`](decisions-roster.md). Checked: `validate-plugins.py`
+green. Not checked: `claude plugin validate --strict`, a Copilot install, a real session's listing.
+The founder re-enabled every CI workflow the same day; that branch's push is the first run since.
 
 **Renamed and moved on 2026-11-20, by founder decision.** `Labs/projects/ai.toolkit.gaia` became
 `Technologies/projects/technologies.fa.gaia`: a Technologies product, no longer a Labs program.

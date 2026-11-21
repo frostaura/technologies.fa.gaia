@@ -33,7 +33,9 @@ Optional (commonly used):
 | `disallowedTools` | Denylist removed from the inherited set. The right mechanism for deliberately restricted agents (e.g. a reviewer that must not edit or execute). Applied before `tools` when both are set. |
 | `model` | `sonnet`, `opus`, `haiku`, a full model ID, or `inherit` (the default). Add it only when the override is deliberate. |
 
-Other optional fields exist (`permissionMode`, `maxTurns`, `skills`, `mcpServers`, `hooks`, `memory`, `background`, `effort`, `isolation`, `color`) — see the canonical doc. Note that `hooks`, `mcpServers`, and `permissionMode` are **ignored in plugin agents**.
+Other optional fields exist — `maxTurns`, `skills` (skill names preloaded into the agent's context at start, up to 32; the way to guarantee a role has its playbook rather than hoping it invokes one), `memory` (`user`, `project` or `local`), `background`, `effort`, `isolation` (`worktree`), `color`, `omitClaudeMd`, `autoCompactWindow`, `permissionMode`, `mcpServers`, `hooks`, `initialPrompt` — see the canonical doc. **`hooks`, `mcpServers`, `permissionMode` and `initialPrompt` are ignored in plugin agents**: a plugin ships hooks in `hooks/hooks.json` and MCP servers in `.mcp.json` or its manifest instead.
+
+An agent's `description` is loaded into every session that has the plugin enabled, exactly as a skill's is. Keep it decision-grade and no longer.
 
 Copilot-era keys (`target`, `disable-model-invocation`, `user-invocable`, `infer`, `mcp-servers`, tool aliases like `read`/`edit`/`execute`) are not part of this schema. Unknown keys are ignored at load time, but `claude plugin validate` warns on them — do not carry them.
 

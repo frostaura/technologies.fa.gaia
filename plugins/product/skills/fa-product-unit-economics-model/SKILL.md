@@ -1,6 +1,6 @@
 ---
 name: fa-product-unit-economics-model
-description: Provides the single shared, versioned unit-economics model for consumer one-off / in-app-purchase products, created in Discovery and re-run at every gate - inputs (CPI, install-to-payer conversion, ARPPU, repeat purchase, ad ARPDAU), the gross-to-net stack (store commission, refunds, chargebacks, fraud, tax), LTV by segment, the payback window, and a cashflow / working-capital check. Use it by keeping ONE canonical model that every stage reads and updates, so no stage re-derives economics from scratch. Use it when Discovery must initialize model v0 with every input flagged as an assumption, when a specialist returns measured CPI, willingness-to-pay, ARPPU or retention to fold in, or when a gate needs the current net-of-fee LTV:CAC, payback and cashflow read. It never makes the advance-or-kill call itself - that is `fa-product-money-gate` - and its math does not fit B2B seat-based SaaS.
+description: Provides the single shared, versioned unit-economics model for consumer one-off / in-app-purchase products, created in Discovery and re-run at every gate. Use it when Discovery must initialize model v0 with every input flagged as an assumption, when a specialist returns measured CPI, willingness-to-pay, ARPPU or retention to fold in, or when a gate needs the current net-of-fee LTV:CAC, payback and cashflow read. It never makes the advance-or-kill call itself - that is `fa-product-money-gate` - and its math does not fit B2B seat-based SaaS.
 license: MIT
 ---
 

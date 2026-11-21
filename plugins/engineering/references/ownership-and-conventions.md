@@ -11,24 +11,22 @@ Use this reference when deciding which skill or agent should own a change, which
 | `fa-engineering-planning` | The native todo plan: branch structure, dependencies, QA checkpoints, release gates, and proof expectations |
 | `fa-engineering-implementation` | Planned implementation work, rapid iteration, implementation stabilization, and engineering standards during delivery |
 | `fa-engineering-ui` | React UI implementation, design-system enforcement, token-only styling, responsive layout discipline, and cleanup of legacy arbitrary values |
-| `fa-engineering-testing` | Formal test strategy, test artifacts, regression coverage, and testing evidence |
+| `fa-engineering-testing` | Formal test strategy, test artifacts, regression coverage, and testing evidence — plus its two execution lanes, carried as references: end-to-end browser specs with traceable test identifiers, and the manual API and web regression passes with low-context evidence capture |
 | `fa-engineering-default-tech-stack` | Default frontend and backend stack selection, design-system standardization, the MCP-ready API baseline, and the declared-deviation rule. **This is the routing layer**: it chooses *between* stacks, then defers to the per-language baseline below |
 | `fa-engineering-deploy-chain` | Activating a repository's already-authored build-and-publish chain — the credential set, the deployment target that must exist before its identifier has a value, and the image-namespace match |
 | `fa-engineering-containerization` | The root compose stack and the `.env.example` contract for a service that already has its language baseline in place |
-| `fa-engineering-e2e-testing` | End-to-end browser coverage and its traceable test identifiers |
-| `fa-engineering-manual-regression` | The manual API and web regression lanes, and their low-context evidence capture |
 
 ### Per-language stack baselines
 
-Each owns one language's lint, format, test and command surface, and nothing else. Choosing *between* them is `fa-engineering-default-tech-stack`; none of them ever argues for its own language.
+One skill, `fa-engineering-stack-baseline`, owns the shared audit-and-close-the-gaps procedure; each stack's contract is a reference under it, loaded only for the stack in front of you. Each owns one language's lint, format, test and command surface, and nothing else. Choosing *between* them is `fa-engineering-default-tech-stack`; none of them ever argues for its own language.
 
-| Skill | Primary ownership |
+| Reference | Primary ownership |
 |---|---|
-| `fa-engineering-stack-web-ts` | The TypeScript web app baseline |
-| `fa-engineering-stack-dotnet-api` | The .NET HTTP API baseline |
-| `fa-engineering-stack-dotnet-maui` | The .NET MAUI client baseline, plus device build and deploy to emulators, simulators and physical hardware |
-| `fa-engineering-stack-flutter` | The Flutter and Dart client baseline |
-| `fa-engineering-stack-python` | The Python repository baseline |
+| `fa-engineering-stack-baseline` (web-ts reference) | The TypeScript web app baseline |
+| `fa-engineering-stack-baseline` (dotnet-api reference) | The .NET HTTP API baseline |
+| `fa-engineering-stack-baseline` (dotnet-maui reference) | The .NET MAUI client baseline, plus device build and deploy to emulators, simulators and physical hardware |
+| `fa-engineering-stack-baseline` (flutter reference) | The Flutter and Dart client baseline |
+| `fa-engineering-stack-baseline` (python reference) | The Python repository baseline |
 
 Skill-definition and agent-definition maintenance is owned by the **foundation plugin**'s `fa-foundation-create-skill` and `fa-foundation-create-agent` skills. This plugin routes definition-file work to them; it does not carry its own copies.
 

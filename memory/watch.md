@@ -1,8 +1,8 @@
 ---
 name: technologies-fa-gaia-watch
-description: "Shipped defects in 14.3.2: the server advertises 13.0.0; the audit script skips plugin skills; create-agent and create-skill route policy to AGENTS.md; Playwright MCP unpinned. A restored host needs a republished, renamed image."
+description: "Fixed on the unmerged 15.0.0 branch: three shipped defects. Still live: the server advertises 13.0.0; foundation wires an MCP endpoint that 530s; skill descriptions cost 18.8k chars a session. A restored host needs a republished image."
 type: watch
-last_verified: 2026-11-20
+last_verified: 2026-11-21
 ---
 
 # Watch list
@@ -16,23 +16,26 @@ last_verified: 2026-11-20
 - **The CLI channel is the root store's concern** — whether `fa-*` names resolve there is tracked
   in [`../../../../memory/plugin-roster-drift.md`](../../../../memory/plugin-roster-drift.md), not here.
 
-**Shipped defects in the product itself — all live in published `14.3.2`**
+**Shipped defects in the product itself**
 
 - **A fourteenth version site, and it is wrong.** `src/Gaia.Mcp.Server/Program.cs` sets the
   `Implementation.Version` advertised on every MCP `initialize`; it reads `13.0.0`, last moved
   by the v13.0.0 commit. Neither the release loop in `../docs/development.md` nor any CI check
   names it. Two cheap exits, neither taken: fold it into the loop, or version the server
   independently (`../CLAUDE.md` already treats them as separate concerns).
-- **`context-audit.py` passes silently over the skills this repo ships.**
-  `check_skill_indexes` enters a `skills/` directory only when its parent is `.claude` or
-  `.github`; plugin skills live at `plugins/<name>/skills/`, so the frontmatter↔directory-name
-  check — whose failure yields an uninvokable skill — never runs on them. Substitute: the
-  by-hand loop in `../docs/development.md`, on every skill change.
-- **`fa-foundation-create-agent` and `fa-foundation-create-skill` still route global policy into
-  `AGENTS.md`**, against the interop-pointer doctrine this repo applies to its own. They teach
-  users the wrong thing.
-- **`npx @playwright/mcp@latest` is unpinned** in the engineering plugin's `plugin.json` (both
-  copies), and the desktop bundle carries it — a supply-chain exposure on a real install.
+- **`foundation` wires `fa-gaia-remote` at an endpoint that does not serve.** Observed 2026-11-21 in a
+  cloud session with all three plugins installed: the server failed to connect (Cloudflare 1033), on
+  every session start, for every install. Whether to wire it at all is founder-owned
+  ([`questions.md`](questions.md) §5); until he rules, each user pays a failed connection for a
+  grocery integration the context layer does not use.
+- **The skill listing is still over budget in a crowded install.** 15.0.0 cut the 40 descriptions'
+  36.4k characters to 18.8k across 34 (`python3 scripts/validate-plugins.py --budget`). Before the
+  cut, a session with these three plugins plus a design plugin listed every `foundation` skill and
+  eight `product` skills with no description at all. Nobody has re-measured after it — the client's
+  total budget is undocumented, so the only evidence is a real session's listing or `/skill-doctor`.
+- **Fixed on the 15.0.0 branch, live in published `14.3.2` until it merges:** `context-audit.py`
+  skipping plugin skills; `create-skill` and `create-agent` routing policy to `AGENTS.md`; the
+  unpinned Playwright MCP (now `@0.0.86` — a pin that needs moving by hand from here on).
 - **The README's marketplace-add path for Claude Desktop / claude.ai / Cowork has never been
   confirmed end to end.** The plugins demonstrably load on that surface from a session-local
   bundle; the install mechanism is what is unconfirmed.

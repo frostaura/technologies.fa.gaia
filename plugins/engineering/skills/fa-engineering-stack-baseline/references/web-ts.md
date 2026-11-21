@@ -1,27 +1,21 @@
----
-name: fa-engineering-stack-web-ts
-description: Provides the JavaScript/TypeScript web-repo baseline - ESLint and Prettier enforcement, one runnable unit lane on the repo's own runner (Vitest, Jest or equivalent), Playwright browser end-to-end coverage, and a command surface that CI calls verbatim. Use it by auditing a Node or TypeScript repository against the baseline table, closing only the gaps it actually has, and deferring to whatever runner, formatter and config the repository already established. Use it when a React, Next, Vite, Svelte, Astro or Node/TypeScript repository has no enforced lint, no single test command, or no browser E2E harness, and before feature work lands in such a repository. It never decides which language or platform a project should be built on; that call belongs to `fa-engineering-default-tech-stack`.
-license: MIT
----
-
 # Stack Baseline: Web (JavaScript/TypeScript)
 
 ## Scope and when to use
 
-Use this skill to bring a JS/TS web repository up to a foundation that lint,
+Use this reference to bring a JS/TS web repository up to a foundation that lint,
 test and CI can stand on, without rewriting choices it already made.
 
-Use this skill when:
+Use this reference when:
 
 - a JS/TS web repository lacks enforced lint, a single test command, or browser E2E
 - a new web application is being bootstrapped from an empty or near-empty tree
 - feature work is about to start and there is nothing to gate it with
 - an existing web repository is being standardized before a larger change
 
-Do not use this skill when:
+Do not use this reference when:
 
 - the stack itself is still undecided - choosing between stacks belongs to `fa-engineering-default-tech-stack`
-- the repository is .NET, Flutter or Python; use the sibling stack skill for that language
+- the repository is .NET, Flutter or Python; use the sibling stack reference for that language
 - the gap is React component or design-system quality, which belongs to `fa-engineering-ui`
 
 ## Required inputs
@@ -121,6 +115,6 @@ Do not use this skill when:
 
 ## References
 
-- [Gaia delivery policy](../../references/delivery-policy.md)
-- [Gaia ownership and conventions](../../references/ownership-and-conventions.md)
-- [Default tech stack routing](../fa-engineering-default-tech-stack/SKILL.md)
+- [Gaia delivery policy](../../../references/delivery-policy.md)
+- [Gaia ownership and conventions](../../../references/ownership-and-conventions.md)
+- [Default tech stack routing](../../fa-engineering-default-tech-stack/SKILL.md)

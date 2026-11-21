@@ -1,6 +1,6 @@
 ---
 name: fa-product-gtm-launch
-description: Provides the go-to-market, launch and user-acquisition playbook (Stage 9) for consumer one-off / in-app-purchase products - locking the pricing and offer ladder before traffic, ASO and store-listing optimization behind a store-page CVR gate, earned and owned demand priming, platform-featuring pitches, creator seeding, launch sequencing, paid UA only once organic CVR validates, a creative-testing engine, virality and referral loops with fraud detection, and support / refund ops. Use it by building a repeatable acquisition engine and running the blended-CAC-vs-LTV control loop until scale is defensible with a financeable payback. Use it when a scale-ready title needs ASO, featuring, creators or paid UA stood up, when a store-page CVR test must gate downstream spend, or when someone asks how to launch and acquire users profitably. It never proves the retention that justifies that spend - that is `fa-product-soft-launch`.
+description: Provides the go-to-market, launch and user-acquisition playbook (Stage 9) for consumer one-off / in-app-purchase products. Use it when a scale-ready title needs ASO, featuring, creators or paid UA stood up, when a store-page CVR test must gate downstream spend, or when someone asks how to launch and acquire users profitably. It never proves the retention that justifies that spend - that is `fa-product-soft-launch`.
 license: MIT
 ---
 

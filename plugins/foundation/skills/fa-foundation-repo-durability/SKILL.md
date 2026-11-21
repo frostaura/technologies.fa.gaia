@@ -1,6 +1,6 @@
 ---
 name: fa-foundation-repo-durability
-description: Provides the six-probe git inspection that establishes whether a repository is genuinely durable and genuinely safe to push, by running commands rather than trusting what a context file claims. Use it by running each probe in order, classifying the upstream topology in words, reading what the unpushed range deletes, and recording an exact recovery sequence in the scope's MEMORY.md. Use it before writing or acting on any sentence containing "push", "durable", "backed up", "deploy-ready" or "committed", before handing the human owner a push runbook, before calling anything release-ready, after any pass that committed broadly across scopes, and at the start of any audit branch that owns repositories. It inspects and reports only — it never commits, pushes or rewrites history, and remediation stays with the human owner.
+description: Provides the six-probe git inspection that establishes whether a repository is genuinely durable and genuinely safe to push, by running commands rather than trusting what a context file claims. Use it before writing or acting on any sentence containing "push", "durable", "backed up", "deploy-ready" or "committed", before handing the human owner a push runbook, before calling anything release-ready, after any pass that committed broadly across scopes, and at the start of any audit branch that owns repositories. It inspects and reports only — it never commits, pushes or rewrites history, and remediation stays with the human owner.
 license: MIT
 ---
 
