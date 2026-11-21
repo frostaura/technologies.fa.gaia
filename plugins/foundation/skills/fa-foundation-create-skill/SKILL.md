@@ -1,6 +1,6 @@
 ---
 name: fa-foundation-create-skill
-description: Provides the house rules for a SKILL.md that actually fires — naming, the frontmatter contract, a description written as a trigger rather than a summary of the body, the standard section shape, references kept one level deep, and the prior decision of whether a new skill is warranted at all. Use it by reading the skills specification, then drafting or repairing the file against it — directory name equal to the frontmatter name, description measured against the 1024-character cap, and the sibling skill this one must not displace named in a closing negative. Use it when adding a skill, when a skill never triggers or triggers on the wrong work, when a trap-bearing procedure has been repeated often enough to deserve one, or when consolidating skills that have drifted into each other. It never authors an agent definition — that is `fa-foundation-create-agent`.
+description: Provides the house rules for a SKILL.md that actually fires — naming, the frontmatter contract, a description written as a trigger rather than a summary of the body, the standard section shape, references kept one level deep, and the prior decision of whether a new skill is warranted at all. Use it when adding a skill, when a skill never triggers or triggers on the wrong work, when a trap-bearing procedure has been repeated often enough to deserve one, or when consolidating skills that have drifted into each other. It never authors an agent definition — that is `fa-foundation-create-agent`.
 license: MIT
 ---
 
@@ -40,7 +40,7 @@ Do not use this skill when:
 
 ## Decision tree
 
-- If the change is global workflow policy, update `AGENTS.md` or a shared reference.
+- If the change is global workflow policy, update the scope's instruction file (`CLAUDE.md`, or whichever file the tree's convention makes canonical) or a shared reference — never an interop pointer such as an `AGENTS.md` that only points at the canonical file.
 - If a reference can hold detailed material better than the main skill body, move it out of `SKILL.md`.
 - If an existing skill can absorb the new behavior cleanly, revise it instead of adding a new skill.
 - If a new skill is justified, define its scope, outputs, and anti-patterns before finalizing the metadata.
@@ -54,7 +54,7 @@ Do not use this skill when:
 3. Decide whether the change belongs in a skill, a reference, or the contract layer.
 4. Write or revise the skill with clear use-when, decision-tree, procedure, and recovery guidance.
 5. If the skill describes a multi-step workflow, state which steps parallelize (independent scopes, no shared state — fan them out concurrently) and which are barriers that gate later steps; a workflow written as an implicit serial relay hides parallelism the executor could use.
-6. Keep descriptions specific enough to help discovery while staying within spec limits, and keep frontmatter within the portable spec fields (name, description, license, compatibility, metadata, allowed-tools) unless a Claude-Code-only extension is deliberately needed; give every skill a `license`.
+6. Keep descriptions specific enough to help discovery while staying within spec limits — what it provides, when it fires, and the boundary with its nearest neighbour; the *how* belongs in the body, because every description in an install shares one listing budget and the listing drops descriptions when it is exceeded — and keep frontmatter within the portable spec fields (name, description, license, compatibility, metadata, allowed-tools) unless a Claude-Code-only extension is deliberately needed; give every skill a `license`.
 7. Keep references focused and use them to avoid bloating the main skill body; in a plugin, keep every link inside the plugin directory.
 
 ## The bar for a new skill

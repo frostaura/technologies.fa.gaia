@@ -9,7 +9,7 @@
 ---
 
 <p align="center">
-  <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/Version-14.3.2-purple.svg" alt="Version 14.3.2" /></a>
+  <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/Version-15.0.0-purple.svg" alt="Version 15.0.0" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
   <a href="https://github.com/features/copilot"><img src="https://img.shields.io/badge/GitHub-Copilot-blue.svg" alt="GitHub Copilot" /></a>
   <a href="https://www.claude.com/product/claude-code"><img src="https://img.shields.io/badge/Claude-Code-orange.svg" alt="Claude Code" /></a>
@@ -110,10 +110,10 @@ copilot -p "Create a REST API for a blog with posts and comments" --yolo
 The `product` plugin runs a money-gated pipeline for consumer products that monetize via one-off or in-app / in-game purchases (not SaaS):
 
 ```bash
-/fa-product-coordinator premium one-off puzzle game for iOS + Steam, ~$200k net in year one
+/fa-product-manager premium one-off puzzle game for iOS + Steam, ~$200k net in year one
 ```
 
-…or describe the goal in natural language. The coordinator frames the brief, then runs 10 money-gated stages — each as fan-out → adversarial review → synthesis against one shared unit-economics model — and returns an Opportunity Thesis with a go / loop-back / kill decision.
+…or describe the goal in natural language. The product manager frames the brief, then runs 10 money-gated stages — each as produce → adversarial review → synthesis against one shared unit-economics model — and returns an Opportunity Thesis with a go / loop-back / kill decision.
 
 ---
 

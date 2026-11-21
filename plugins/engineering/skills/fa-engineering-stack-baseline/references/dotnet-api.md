@@ -1,27 +1,21 @@
----
-name: fa-engineering-stack-dotnet-api
-description: Provides the .NET HTTP API repository baseline - an `.editorconfig` with enforced analyzers and format verification, a `dotnet test` unit lane plus HTTP-boundary integration coverage, a Dockerfile with `docker-compose.yml` and `.env.example` so the service comes up locally, and a command surface CI calls verbatim. Use it by auditing an ASP.NET Core, minimal-API or similar .NET service repository against the baseline table and closing only its real gaps, deferring to analyzer sets and test conventions the repository already established. Use it when a .NET service repository has no failing lint step, no runnable test project, no compose stack that serves a request, or no pinned SDK, and before use-case work that needs a live local API. It never picks the language or framework; that call belongs to `fa-engineering-default-tech-stack`.
-license: MIT
----
-
 # Stack Baseline: .NET HTTP API
 
 ## Scope and when to use
 
-Use this skill to give a .NET service repository a foundation where lint fails on
+Use this reference to give a .NET service repository a foundation where lint fails on
 violations, tests run, and the API can be brought up and called locally.
 
-Use this skill when:
+Use this reference when:
 
 - a .NET HTTP API repository lacks enforced formatting or a runnable test project
 - a new .NET service is being bootstrapped and needs a defensible foundation
 - use-case work needs the API reachable locally before validation can mean anything
 - an inherited .NET service is being standardized before larger delivery
 
-Do not use this skill when:
+Do not use this reference when:
 
 - the stack itself is still undecided - choosing between stacks belongs to `fa-engineering-default-tech-stack`
-- the repository is JS/TS, MAUI, Flutter or Python; use the sibling stack skill for that language
+- the repository is JS/TS, MAUI, Flutter or Python; use the sibling stack reference for that language
 - **the gap is the container stack itself** — the compose file, the `.env.example` contract, or a service that will not come up locally. That is `fa-engineering-containerization`, which owns the runtime surface for every language. This skill owns the .NET *language* baseline and stops at the project file
 - the gap is architectural rather than foundational, which belongs to `fa-engineering-architecture`
 
@@ -122,6 +116,6 @@ Do not use this skill when:
 
 ## References
 
-- [Gaia delivery policy](../../references/delivery-policy.md)
-- [Gaia ownership and conventions](../../references/ownership-and-conventions.md)
-- [Default tech stack routing](../fa-engineering-default-tech-stack/SKILL.md)
+- [Gaia delivery policy](../../../references/delivery-policy.md)
+- [Gaia ownership and conventions](../../../references/ownership-and-conventions.md)
+- [Default tech stack routing](../../fa-engineering-default-tech-stack/SKILL.md)

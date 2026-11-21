@@ -36,7 +36,7 @@ logged there too, as memories, with the reasoning that produced them.
 
 **The contract is enforced by the roles, not by a server.** It was previously
 refused mechanically by the MCP task tools; those are gone. The discipline now
-rests on the coordinator and the reviewers, which is a reason to apply it more
+rests on the product manager and the reviewers, which is a reason to apply it more
 literally, not less.
 
 ## Shared rules

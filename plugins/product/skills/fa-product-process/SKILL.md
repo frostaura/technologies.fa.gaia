@@ -1,6 +1,6 @@
 ---
 name: fa-product-process
-description: Provides the money-gated lifecycle and coordination playbook that takes a consumer one-off / in-app-purchase product from an idea to a validated bet and on through launch and live-ops. Use it by classifying the product request, running each of the 10 stages as fan-out -> adversarial review -> synthesis against one shared unit-economics model, and applying net-of-fee money gates with explicit loop-back edges. Use it when a consumer-product goal needs framing, discovery, monetization design, demand validation, soft-launch or live-ops coordination, when a stage needs review and a gate before it may advance, or when a gate has failed and the work must loop back to the right upstream stage. It never covers B2B seat-based SaaS, and it never runs software construction, testing or release gating - a validated bet is handed to the engineering plugin.
+description: Provides the money-gated lifecycle and coordination playbook that takes a consumer one-off / in-app-purchase product from an idea to a validated bet and on through launch and live-ops. Use it when a consumer-product goal needs framing, discovery, monetization design, demand validation, soft-launch or live-ops coordination, when a stage needs review and a gate before it may advance, or when a gate has failed and the work must loop back to the right upstream stage. It never covers B2B seat-based SaaS, and it never runs software construction, testing or release gating - a validated bet is handed to the engineering plugin.
 license: MIT
 ---
 
@@ -8,8 +8,8 @@ license: MIT
 
 ## Scope and when to use
 
-Use this skill to route a consumer-product bet through Gaia's product-discovery
-team. Scope is one-off + IAP/IAG monetization; B2B seat-based SaaS is out of
+Use this skill to route a consumer-product bet through Gaia's money-gated product
+lifecycle. Scope is one-off + IAP/IAG monetization; B2B seat-based SaaS is out of
 scope and auto-renewing passes are red-lined unless an explicit in-scope decision
 is recorded.
 
@@ -53,16 +53,16 @@ Each stage exits only on a willingness-to-PAY gate (see `fa-product-money-gate`)
 
 ## Coordination pattern
 
-- The coordinator is the only coordinator; specialists never call each other.
-- Per stage: fan out the owning specialist(s) in parallel → run ≥2 independent reviewers → synthesize.
-- Fan-out is literal concurrency: independent specialists — and the ≥2 reviewers — launch as multiple Task invocations in a single message. A run that serializes parallel-safe work is a defect.
+- One coordinator runs the lifecycle — `fa-product-manager`, or the main session following this skill. Each stage's expertise is its stage skill; there is no role per stage.
+- Per stage: do the stage skill's work, fanning independent tracks out in parallel → run ≥2 independent `fa-product-reviewer` instances → synthesize.
+- Fan-out is literal concurrency: independent tracks — each a general-purpose subagent briefed with the stage skill's name — and the ≥2 reviewers launch as multiple invocations in a single message. A run that serializes parallel-safe work is a defect.
 - Await only what gates the next decision; long stage work (scans, experiments, soft-launch reads) runs as background subagents while independent branches progress.
 - Reviewers emit traceable `CORRECTION from review:` notes that stay in the artifact.
-- One shared, versioned unit-economics model is the passed state; specialists update it, never re-derive it.
+- One shared, versioned unit-economics model is the passed state; the coordinator is its only writer, and stage work returns measured inputs rather than re-deriving it.
 
 ## Parallel execution shape
 
-- Within a stage, artifacts with no data dependency are produced concurrently (e.g. S1 trend scan, teardowns, and persona/JTBD work; S4 interview, fake-door, and landing-page tracks). Model reads are free; model WRITES serialize through its steward.
+- Within a stage, artifacts with no data dependency are produced concurrently (e.g. S1 trend scan, teardowns, and persona/JTBD work; S4 interview, fake-door, and landing-page tracks). Model reads are free; model WRITES serialize through the coordinator.
 - The money gate is a hard barrier: no work downstream of a gate starts before it passes. Across bets, stages may progress concurrently when they do not contend on the same model.
 - Concurrent artifact edits require disjoint file scopes per agent; overlapping scopes need isolated git worktrees merged deliberately. Two agents in one scope overwrite each other.
 - Register parallel branches as sibling todo items; gates, blockers, and proof are per-task, so branches complete independently without softening the completion contract.
@@ -85,8 +85,8 @@ Each stage exits only on a willingness-to-PAY gate (see `fa-product-money-gate`)
 
 ## Handoff and downstream impact
 
-- give each specialist the brief, the current model version, and the stage thresholds
-- give the synthesizer the specialist outputs plus reviewer corrections
+- give each stage track the brief, the stage skill's name, the current model version, and the stage thresholds
+- give each reviewer the artifact, the model version and the thresholds — and nothing another reviewer said
 - hand a validated, built bet to the Gaia delivery roles for construction
 
 ## Completion checklist
@@ -97,7 +97,7 @@ Each stage exits only on a willingness-to-PAY gate (see `fa-product-money-gate`)
 
 ## References
 
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product delivery policy](../../references/delivery-policy.md)

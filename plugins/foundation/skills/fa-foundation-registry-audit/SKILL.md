@@ -1,6 +1,6 @@
 ---
 name: fa-foundation-registry-audit
-description: Provides a two-direction registry audit that reconciles a repository's registry of scopes against the directories that actually exist on disk. Use it by running the context-audit script for the mechanical forward and reverse passes, then cross-checking by hand every other registry that names the same scopes and grepping the whole tree for stale mentions of anything removed. Use it when adding, killing, renaming or moving a scope, when a named project cannot be located, before any decision that allocates people or budget across the registry, and periodically — this drift is silent, continuous, and invisible until something is planned against a directory that is not there. It reconciles a registry that already exists; establishing one for a tree that has none is `fa-foundation-optimize-directory-tree`'s.
+description: Provides a two-direction registry audit that reconciles a repository's registry of scopes against the directories that actually exist on disk. Use it when adding, killing, renaming or moving a scope, when a named project cannot be located, before any decision that allocates people or budget across the registry, and periodically — this drift is silent, continuous, and invisible until something is planned against a directory that is not there. It reconciles a registry that already exists; establishing one for a tree that has none is `fa-foundation-optimize-directory-tree`'s.
 license: MIT
 ---
 

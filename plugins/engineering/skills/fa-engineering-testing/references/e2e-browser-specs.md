@@ -1,29 +1,23 @@
----
-name: fa-engineering-e2e-testing
-description: Provides browser end-to-end specification guidance for user-visible behaviour changes, covering suite location, traceable test IDs carried in test titles, stable selectors, environment-driven base URLs, and CI lane placement. Use it by adding or extending browser specs whose titles carry the requirement ID, wiring them to the repository's canonical test task, and recording spec paths as proof instead of pasted run output. Use it when a change alters what a user can see or do on a web surface, when a drift fix changes a documented flow, or when a QA gate requires browser coverage before closure. It writes and wires the browser specs themselves; deciding which layers a task's gates require is `fa-engineering-testing`, and hand-executed checks are `fa-engineering-manual-regression`.
-license: MIT
----
-
 # Gaia End-to-End Testing
 
 ## Scope and when to use
 
-Use this skill to author and maintain the browser end-to-end suite that proves a
+Use this reference to author and maintain the browser end-to-end suite that proves a
 web surface still does what its requirements say it does. Browser coverage is
 **required** for user-visible behaviour changes; it is not traded away for unit
 coverage.
 
-Use this skill when:
+Use this reference when:
 
 - a task is classified as a user-visible behaviour change and the repository has a web surface
 - a drift fix ("code wins") changes a documented flow a browser can exercise
 - a QA gate requires browser coverage before a branch can close
 - an existing spec suite needs new cases, restructuring, or CI lane placement
 
-Do not use this skill when:
+Do not use this reference when:
 
 - the question is which validation layers a change needs, or what the overall pass, fail, or blocked verdict is — that stays with `fa-engineering-testing`, which remains the general testing authority
-- the validation is a one-off interactive walkthrough rather than a durable spec — use `fa-engineering-manual-regression`
+- the validation is a one-off interactive walkthrough rather than a durable spec — use the [manual-regression lane](manual-regression.md)
 - the stack cannot be brought up reproducibly yet — `fa-engineering-containerization` is a blocking prerequisite
 
 ## Required inputs
@@ -65,7 +59,7 @@ Do not use this skill when:
 - Resolve the base URL from the environment. A hardcoded host makes the suite pass on the author's machine and silently target the wrong environment everywhere else.
 - Keep stack-dependent specs out of the default shard jobs. They fail on every pull request that has no stack running, and the standing red trains reviewers to ignore the lane that matters.
 - Put a reduced or extended browser matrix behind an explicit flag or schedule, not in the pull-request path.
-- When CI genuinely cannot run the suite, record the blocker and validate through `fa-engineering-manual-regression`. A suite nothing runs is not coverage; it is a file.
+- When CI genuinely cannot run the suite, record the blocker and validate through the [manual-regression lane](manual-regression.md). A suite nothing runs is not coverage; it is a file.
 
 ## Failure recovery
 
@@ -107,5 +101,5 @@ Do not use this skill when:
 
 ## References
 
-- [Gaia delivery policy](../../references/delivery-policy.md)
-- [Gaia ownership and conventions](../../references/ownership-and-conventions.md)
+- [Gaia delivery policy](../../../references/delivery-policy.md)
+- [Gaia ownership and conventions](../../../references/ownership-and-conventions.md)

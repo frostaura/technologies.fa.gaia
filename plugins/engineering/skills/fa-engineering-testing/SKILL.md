@@ -1,6 +1,6 @@
 ---
 name: fa-engineering-testing
-description: Provides Gaia's formal validation guidance across unit, integration, manual regression, automated regression, and evidence review. Use it by running the test layers required by each task's gates (unit → integration → e2e → manual regression), recording proof labels (e.g. 'curl', 'playwright-mcp') when closing a todo item, and vetoing completion when evidence is missing. Use it when a branch is stable enough for hardening, when high-risk behavior needs targeted early validation, or when release readiness depends on a clear QA signal. It decides which layers a task's gates require and never authors the browser specs or runs the hand-executed checks itself — those are `fa-engineering-e2e-testing` and `fa-engineering-manual-regression`.
+description: Provides Gaia's formal validation guidance — which test layers a task's gates require (unit, integration, browser end-to-end, manual regression), how to author and wire durable browser specs with requirement IDs in their titles, how to run the hand-executed API and web regression lanes against the composed stack, and how to record evidence. Use it when a branch is stable enough for hardening, when a change alters what a user can see or do, when behaviour needs direct observation or a QA gate demands browser coverage or manual sign-off, or when release readiness depends on a clear pass, fail or blocked signal. It validates and vetoes weak completion claims; it never redefines acceptance criteria — that is `fa-engineering-planning`.
 license: MIT
 ---
 
@@ -57,6 +57,12 @@ Do not use this skill when:
 
 ## Coverage layers
 
+| Lane | Read before starting |
+|---|---|
+| unit, integration, evidence review | this file |
+| durable browser end-to-end specs — suite location, requirement IDs in test titles, stable selectors, CI lane placement | [`references/e2e-browser-specs.md`](references/e2e-browser-specs.md) |
+| hand-executed regression — the curl-style API lane and the browser-automation web lane, against the composed stack | [`references/manual-regression.md`](references/manual-regression.md) |
+
 - use focused unit or structural checks for local logic and small rule changes
 - use integration validation for cross-component behavior and boundaries
 - use browser or manual regression when user-visible flow or visual quality matters
@@ -86,9 +92,11 @@ Do not use this skill when:
 - give engineering precise reproduction details for implementation defects
 - give planning the missing criteria when validation is blocked by ambiguity
 - give architecture the mismatch when documented behavior and observed behavior diverge
-- **this skill owns test strategy, not the execution lanes.** Hand browser coverage and its
-  traceable identifiers to `fa-engineering-e2e-testing`, and the manual API and web passes to
-  `fa-engineering-manual-regression`. Both defer back here for what is worth covering.
+- **strategy lives in this file; the two execution lanes live beside it.** Read
+  [`references/e2e-browser-specs.md`](references/e2e-browser-specs.md) before authoring or wiring a
+  browser spec, and [`references/manual-regression.md`](references/manual-regression.md) before a
+  hand-executed API or web pass. Load only the lane the task's gates require; both defer back here
+  for what is worth covering.
 
 ## Examples
 
@@ -105,5 +113,7 @@ Do not use this skill when:
 
 ## References
 
+- [Browser end-to-end specs](references/e2e-browser-specs.md)
+- [Manual regression lanes](references/manual-regression.md)
 - [Gaia delivery policy](../../references/delivery-policy.md)
 - [Gaia ownership and conventions](../../references/ownership-and-conventions.md)

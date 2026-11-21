@@ -1,28 +1,22 @@
----
-name: fa-engineering-manual-regression
-description: Provides the interactive regression procedure for behaviour changes in two lanes — an API lane driven by curl-style HTTP checks and a web lane driven by browser automation — both executed against the composed stack rather than a development server. Use it by writing a compact three-to-eight check list per affected requirement, executing it against the canonical QA target, and recording low-context evidence as proof labels and file paths instead of pasted bodies or transcripts. Use it when a behaviour change needs direct observation, when automated coverage is not yet runnable, or when a QA gate demands manual sign-off. It is the hand-executed lane and never replaces automated browser coverage, which is `fa-engineering-e2e-testing`.
-license: MIT
----
-
 # Gaia Manual Regression
 
 ## Scope and when to use
 
-Use this skill to observe a behaviour change directly, at the boundary a user or
+Use this reference to observe a behaviour change directly, at the boundary a user or
 a caller actually touches, and to leave behind evidence a reviewer can act on
 without reading a transcript. Manual regression is **required** for behaviour
 changes on either surface.
 
-Use this skill when:
+Use this reference when:
 
 - a task is classified as a behaviour change affecting an HTTP API or a web UI
 - a drift fix ("code wins") alters documented behaviour and needs confirmation
 - automated coverage cannot run yet but validation is still required before closure
 - a QA gate demands manual sign-off in addition to automated lanes
 
-Do not use this skill when:
+Do not use this reference when:
 
-- the change needs durable repeatable browser coverage — author it with `fa-engineering-e2e-testing`; a manual pass is never a substitute for the spec
+- the change needs durable repeatable browser coverage — author it with the [browser-spec lane](e2e-browser-specs.md); a manual pass is never a substitute for the spec
 - the stack cannot be brought up from one command — fix that first with `fa-engineering-containerization`
 - the open question is which layers to run or what the overall pass, fail, or blocked verdict is — that stays with `fa-engineering-testing`, the general testing authority
 
@@ -96,7 +90,7 @@ output is not reproducible, and it costs the context the next agent needs.
 ## Handoff and downstream impact
 
 - give `fa-engineering-testing` the labels and paths it needs for the verdict
-- give `fa-engineering-e2e-testing` every failure worth turning into a durable spec
+- give the [browser-spec lane](e2e-browser-specs.md) every failure worth turning into a durable spec
 - give implementation exact reproduction steps for defects, never a vague symptom
 - give architecture the reconciliation work whenever observed and documented behaviour diverge
 
@@ -116,5 +110,5 @@ output is not reproducible, and it costs the context the next agent needs.
 
 ## References
 
-- [Gaia delivery policy](../../references/delivery-policy.md)
-- [Gaia ownership and conventions](../../references/ownership-and-conventions.md)
+- [Gaia delivery policy](../../../references/delivery-policy.md)
+- [Gaia ownership and conventions](../../../references/ownership-and-conventions.md)

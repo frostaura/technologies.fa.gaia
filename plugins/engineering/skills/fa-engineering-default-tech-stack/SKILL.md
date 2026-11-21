@@ -1,6 +1,6 @@
 ---
 name: fa-engineering-default-tech-stack
-description: Provides Gaia's default full-stack baseline with React, TypeScript, Redux Toolkit, Tailwind CSS, and shadcn/ui on the frontend plus .NET, EF Core, PostgreSQL, and MCP exposure on the backend. Use it by adopting the documented baseline (versions, scaffolds, references) for any new app or unspecified-stack request, and by declaring the stack explicitly before planning when the request leaves it implicit. Use it when the request or repo leaves stack choice open, when bootstrapping a new application's stack from scratch, or when standardizing an existing codebase onto Gaia's preferred platform. It decides which stack a repository uses and never implements that stack's lint, test and command baseline, which belongs to the matching `fa-engineering-stack-*` skill.
+description: Provides Gaia's default full-stack baseline with React, TypeScript, Redux Toolkit, Tailwind CSS, and shadcn/ui on the frontend plus .NET, EF Core, PostgreSQL, and MCP exposure on the backend. Use it when the request or repo leaves stack choice open, when bootstrapping a new application's stack from scratch, or when standardizing an existing codebase onto Gaia's preferred platform. It decides which stack a repository uses and never implements that stack's lint, test and command baseline, which belongs to the matching `fa-engineering-stack-*` skill.
 license: MIT
 compatibility: Requires a project where React/TypeScript, .NET, PostgreSQL, and MCP exposure are acceptable defaults.
 ---
@@ -85,11 +85,9 @@ Do not use this skill when:
 ## Handoff and downstream impact
 
 **This skill is the routing layer.** It chooses *between* stacks; it does not implement any
-one of them. Once the language is settled, hand the repository to the baseline that owns it —
-`fa-engineering-stack-web-ts`, `fa-engineering-stack-dotnet-api`,
-`fa-engineering-stack-dotnet-maui`, `fa-engineering-stack-flutter` or
-`fa-engineering-stack-python` — each of which owns that language's lint, format, test and
-command surface and nothing else.
+one of them. Once the language is settled, hand the repository to `fa-engineering-stack-baseline`,
+whose per-stack references (web-ts, dotnet-api, dotnet-maui, flutter, python) each own that
+language's lint, format, test and command surface and nothing else.
 
 - The container runtime is separate from every language baseline: `fa-engineering-containerization`.
 - Publishing a built image through an existing pipeline is `fa-engineering-deploy-chain`.

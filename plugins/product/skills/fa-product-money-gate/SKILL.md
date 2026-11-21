@@ -1,6 +1,6 @@
 ---
 name: fa-product-money-gate
-description: Provides the money-gate evaluation discipline applied at every stage boundary of the consumer one-off / in-app-purchase product lifecycle - pre-registered thresholds, net-of-fee revenue math (store commission, refunds, chargebacks, fraud, tax), LTV:CAC and payback checks, a cashflow and working-capital check, deflated willingness-to-pay, and pass / fail / kill routing along explicit loop-back edges. Use it by converting a stage's evidence into an advance, loop-back or kill decision that a later stage may not quietly re-open. Use it when a stage has produced evidence and someone must decide whether to advance, when measured inputs (CPI, WTP, ARPPU, retention) arrive and the thresholds must be re-tested, or when a threshold is at risk and the choice is loop back or kill. It never maintains the model the numbers come from - that is `fa-product-unit-economics-model` - and it is not a software-release gate.
+description: Provides the money-gate evaluation discipline applied at every stage boundary of the consumer one-off / in-app-purchase product lifecycle. Use it when a stage has produced evidence and someone must decide whether to advance, when measured inputs (CPI, WTP, ARPPU, retention) arrive and the thresholds must be re-tested, or when a threshold is at risk and the choice is loop back or kill. It never maintains the model the numbers come from - that is `fa-product-unit-economics-model` - and it is not a software-release gate.
 license: MIT
 ---
 
@@ -55,9 +55,9 @@ Do not use when:
 |---|---|---|
 | thresholds not pre-registered | register and flag goalpost-bias | stay at gate |
 | gross used instead of net | recompute net-of-fee | stay at gate |
-| WTP unconfirmed by money | run a fake-door / ad test | `fa-product-validation-researcher` |
-| CPI > net LTV | re-tune economy or kill | `fa-product-monetization-economist` |
-| LTV>CAC but cash gap | confirm financing or descope | `fa-product-monetization-economist` |
+| WTP unconfirmed by money | run a fake-door / ad test | `fa-product-validation` |
+| CPI > net LTV | re-tune economy or kill | `fa-product-monetization-design` |
+| LTV>CAC but cash gap | confirm financing or descope | `fa-product-monetization-design` |
 
 ## Anti-patterns
 

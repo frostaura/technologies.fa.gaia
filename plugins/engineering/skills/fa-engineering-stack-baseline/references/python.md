@@ -1,14 +1,8 @@
----
-name: fa-engineering-stack-python
-description: Provides the Python repository baseline - a single-tool `ruff` lint and format gate that fails rather than merely reports, `pytest` wired to a command CI calls verbatim, and an explicit decision about which packaging manager already owns the project. Use it by auditing a Python repository against the baseline table and closing only its real gaps, deferring to the interpreter pin, dependency manager and test layout the repository already established. Use it when a Python repository formats on save but never fails a build, has a test runner nobody can invoke the same way twice, or has two dependency managers half-installed, and before feature work that needs a gate to mean something. It never migrates a project between packaging tools, and never chooses Python over another language for a service; that call belongs to `fa-engineering-default-tech-stack`.
-license: MIT
----
-
 # Stack Baseline: Python
 
 ## Scope and when to use
 
-Use this skill to give a Python repository a foundation where formatting drift, lint findings
+Use this reference to give a Python repository a foundation where formatting drift, lint findings
 and test failures each stop a build, and where one documented command runs each of them.
 
 Use when:
@@ -114,7 +108,7 @@ build goes red. **A gate nobody has ever seen fail is not known to work.**
 - **Good fit:** both `poetry.lock` and `requirements.txt` present, resolution differing by
   contributor — settle on one manager before touching anything else.
 - **Not a fit:** deciding whether a service should be Python at all. That is
-  `fa-engineering-default-tech-stack`; this skill starts once the language is settled.
+  `fa-engineering-default-tech-stack`; this baseline starts once the language is settled.
 
 ## Completion checklist
 
@@ -127,5 +121,5 @@ build goes red. **A gate nobody has ever seen fail is not known to work.**
 
 ## References
 
-- [Ownership and conventions](../../references/ownership-and-conventions.md)
-- [Delivery policy](../../references/delivery-policy.md)
+- [Ownership and conventions](../../../references/ownership-and-conventions.md)
+- [Delivery policy](../../../references/delivery-policy.md)

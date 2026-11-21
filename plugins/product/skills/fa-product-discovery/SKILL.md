@@ -1,6 +1,6 @@
 ---
 name: fa-product-discovery
-description: Provides the market-discovery playbook (Stage 1) for consumer one-off / in-app-purchase products - trend scanning across market-intel tools (Sensor Tower, AppMagic, Appfigures, AppTweak), store charts, Steam tags/wishlists and social; demand-signal harvesting as the cheapest kill gate; competitor teardowns; personas, jobs-to-be-done and willingness-to-pay by segment; and bottoms-up TAM/SAM/SOM sized net of platform fee. Use it by gathering evidence for one buildable, monetizable bet and exiting with an Opportunity Thesis, unit-economics model v0 and a GO / NO-GO / PIVOT call. Use it when a consumer-product goal needs trend, demand and competitor evidence before any concept work, when an opportunity must be sized net-of-fee, or when someone asks what consumer product to build and whether anyone would actually pay for it. It never picks the final concept - that is `fa-product-ideation` - and it does not cover B2B seat-based SaaS.
+description: Provides the market-discovery playbook (Stage 1) for consumer one-off / in-app-purchase products. Use it when a consumer-product goal needs trend, demand and competitor evidence before any concept work, when an opportunity must be sized net-of-fee, or when someone asks what consumer product to build and whether anyone would actually pay for it. It never picks the final concept - that is `fa-product-ideation` - and it does not cover B2B seat-based SaaS.
 license: MIT
 ---
 
@@ -81,4 +81,4 @@ Steps 1-6 are independent scan modes with no shared state — run trend scanning
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

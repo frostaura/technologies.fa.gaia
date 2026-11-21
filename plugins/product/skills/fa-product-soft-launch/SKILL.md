@@ -1,6 +1,6 @@
 ---
 name: fa-product-soft-launch
-description: Provides the build-iteration and soft-launch playbook (Stage 8) for consumer one-off / in-app-purchase products - an always-green trunk behind feature flags, a versioned telemetry and event taxonomy wired before external testers, closed and open beta hardening, soft-launch in cheap representative geos with attribution, reading D1/D7/D30 plus conversion and ARPPU/ARPDAU by cohort and source, modeling predicted LTV against CPI, one-variable A/B tuning, and iterate-or-kill discipline. Use it by proving real-money retention in a live market and clearing the multi-condition scale gate on net-of-fee economics before any paid spend. Use it when a certified build needs telemetry, beta hardening and a controlled soft-launch, when cohort retention and spend must be read against pre-set thresholds, or when the call is iterate, scale or kill. It never runs the acquisition engine past that gate - that is `fa-product-gtm-launch`.
+description: Provides the build-iteration and soft-launch playbook (Stage 8) for consumer one-off / in-app-purchase products. Use it when a certified build needs telemetry, beta hardening and a controlled soft-launch, when cohort retention and spend must be read against pre-set thresholds, or when the call is iterate, scale or kill. It never runs the acquisition engine past that gate - that is `fa-product-gtm-launch`.
 license: MIT
 ---
 
@@ -21,7 +21,7 @@ Use when:
 
 Do not use when:
 
-- the build is not certified (return to `fa-product-compliance-officer`, S7)
+- the build is not certified (return to `fa-product-compliance`, S7)
 - the title is already scale-ready and only needs the GTM engine (use `fa-product-gtm-launch`)
 
 ## Required inputs
@@ -43,7 +43,7 @@ Do not use when:
 3. Run closed beta for crash-hardening, FTUE legibility, and the full purchase pipeline incl. restore/refund.
 4. Run open/wider beta for FTUE funnel significance; treat tutorial completion <75% as a pivot trigger.
 5. Soft-launch in cheap representative geos with controlled, attributed UA; read D1/D7/D30 + conversion + lifetime ARPPU + ARPDAU by cohort/source and model pLTV vs CPI — require net LTV > CPI + payback.
-6. Tune economy + onboarding, then prove each change with ONE-VARIABLE A/B; loop validated prices back to `fa-product-monetization-economist` (S3).
+6. Tune economy + onboarding, then prove each change with ONE-VARIABLE A/B; loop validated prices back to `fa-product-monetization-design` (S3).
 7. Apply iterate-or-kill discipline (bright-line triggers, bounded cycles, diagnose retention vs monetization vs UA), then clear the multi-condition SCALE GATE (reproducible across cohorts + ≥2 acquisition sources) → scale-ready package.
 
 ## Stage focus — instrument first, then trust the read
@@ -64,7 +64,7 @@ across cohorts and ≥2 sources is not a pass — it is noise.
 ## Handoff and downstream impact
 
 - hand the scale-ready package, cohort KPI reads, and calibrated pLTV to the coordinator
-- loop validated prices/economy back to `fa-product-monetization-economist` (S3)
+- loop validated prices/economy back to `fa-product-monetization-design` (S3)
 - on CPI > net LTV, route to S3 + unit-economics model update; on high-retention/zero-conversion, route to S2
 
 ## Completion checklist
@@ -78,4 +78,4 @@ across cohorts and ≥2 sources is not a pass — it is noise.
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

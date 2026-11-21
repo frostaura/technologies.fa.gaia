@@ -1,6 +1,6 @@
 ---
 name: fa-product-monetization-design
-description: Provides the money-model design playbook (Stage 3) for consumer one-off / in-app-purchase products - choosing a primary model (premium / freemium-IAP / free-ads / hybrid) against retention, audience and platform, a price ladder with pricing psychology, an IAP catalogue, ad-revenue economics, a faucet/sink economy balanced by cohort simulation, a conversion funnel with lifetime ARPPU, and net-of-fee validation with a cashflow check. Use it by designing the model around the selected concept, proving net LTV:CAC >= 3:1 with a payback window, then translating it into binding product requirements. Use it when a chosen concept needs pricing, an IAP catalogue or an in-game economy, when someone asks how this product should make money, or when unit economics must be proven before requirements ship. It never tests willingness-to-pay with real money - that is `fa-product-validation`.
+description: Provides the money-model design playbook (Stage 3) for consumer one-off / in-app-purchase products. Use it when a chosen concept needs pricing, an IAP catalogue or an in-game economy, when someone asks how this product should make money, or when unit economics must be proven before requirements ship. It never tests willingness-to-pay with real money - that is `fa-product-validation`.
 license: MIT
 ---
 
@@ -79,4 +79,4 @@ Do not use when:
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)

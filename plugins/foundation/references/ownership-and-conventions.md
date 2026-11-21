@@ -25,7 +25,6 @@ Use this reference when deciding which foundation skill or agent owns a change, 
 |---|---|
 | `fa-foundation-context-auditor` | One scope's context layer — pair, memory topics, local skills — reconciled against inspected reality. **One agent per scope**; two agents in the same subtree overwrite each other |
 | `fa-foundation-repo-durability-auditor` | "Is this repository safe, and is it safe to push?" across one or many repositories. Read-only on git |
-| `fa-foundation-skills-auditor` | One definition directory — its skills, agents and scripts — audited for staleness, sprawl, dead pointers and descriptions that never fire |
 
 ## Context-layer artifacts
 

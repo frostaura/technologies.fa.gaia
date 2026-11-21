@@ -75,6 +75,8 @@ Good: `Extracts text and tables from PDF files, fills PDF forms, and merges mult
 
 Poor: `Helps with PDFs.`
 
+**The cap is not the budget.** 1,024 characters is what a validator accepts; it is not what a session can afford. Every installed skill's `name` and `description` is loaded into every session's skill listing, the spec's own target for that metadata is about 100 tokens per skill, and Claude Code truncates `description` plus `when_to_use` at 1,536 characters per entry and **drops descriptions from the listing altogether when the installed set is too large** — leaving a skill that is listed by name, looks present, and has nothing to match a request against. So write what the skill provides, when it fires, and the boundary with its nearest neighbour; put the *how* in the body. Put the trigger first: a truncated description loses its tail. Measure the plugin's total, not just one description.
+
 #### `license` field
 
 Specifies the license applied to the skill. Keep it short — either the name of a license (`MIT`) or the name of a bundled license file (`Proprietary. LICENSE.txt has complete terms`).
@@ -109,6 +111,20 @@ Claude Code accepts additional frontmatter fields on **skills** beyond the porta
 | `user-invocable` | `false` = only Claude can invoke; hidden from the `/` menu. For background knowledge that is not a meaningful user action. |
 | `context: fork` | Runs the skill in its own forked subagent context instead of inline; `agent` selects the subagent type and `model` the model. |
 | `disallowed-tools` | Tools removed from the pool while the skill is active. |
+| `when_to_use` | Extra trigger text appended to `description` in the listing; the two share the 1,536-character truncation. |
+| `arguments` | Named positional arguments, substituted in the body as `$name`. |
+| `model`, `effort` | Model and reasoning effort (`low` … `max`) while the skill runs. Set only when the override is deliberate. |
+| `paths` | Glob patterns, relative to the working directory, that scope the skill to matching files. |
+| `hooks` | Hooks that live only while the skill is active. |
+| `shell` | `bash` or `powershell` for the skill's injected commands. |
+
+Unrecognized fields are ignored without error — which means a misspelt one fails silently.
+
+Body substitutions Claude Code expands: `$ARGUMENTS`, `$ARGUMENTS[N]` / `$N`, `${CLAUDE_SESSION_ID}`, `${CLAUDE_SKILL_DIR}`, `${CLAUDE_PROJECT_DIR}`, and — in a plugin's skills only — `${CLAUDE_PLUGIN_ROOT}` (the installed version directory, replaced on every update, so never write state there) and `${CLAUDE_PLUGIN_DATA}` (kept across updates). A line of the form ``!`command` `` injects that command's output before the model reads the skill; a non-zero exit aborts the whole invocation, so append `|| true` to anything that may legitimately fail.
+
+A skill with `context: fork` cannot see the conversation that invoked it, so its body must stand alone.
+
+`commands/` is still loaded and merged into skills, but new work belongs in `skills/`.
 
 These are **skill** fields — do not confuse them with sub-agent frontmatter, which has a different schema (see the agents specification in `fa-foundation-create-agent`). Staying within the portable six keeps a skill loadable everywhere; Claude Code accepts all six unchanged.
 
@@ -174,4 +190,4 @@ Use the [skills-ref](https://github.com/agentskills/agentskills/tree/main/skills
 skills-ref validate ./my-skill
 ```
 
-For Claude Code plugins, `claude plugin validate <plugin-dir>` checks skill frontmatter as part of plugin validation.
+For Claude Code plugins, `claude plugin validate <plugin-dir>` checks skill frontmatter as part of plugin validation (`--strict` turns warnings into failures). `/skill-doctor` reports installed skills that never fire — the only direct evidence that a description is not working as a trigger.

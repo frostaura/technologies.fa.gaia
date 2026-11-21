@@ -1,6 +1,6 @@
 ---
 name: fa-engineering-process
-description: Provides Gaia's end-to-end workflow coordination guidance for intake, routing, QA checkpoints, release gates, and proof expectations. Use it by routing every meaningful request through the intake → architecture → planning → engineering → testing → release gates — per branch, with independent branches progressing concurrently — and only completing tasks once the corresponding gates and proof are recorded. Use it when a new request needs a delivery path chosen, when the workflow must reset after drift or blockers, and for maintenance work that changes Gaia's operating model. It coordinates delivery inside a repository that already carries a context layer; rolling Gaia out across a tree, or setting Gaia up on a repository that has no context layer yet, belongs to `fa-foundation-optimize-directory-tree`.
+description: Provides Gaia's end-to-end workflow coordination guidance for intake, routing, QA checkpoints, release gates, and proof expectations. Use it when a new request needs a delivery path chosen, when the workflow must reset after drift or blockers, and for maintenance work that changes Gaia's operating model. It coordinates delivery inside a repository that already carries a context layer; rolling Gaia out across a tree, or setting Gaia up on a repository that has no context layer yet, belongs to `fa-foundation-optimize-directory-tree`.
 license: MIT
 ---
 

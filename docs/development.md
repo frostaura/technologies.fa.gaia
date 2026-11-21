@@ -59,37 +59,30 @@ Use the plugins on themselves: `fa-foundation-create-skill` for a `SKILL.md`, `f
 Three invariants that are either satisfied or silently broken:
 
 - **A skill's directory name must equal its frontmatter `name`.** The loader matches on the directory; a mismatch produces a skill that cannot be invoked and looks fine in a listing.
-- **A `description` is a trigger, not a summary of the body.** It is the only layer a router reads. A description written as a summary never fires, and nothing tells you it is dead. The cap is 1024 characters — measure it, never eyeball it.
+- **A `description` is a trigger, not a summary of the body.** It is the only layer a router reads. A description written as a summary never fires, and nothing tells you it is dead. The cap is 1024 characters, and the cap is not the budget: every description is loaded into every session, and a client whose listing is over budget drops descriptions while still showing the names. State what the skill provides, when it fires and its boundary; leave the *how* to the body.
+- **Variants of one procedure are references under one skill.** `fa-engineering-stack-baseline` carries five stacks and `fa-engineering-testing` carries two execution lanes that way. Add a sibling skill only when it owns a trigger of its own.
 - **Markdown links never escape their plugin root; scripts are referenced as `${CLAUDE_PLUGIN_ROOT}/scripts/<name>`.** Both rules hold at once.
 
 ## Checks before a change ships
 
-Nothing in CI asserts any of this yet — run it by hand.
+The `Validate Plugins` workflow runs check 1 on every push and pull request. Run it before pushing — a push to `main` is a release, so CI going red afterwards is too late. Checks 2 and 6 are still by hand.
 
 ```bash
-# 1. Strict validation of all three plugins
+# 1. Manifest agreement, plugin.json pairs, frontmatter, names, links, dangling fa-* names
+python3 scripts/validate-plugins.py --budget
+
+# 2. Strict validation of all three plugins
 claude plugin validate ./plugins/foundation --strict
 claude plugin validate ./plugins/engineering --strict
 claude plugin validate ./plugins/product --strict
 
-# 2. The three plugin.json pairs are byte-identical
-for p in foundation engineering product; do
-  cmp "plugins/$p/plugin.json" "plugins/$p/.claude-plugin/plugin.json" || echo "DRIFT $p"
-done
-
-# 3. Every skill's frontmatter name equals its directory name
-for d in plugins/*/skills/*/; do
-  grep -m1 '^name:' "$d/SKILL.md" | grep -q "$(basename "$d")" || echo "MISMATCH $d"
-done
-
-# 4. Measure a description against the 1024-character cap
-python3 -c "import re,sys; d=re.search(r'^description:\s*(.*?)\nlicense:', open(sys.argv[1]).read(), re.S|re.M).group(1); d=' '.join(d.split()); print(len(d), len(d.encode()))" plugins/foundation/skills/<name>/SKILL.md
-
-# 5. Mechanical context-layer and link checks over this repo
+# 3. Mechanical context-layer and link checks over this repo
 python3 plugins/foundation/scripts/context-audit.py --root . --all
 ```
 
-The context-audit script cannot reach plugin skills: its skill-index check gates on a `.claude`/`.github` parent directory, and plugin skills live at `plugins/<name>/skills/`. Check 3 above is the substitute, and the gap is recorded in [`memory/watch.md`](../memory/watch.md).
+`--budget` prints the description characters each plugin loads into every session. Treat a rise as a cost that needs a reason.
+
+`claude plugin validate` is not in CI because the runner has no Claude Code CLI; `validate-plugins.py` covers the invariants that have actually broken here, not the full manifest schema. A release that touches `plugin.json` structure still needs check 2.
 
 ## MCP server
 

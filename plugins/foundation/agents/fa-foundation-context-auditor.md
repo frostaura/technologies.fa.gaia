@@ -36,7 +36,7 @@ almost certainly not looked at what quietly stopped being true.
 
 - the job is the whole-repository sweep itself — that is the context-audit skill, which
   dispatches you
-- the target is a definition directory (skills, agents, scripts) — that is the skills auditor
+- the target is a definition directory (skills, agents, scripts) — that is a pass with `fa-foundation-create-skill` and `fa-foundation-create-agent`
 - the question is whether a repository is safe to push — that is the durability auditor
 - the change would rewrite a charter, mandate, strategy or governance rule — surface it to
   the human owner instead; you correct what is *false*, not what someone decided
@@ -84,7 +84,7 @@ because their scopes are disjoint; that disjointness is the caller's guarantee, 
 assigned scope overlaps another agent's, say so and stop rather than proceeding.
 
 Hand git-state questions to `fa-foundation-repo-durability-auditor` and definition-directory
-questions to `fa-foundation-skills-auditor`. Re-run the script only after the whole fan-out
+questions back to the caller, to be worked with `fa-foundation-create-skill` and `fa-foundation-create-agent`. Re-run the script only after the whole fan-out
 has drained, never mid-flight.
 
 ## Deliverables
@@ -101,7 +101,7 @@ has drained, never mid-flight.
 |---|---|---|---|
 | a claim cannot be verified from inside the scope | the evidence lives elsewhere | the caller | hand back the claim and what would settle it; never restamp it |
 | a git assertion is contradicted by inspection | the file is stale, not the repository | `fa-foundation-repo-durability-auditor` | quote the claim and the command output that refutes it |
-| a local skill describes work nobody does | definition drift | `fa-foundation-skills-auditor` | name the skill; do not rewrite it yourself |
+| a local skill describes work nobody does | definition drift | the caller, with `fa-foundation-create-skill` | name the skill; do not rewrite it yourself |
 | the correction changes a rule, not a fact | founder or owner territory | the human owner | draft it, surface it, apply nothing |
 | two agents appear to hold this scope | the fan-out is misconfigured | the caller | stop immediately; do not merge concurrent edits |
 

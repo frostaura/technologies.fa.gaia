@@ -1,6 +1,6 @@
 ---
 name: fa-product-liveops
-description: Provides the live-ops operations playbook (Stage 10) for consumer one-off / in-app-purchase products - a live-ops data, economy-health and experimentation foundation, a recurring events / sales / limited-time-offer calendar with rollback kill-switches, lifecycle CRM and in-app messaging, one-variable monetization and store/price experiments, spend-spectrum segmentation with personalized offers, a guardrailed whale program, community and crisis ops, churn analysis and resurrection, and platform-policy / SDK monitoring. Use it by running the steady-state revenue engine, reconciling revenue net-of-fee while guarding retention and refunds. Use it when a launched title needs a live-ops calendar, CRM or ongoing experiments, when segmentation, a whale program or churn work must run, or when a monetization-pressure or platform-policy signal must be diagnosed. It never makes the end-of-life call - sunset, sequel and portfolio harvest are `fa-product-portfolio-retrospective`.
+description: Provides the live-ops operations playbook (Stage 10) for consumer one-off / in-app-purchase products. Use it when a launched title needs a live-ops calendar, CRM or ongoing experiments, when segmentation, a whale program or churn work must run, or when a monetization-pressure or platform-policy signal must be diagnosed. It never makes the end-of-life call - sunset, sequel and portfolio harvest are `fa-product-portfolio-retrospective`.
 license: MIT
 ---
 
@@ -44,7 +44,7 @@ Do not use when:
 4. Run continuous monetization + store/price experiments (one-variable, NET revenue-per-impression, guard retention/refunds).
 5. Segment the spend spectrum and personalize offers (non-payer → minnow → dolphin → whale; ML micro-cohorts; fairness/ethics review).
 6. Run a whale/high-value program with FRAGILITY guardrails (VIP, white-glove, protect experience, spend-harm monitoring, diversification).
-7. Run community/ratings/reviews + crisis PR and churn analysis + resurrection (predict; segment by cause; pre-churn intervention; win-back by lapse window), looping monetization-pressure causes back to `fa-product-monetization-economist` (S3) and platform SDK/policy changes back to production/compliance.
+7. Run community/ratings/reviews + crisis PR and churn analysis + resurrection (predict; segment by cause; pre-churn intervention; win-back by lapse window), looping monetization-pressure causes back to `fa-product-monetization-design` (S3) and platform SDK/policy changes back to production/compliance.
 
 ## Stage focus — every live change is reversible and net-measured
 
@@ -64,8 +64,8 @@ treated as fragile — protect the experience and monitor spend-harm.
 ## Handoff and downstream impact
 
 - report calendar performance, NET revenue, and economy runway to the coordinator
-- loop monetization-pressure churn causes back to `fa-product-monetization-economist` (S3)
-- loop platform SDK/policy deprecations to `fa-product-build-architect` (S6) / `fa-product-compliance-officer` (S7)
+- loop monetization-pressure churn causes back to `fa-product-monetization-design` (S3)
+- loop platform SDK/policy deprecations to `fa-product-production-hardening` (S6) / `fa-product-compliance` (S7)
 
 ## Completion checklist
 
@@ -78,4 +78,4 @@ treated as fragile — protect the experience and monitor spend-harm.
 - [Unit economics model](../fa-product-unit-economics-model/SKILL.md)
 - [Money gate](../fa-product-money-gate/SKILL.md)
 - [Product process](../fa-product-process/SKILL.md)
-- [Product discovery team architecture](../../references/product-discovery-team.md)
+- [Product lifecycle architecture](../../references/product-discovery-team.md)
