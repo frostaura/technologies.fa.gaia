@@ -1,6 +1,6 @@
 # MEMORY — Technologies/projects/technologies.fa.gaia
 
-- [Current state](memory/state.md) — Published line is 14.3.2. A breaking 15.0.0 clean-up sits unmerged as a draft PR: 40 skills become 34 and 20 agents become 6. CI re-enabled 2026-11-21; gaia.frostaura.net 530s, so foundation MCP wiring fails.
+- [Current state](memory/state.md) — Published line is 15.0.0 — PR #60 merged to main (34 skills, 6 agents), so the paragraphs below calling it unmerged or 14.3.2 are superseded. A README rewrite for a general audience sits as a draft PR. gaia.frostaura.net still 530s.
 - [Live decisions — product shape](memory/decisions.md) — The server's task/memory/evolve tools were removed, not deprecated, so only the skills enforce the completion contract; technologies.fa.integrations folded in whole, REST kept beside MCP; the MCP re-wiring shipped unratified.
 - [Live decisions — distribution, versioning and the catalog](memory/decisions-distribution.md) — Public by design, a Labs stealth exception made moot by the move to Technologies; plugin refs float on ref:main not tags, so a breaking change lands on users at push time; versions move in lockstep; the README is no catalog.
 - [Live decisions — the skill roster](memory/decisions-roster.md) — Unratified until merged: 15.0.0 folds seven skills into references and cuts twenty agents to six — an orchestrator per plugin plus an independent judge — because a crowded install was dropping descriptions and role hand-offs bought nothing.
