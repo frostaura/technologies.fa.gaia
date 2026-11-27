@@ -1,11 +1,24 @@
 ---
 name: technologies-fa-gaia-state
-description: "Published line is 14.3.2. A breaking 15.0.0 clean-up sits unmerged as a draft PR: 40 skills become 34 and 20 agents become 6. CI re-enabled 2026-11-21; gaia.frostaura.net 530s, so foundation MCP wiring fails."
+description: "Published line is 15.0.0 — PR #60 merged to main (34 skills, 6 agents), so the paragraphs below calling it unmerged or 14.3.2 are superseded. A README rewrite for a general audience sits as a draft PR. gaia.frostaura.net still 530s."
 type: state
-last_verified: 2026-11-21
+last_verified: 2026-11-27
 ---
 
 # Current state
+
+**Update 2026-11-27 — 15.0.0 is published.** `origin/main` is `1bb6f18`, "Merge pull request #60
+from frostaura/claude/adoring-turing-1v4fz1" (read with `git log` after a fetch), so the breaking
+clean-up described as unmerged in the next paragraph is live on every floating install, and the
+"Published line: 14.3.2" and per-plugin counts further down are history. On disk: `foundation` 10 skills ·
+2 agents, `engineering` 10 · 2, `product` 14 · 2; `validate-plugins.py` green. Not re-checked this
+session: the version sites, CI runs, Docker Hub. `fa-gaia-remote` failed again with Cloudflare 1033.
+
+**Same day — the README was rewritten for a general audience, as a draft PR, not merged.** A
+scheduled agent run on `claude/adoring-turing-fqwffj`. It adds plain-language framing (what Gaia is,
+who it is for, what you need, a short glossary) and keeps what the README is bound to: install-and-
+first-run and no catalog, `foundation` first, the surface caveat, and the Data & privacy disclosure
+word for word. Merging it to `main` is a release like any other push.
 
 **Update 2026-11-21 — a breaking 15.0.0 is prepared and NOT published.** A scheduled agent run left
 it as a draft pull request (skills 40 → 34, agents 20 → 6) on `claude/adoring-turing-1v4fz1`; merging to `main` is the release. What
